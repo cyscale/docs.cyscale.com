@@ -32,7 +32,7 @@ html[data-theme='dark'] {
   --ifm-color-primary-lightest: #ffadb2;
 }
 
-html[data-theme='dark'] footer {
+.footer--dark {
   background-color: rgb(48, 59, 65);
 }
 
@@ -54,5 +54,5 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .white-text,
 .white-text:hover,
 .white-text:active {
-  color: var(--ifm-button-color);
+  color: var(--ifm-button-color) !important;
 }
