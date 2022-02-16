@@ -27,3 +27,9 @@ If you ask Gartner, Cyscale is a CSPM (cloud security posture management) platfo
   The previously mentioned controls are also mapped to standards such as ISO 27001, PCI DSS, NIST 800-53, SOC 2, HIPAA. In general, these standards only tell you what to do, but not how. For example, most standards will tell you to use encryption and MFA, but each provider, platform, and even service offers specific ways to use these features. Using Cyscale’s powerful policy editor, you can specify precisely how each section or requirement of a standard or policy is covered within your organization.
 
 ## Security Knowledge Graph
+
+While many vulnerabilities can be identified by applying simple rules such as ensuring that a flag is enabled for a certain asset (e.g. an AWS RDS instance is not publicly accessible), some require more context and understanding of the system’s architecture.
+
+Moreover, vulnerabilities aren’t that big of a risk when they can’t be exploited. For example, while a security group allowing all traffic on all ports is in theory a big concern, as long as it is not attached to any EC2 instance, it doesn’t really expose anything. Of course, you should still address these issues when you have the capacity to do so (you shouldn’t have such permissive firewalls and shouldn’t have unused resources lying around).
+
+In fact, a decent number of common vulnerabilities aren't that big of a concern if the affected asset is not accessible through the internet. This is where the Security Knowledge Graph comes into play. It is the knowledge base that helps you uncover vulnerabilities and prioritize them.
