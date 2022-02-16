@@ -3,7 +3,6 @@ name: Build and Deploy to Pages Branch
 on:
   push:
     branches: [master]
-    paths: [website/**]
 
 jobs:
   deploy:
