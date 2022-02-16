@@ -36,6 +36,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
+        hideOnScroll: true,
         logo: {
           alt: 'Cyscale Logo',
           src: 'img/logo.svg',
@@ -85,11 +86,11 @@ const config = {
             items: [
               {
                 label: 'LinkedIn',
-                href: 'https://www.linkedin.com/company/cyscale',
+                to: 'https://www.linkedin.com/company/cyscale',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/cyscale',
+                to: 'https://twitter.com/cyscale',
               },
             ],
           },
@@ -107,28 +108,14 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Cyscale Limited. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Cyscale Limited`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
       colorMode: {
-        defaultMode: 'light',
         disableSwitch: true,
-        respectPrefersColorScheme: false,
-        switchConfig: {
-          darkIcon: '🌙',
-          darkIconStyle: {
-            marginLeft: '2px',
-          },
-          // Unicode icons such as '\u2600' will work
-          // Unicode with 5 chars require brackets: '\u{1F602}'
-          // lightIcon: '\u{1F602}',
-          lightIconStyle: {
-            marginLeft: '1px',
-          },
-        },
       },
     }),
 };
