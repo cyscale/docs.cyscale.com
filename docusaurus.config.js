@@ -6,8 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Cyscale Cloud Platform Documentation',
-  tagline: '',
+  title: 'Cyscale Cloud Platform',
+  tagline:
+    'Explore what Cyscale Cloud Platform is, how it works, and when to use it',
   url: 'https://docs.cyscale.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -49,19 +50,10 @@ const config = {
             label: 'Documentation',
           },
           {
-            to: 'https://cyscale.com/blog/',
-            label: 'Blog',
-            position: 'right',
-          },
-          {
             to: 'https://app.cyscale.com/',
             label: 'Sign In',
             position: 'right',
-          },
-          {
-            to: 'https://app.cyscale.com/#/register?source=docs',
-            label: 'Register',
-            position: 'right',
+            className: 'button button--primary white-text',
           },
         ],
       },
