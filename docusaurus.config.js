@@ -36,6 +36,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {
+          name: 'keywords',
+          content:
+            'cloud security, documentation, cspm, cloud compliance, aws security, azure security, gcp security',
+        },
+      ],
       navbar: {
         hideOnScroll: true,
         logo: {
