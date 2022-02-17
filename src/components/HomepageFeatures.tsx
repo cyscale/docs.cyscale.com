@@ -12,7 +12,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Visibility',
-    image: '/img/undraw_growth_curve_re_t5s7.svg',
+    image: '/img/visibility.svg',
     description: (
       <>
         Cyscale helps you keep track of your cloud assets. Whether you have 4
@@ -24,7 +24,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Security',
-    image: '/img/undraw_security_re_a2rk.svg',
+    image: '/img/security.svg',
     description: (
       <>
         With hundreds out of the box controls that help you identify and fix
@@ -36,7 +36,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Compliance',
-    image: '/img/undraw_security_on_re_e491.svg',
+    image: '/img/compliance.svg',
     description: (
       <>
         Whether you are trying to achieve and maintain compliance with various
