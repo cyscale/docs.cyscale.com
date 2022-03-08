@@ -24,7 +24,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // editUrl: 'https://github.com/cyscale/docs.cyscale.com',
+          sidebarCollapsed: false,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
