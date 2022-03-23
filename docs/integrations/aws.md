@@ -96,7 +96,7 @@ One area you might want to pay attention to is **logging**. Cyscale will have ac
 
 ## Managing Your Connected AWS Account(s)
 
-Once connected, your AWS account(s) will show up in the [Cloud Accounts](https://app.dev.cyscale.com/#/cloud-accounts) list. From there, you can either use the inline actions or navigate to the overview page of the cloud account. The available options are:
+Once connected, your AWS account(s) will show up in the [Cloud Accounts](https://app.cyscale.com/#/cloud-accounts) list. From there, you can either use the inline actions or navigate to the overview page of the cloud account. The available options are:
 
 ### Configure
 
