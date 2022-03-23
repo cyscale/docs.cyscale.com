@@ -76,7 +76,7 @@ Certain resources such as IAM resources (users, groups, roles, policies, etc.) d
 
 ### Step 4
 
-In step four, the system makes sure the connection to your cloud account can be established and starts the first sync in the background. You can navigate to the cloud account overview page. The page will automatically refresh when the sync and assessment is completed.
+In step four, Cyscale makes sure the connection to your cloud account can be established and starts the first sync in the background. You can navigate to the cloud account overview page. The page will automatically refresh when the sync and assessment is completed.
 
 ## Deep Dive on Permissions
 

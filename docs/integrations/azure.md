@@ -24,6 +24,10 @@ You have two options for choosing which Azure subscriptions to connect:
 
 In the second step you create the AAD application, the service principal, and the custom role to grant access for Cyscale to your infrastructure.
 
+### Step 3
+
+In step four, Cyscale makes sure the connection to your cloud account can be established and starts the first sync in the background. You can navigate to the cloud account overview page. The page will automatically refresh when the sync and assessment is completed.
+
 #### Terraform (Default)
 
 Based on the information you provided in the first step, Cyscale generates a ready-to-use Terraform configuration file. You download this file and, using the [Terraform CLI](https://www.terraform.io/cli) either from your machine or using [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) (click [here](https://shell.azure.com/) to directly open the shell), you provision the required Azure resources.
@@ -38,7 +42,7 @@ Inspect the Terraform configuration file and run `terraform init` and `terraform
 
 ![Azure Key Uploaded to Cyscale](/img/azure-key.png)
 
-Grant admin consent to the created AAD aplication (Cyscale provides you with the link to the API permissions page of the app) and proceed to the next step. If you do not grant admin consent, Cyscale will not sync AAD users, groups, and applications.
+Grant admin consent to the created AAD application (Cyscale provides you with the link to the API permissions page of the app) and proceed to the next step. If you do not grant admin consent, Cyscale will not sync AAD users, groups, and applications.
 
 :::info Infrastructure as Code
 Besides being simple to use, it provides a great way to manage the lifecycle of the created resources (AAD application, service principal, custom role). For example, if you decide to remove the connection to your Azure subscription, you simply run `terraform destroy` to delete all Cyscale-related resources from your subscription.
