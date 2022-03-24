@@ -25,7 +25,9 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsed: false,
+          routeBasePath: '/',
         },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -51,12 +53,6 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'overview/intro',
-            position: 'left',
-            label: 'Documentation',
-          },
-          {
             to: 'https://app.cyscale.com/',
             label: 'Sign In',
             position: 'right',
@@ -72,7 +68,7 @@ const config = {
             items: [
               {
                 label: 'Intro',
-                to: '/docs/overview/intro',
+                to: '/docs/intro/overview',
               },
               {
                 label: 'Getting Started',

@@ -2,6 +2,9 @@
 sidebar_position: 1
 ---
 
+import DisableEnable from '../_partials/_disable.mdx';
+import Sync from '../_partials/_sync.mdx';
+
 # Amazon Web Services
 
 Cyscale enables you to keep track and secure your AWS infrastructure natively. You connect your AWS account(s) by creating an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) which Cyscale can assume to read your AWS resources.
@@ -109,8 +112,8 @@ You can update the following information for your AWS cloud accounts:
 
 ### Disable/Enable
 
-By default, all cloud accounts are enabled. If you want to prevent Cyscale from syncing and assessing your assets for a certain cloud account, you can disable that account. The state of cloud account in Cyscale will be locked until you enable it again. The assets will not be updated based on your actual cloud infrastructure and assessments will not be performed for them.
+<DisableEnable />
 
 ### Sync
 
-You can always trigger a new sync and assessment manually for a given cloud account (unless the sync is already in progress). This will make Cyscale read your entire cloud infrastructure for that particular account, evaluate the applicable controls, and generate the corresponding alerts (if any).
+<Sync />
