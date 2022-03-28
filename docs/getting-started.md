@@ -14,10 +14,10 @@ Once signed up, you can start connecting your cloud accounts by choosing the pro
 
 For specific details on how to integrate with each of the supported providers, follow the links below:
 
-- [AWS Integration](./integrations/aws.mdx)
-- [Azure Integration](./integrations/azure.mdx)
-- [GCP Integration](./integrations/gcp.mdx)
-- [Alibaba Integration](./integrations//alibaba.mdx)
+- [AWS Integration](./connectors/aws.mdx)
+- [Azure Integration](./connectors/azure.mdx)
+- [GCP Integration](./connectors/gcp.mdx)
+- [Alibaba Integration](./connectors//alibaba.mdx)
 
 If everything is configured properly, you should be greeted with the following view
 
