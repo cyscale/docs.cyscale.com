@@ -1,0 +1,11 @@
+{
+  "Service Coverage Table": {
+    "prefix": "service-coverage",
+    "body": [
+      "| ${1:EC2}  | # of Controls |",
+      "| --- | ------------- |",
+      "| ${2:VM}  | ${3:0}            |"
+    ],
+    "description": "Service coverage table for Cyscale Docs"
+  }
+}
