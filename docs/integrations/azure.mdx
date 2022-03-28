@@ -104,3 +104,112 @@ You can update the following information for your Azure cloud accounts:
 ### Sync
 
 <Sync />
+
+## Service Coverage
+
+The list of Azure resources that Cyscale can handle are listed in the tables below, along with the number of controls that check their configuration
+
+### Compute
+
+| VMs  | # of Controls |
+| ---- | ------------- |
+| Disk | 1             |
+| VM   | 2             |
+
+### Databases
+
+| MySQL       | # of Controls |
+| ----------- | ------------- |
+| MySQLServer | 1             |
+
+| PostgreSQL                    | # of Controls |
+| ----------------------------- | ------------- |
+| PostgreSQLServer              | 7             |
+| PostgreSQLServerConfiguration | 0             |
+
+| Cache | # of Controls |
+| ----- | ------------- |
+| Redis | 0             |
+
+| SQL                           | # of Controls |
+| ----------------------------- | ------------- |
+| SQLDatabase                   | 1             |
+| SQLServer                     | 5             |
+| SQLServerAzureADAdministrator | 0             |
+| SQLServerEncryptionProtector  | 0             |
+| SQLServerFirewallRule         | 0             |
+| SQLServerTableAuditingPolicy  | 0             |
+
+### Identity & Access Management
+
+| Azure Active Directory | # of Controls |
+| ---------------------- | ------------- |
+| ServicePrincipal       | 0             |
+| User                   | 0             |
+
+| Authorization    | # of Controls |
+| ---------------- | ------------- |
+| PolicyAssignment | 0             |
+| RoleAssignment   | 0             |
+| RoleDefinition   | 2             |
+
+### Logging
+
+| Monitor           | # of Controls |
+| ----------------- | ------------- |
+| ActivityLogAlert  | 0             |
+| DiagnosticSetting | 1             |
+| LogProfile        | 2             |
+
+### Security & Network
+
+| Key Vault | # of Controls |
+| --------- | ------------- |
+| KMSKey    | 1             |
+| KMSSecret | 1             |
+| KMSVault  | 2             |
+
+| Network            | # of Controls |
+| ------------------ | ------------- |
+| ApplicationGateway | 0             |
+| FlowLog            | 1             |
+| IPConfiguration    | 0             |
+| LoadBalancer       | 0             |
+| NetworkInterface   | 0             |
+| NetworkWatcher     | 1             |
+| PublicIP           | 0             |
+| SecurityGroup      | 3             |
+| Subnet             | 0             |
+| VirtualNetwork     | 0             |
+| VPNGateway         | 0             |
+
+| Security Center         | # of Controls |
+| ----------------------- | ------------- |
+| AutoProvisioningSetting | 1             |
+| Pricing                 | 8             |
+| SecurityContact         | 3             |
+
+### Services
+
+| Container Registry | # of Controls |
+| ------------------ | ------------- |
+| ContainerRegistry  | 0             |
+
+| Container Service | # of Controls |
+| ----------------- | ------------- |
+| Cluster           | 1             |
+
+| Web  | # of Controls |
+| ---- | ------------- |
+| Site | 10            |
+
+### Storage
+
+| Storage        | # of Controls |
+| -------------- | ------------- |
+| BlobContainer  | 0             |
+| StorageAccount | 7             |
+
+### Cloud-Wide
+
+In addition, Cyscale offers 50 more Azure controls that are not specific to a service or asset type. These are called cloud-wide controls.
