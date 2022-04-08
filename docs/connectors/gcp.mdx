@@ -2,4 +2,191 @@
 sidebar_position: 3
 ---
 
+import DisableEnable from '../_partials/_disable.mdx';
+import Sync from '../_partials/_sync.mdx';
+
 # Google Cloud Platform
+
+Cyscale enables you to keep track and secure your Google Cloud infrastructure natively. You connect your GCP project(s) by creating an [IAM service account](https://cloud.google.com/iam/docs/service-accounts) that Cyscale impersonates to read your GCP resources.
+
+## Connecting a GCP Project
+
+Once you are ready to connect your GCP project and have the required permissions, press the **Create** button from the top-right corner, select **Add Cloud Account**, and choose **GCP**. You will be greeted with a simple multi-step process.
+
+### Step 1
+
+In the first step, you provide a **name** for your GCP project to be used throughout Cyscale. This is a plain-text identifier that helps you better manage your resources.
+
+You also provide the project ID. You get this information from your Google Cloud Console (Cyscale will show you precisely how).
+
+### Step 2
+
+In the second step, you create the service account that Cyscale will use to read your infrastructure. The output of this step is a JSON file with the service account's credentials.
+
+#### Terraform (Default)
+
+Based on the project ID you provided in the first step, Cyscale generates a ready-to-use Terraform configuration file. You download this file and, using the [Terraform CLI](https://www.terraform.io/cli) either from your machine or using [Cloud Shell](https://cloud.google.com/shell), **you create the service account, assign the required roles, and create the key**.
+
+:::info Authentication and Authorization
+Terraform uses the provider's APIs/SDKs to manage the resources. The Terraform GCP provider can be configured in several ways which you can find [here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#authentication).
+
+We recommend using user application default credentials that you can create with the command `gcloud auth application-default login` (in case you are running the command from WSL, you might want to add the argument `--no-launch-browser`)
+:::
+
+Inspect the Terraform configuration file, run `terraform init` and `terraform apply -auto-approve`. Terraform creates the service account, assigns the required roles, creates the key, and outputs the credentials. Since the key is sensitive information, you have to output it in a file using the command `terraform output -raw credentials_key > gcp-key.json` (the name of the file is not important). Upload this file to Cyscale. You will see something like
+
+![GCP Key Uploaded to Cyscale](/img/gcp-onboard-key.png)
+
+:::info Infrastructure as Code
+Besides being simple to use, it provides a great way to manage the lifecycle of the created resources. For example, if you decide to remove the connection to your GCP project, you simply run `terraform destroy` to delete all Cyscale-related resources from your project.
+:::
+
+#### Manual
+
+If you prefer setting up the resources manually from the Google Cloud Console, follow the steps described in the application. You can also find the steps for creating a service account in the [GCP documentation](https://cloud.google.com/iam/docs/creating-managing-service-accounts).
+
+:::info Access Security
+While the permissions you grant to Cyscale are limited to **reading the configuration of your cloud resources**, you might still be concerned about the security of your GCP project. Providing the service account key to Cyscale means that any entity with access to the key can read your GCP resources.
+
+Cyscale encrypts and stores the credentials in a database accessible only from within the Cyscale infrastructure. Then, a specialized microservice decrypts and uses the credentials to sync your GCP assets. No member of the Cyscale team has access to your credentials.
+:::
+
+### Step 3
+
+In step four, the system makes sure the connection to your cloud account can be established and starts the first sync in the background. You can navigate to the cloud account overview page. The page will automatically refresh when the sync and assessment are completed.
+
+:::info Global Resources
+Certain resources such as IAM resources (users, service accounts, etc.) do not belong to a certain region. These are classified by Cyscale as **global assets**.
+:::
+
+## Deep Dive on Permissions
+
+### Roles
+
+The permissions Cyscale has with regards to your GCP infrastructure are dictated by the roles you assign to the service account you create in step 2.
+
+To benefit from everything Cyscale has to offer, the following **roles** are needed:
+
+- **Viewer** - This is a built-in basic role that allows **read** access to most resources in the project. You can read more about the Viewer role in the [GCP documentation](https://cloud.google.com/iam/docs/understanding-roles#basic-definitions), and you can see all permissions granted through this role with the command `gcloud iam roles describe roles/viewer`.
+- **Security Reviewer** - Another built-in role allowing **read** access to all resources. It is required because some key `list` permissions are not granted by the **viewer** role. You can read more about this role and see all the permissions that it grants in the [GCP documentation](https://cloud.google.com/iam/docs/understanding-roles#:~:text=workflows.workflows.setIamPolicy-,Security%20Reviewer,-(roles/iam.securityReviewer).
+
+:::info Data Access
+It is important to make the distinction between infrastructure/configuration access and data access. Since Cyscale focuses currently on infrastructure, **these roles do not grant permissions to your data**. For example, Cyscale can read the configuration of your Cloud Storage buckets, but not their actual content (the objects) - i.e. there are no `storage.objects.*` permissions.
+:::
+
+### Service APIs
+
+In order to use most services from Google Cloud, you have to enable the APIs of the respective services. For example, to create a VM, you will have to enable the `Compute Engine API`. Cyscale does not require you to enable APIs that you do not use. You can read more about service APIs in the [GCP documentation](https://cloud.google.com/service-usage/docs/enabled-service).
+
+## Managing Your Connected GCP Project(s)
+
+Once connected, your GCP project(s) will show up in the [Cloud Accounts](https://app.cyscale.com/#/cloud-accounts) list. From there, you can either use the inline actions or navigate to the overview page of the cloud account. The available options are:
+
+### Configure
+
+You can update the following information for your GCP cloud accounts:
+
+- Name - this helps you better identify the cloud account throughout the Cyscale platform
+- Project ID
+- **Service account key** - by default in GCP, the service account key does not expire. However, you might want to rotate it or create another service account.
+
+### Disable/Enable
+
+<DisableEnable />
+
+### Sync
+
+<Sync />
+
+## Service Coverage
+
+The list of GCP resources that Cyscale can handle are listed in the tables below, along with the number of controls that check their configuration
+
+### Compute
+
+| Compute          | # of Controls |
+| ---------------- | ------------- |
+| Disk             | 1             |
+| FirewallRule     | 9             |
+| Project          | 1             |
+| PublicIP         | 0             |
+| SSLPolicy        | 0             |
+| TargetHTTPSProxy | 1             |
+| TargetSSLProxy   | 1             |
+| VM               | 6             |
+| VPC              | 4             |
+
+### Databases
+
+| BigQuery      | # of Controls |
+| ------------- | ------------- |
+| BigQueryTable | 1             |
+
+| BigTable | # of Controls |
+| -------- | ------------- |
+| BigTable | 0             |
+
+| Cloud SQL        | # of Controls |
+| ---------------- | ------------- |
+| CloudSQLInstance | 13            |
+| SQLUser          | 1             |
+
+| Cloud Spanner | # of Controls |
+| ------------- | ------------- |
+| CloudSpanner  | 0             |
+
+### Identity & Access Management
+
+| IAM               | # of Controls |
+| ----------------- | ------------- |
+| IAMUser           | 5             |
+| Role              | 1             |
+| ServiceAccount    | 4             |
+| ServiceAccountKey | 1             |
+
+### Logging
+
+| Monitoring  | # of Controls |
+| ----------- | ------------- |
+| AlertPolicy | 0             |
+
+| Logging   | # of Controls |
+| --------- | ------------- |
+| LogMetric | 0             |
+| LogSink   | 0             |
+
+### Security & Network
+
+| Cloud KMS | # of Controls |
+| --------- | ------------- |
+| KMSKey    | 2             |
+
+| DNS         | # of Controls |
+| ----------- | ------------- |
+| ManagedZone | 3             |
+
+| Network          | # of Controls |
+| ---------------- | ------------- |
+| NetworkInterface | 1             |
+
+### Serverless
+
+| Cloud Functions | # of Controls |
+| --------------- | ------------- |
+| CloudFunction   | 0             |
+
+### Services
+
+| Container | # of Controls |
+| --------- | ------------- |
+| Cluster   | 18            |
+
+### Storage
+
+| Storage | # of Controls |
+| ------- | ------------- |
+| Bucket  | 6             |
+
+### Cloud-Wide
+
+In addition, Cyscale offers 20 more GCP controls that are not specific to a service or asset type. These are called cloud-wide controls.
