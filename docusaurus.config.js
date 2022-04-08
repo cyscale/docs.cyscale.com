@@ -100,6 +100,10 @@ const config = {
                 label: 'GitHub',
                 to: 'https://github.com/cyscale',
               },
+              {
+                label: 'Status',
+                to: 'https://status.cyscale.com',
+              },
             ],
           },
         ],
