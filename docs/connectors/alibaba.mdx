@@ -2,4 +2,130 @@
 sidebar_position: 4
 ---
 
+import DisableEnable from '../_partials/_disable.mdx';
+import Sync from '../_partials/_sync.mdx';
+
 # Alibaba Cloud
+
+Cyscale enables you to keep track and secure your Alibaba Cloud (Aliyun) infrastructure natively. You connect your Aliyun account(s) by creating a [RAM role](https://www.alibabacloud.com/help/en/resource-access-management/latest/ram-role-overview) that Cyscale can assume to read your Aliyun resources.
+
+## Connecting You Alibaba Cloud Account
+
+Once you are ready to connect your Aliyun account and have the required permissions, press the **Create** button from the top-right corner, select **Add Cloud Account**, and choose **Alibaba**. You will be greeted with a simple multi-step process.
+
+### Step 1
+
+In the first step, you provide a **name** for your Alibaba Cloud account to be used throughout Cyscale. This is a plain-text identifier that helps you better manage your resources.
+
+### Step 2
+
+In the second step, you create the Alibaba RAM role. Cyscale provides you with the exact steps to create the role.
+
+:::info Access Security
+While the permissions you grant to Cyscale are limited to **reading** the configuration of your cloud resources, you might still be concerned about the security of your Alibaba Cloud account. Setting the trust relationship with the Cyscale Alibaba Cloud account means that any entity from the Cyscale Alibaba Cloud account with the privilege to assume the role from your account can read your Aliyun infrastructure.
+
+The Cyscale Alibaba Cloud account (5015623141518445) follows all the best practices and is continuously secured by Cyscale itself.
+:::
+
+### Step 3
+
+In the third step, the system makes sure the connection to your cloud account can be established and starts the first sync in the background. You can navigate to the cloud account overview page. The page will automatically refresh when the sync and assessment are completed.
+
+## Deep Dive on Permissions
+
+Since Cyscale connects to your Aliyun account(s) by assuming the RAM role you create, all permissions are controlled through the policies that are attached to the role.
+
+To benefit from everything Cyscale has and will have to offer, the following policy is required:
+
+- **ReadOnlyAccess** - This system policy grants **read** access to all Aliyun resources. You can see the permissions it provides in [the Alibaba Cloud Console](https://ram.console.aliyun.com/policies/ReadOnlyAccess/System/content).
+
+## Managing Your Connected Alibaba Cloud Account(s)
+
+Once connected, your Aliyun account(s) will show up in the [Cloud Accounts](https://app.cyscale.com/#/cloud-accounts) list. From there, you can either use the inline actions or navigate to the overview page of the cloud account. The available options are:
+
+### Configure
+
+You can update the following information for your Aliyun cloud accounts:
+
+- Name - this helps you better identify the cloud account throughout the Cyscale platform
+- Role ARN - in case you want Cyscale to use another RAM role
+
+### Disable/Enable
+
+<DisableEnable />
+
+### Sync
+
+<Sync />
+
+## Service Coverage
+
+The list of Alibaba Cloud resources that Cyscale can handle are listed in the tables below, along with the number of controls that check their configuration
+
+### Compute
+
+| ECS           | # of Controls |
+| ------------- | ------------- |
+| Disk          | 1             |
+| Instance      | 1             |
+| SecurityGroup | 3             |
+
+| VPC        | # of Controls |
+| ---------- | ------------- |
+| FlowLog    | 0             |
+| RouteTable | 0             |
+| VPC        | 0             |
+
+### Databases
+
+| RDS        | # of Controls |
+| ---------- | ------------- |
+| DBInstance | 2             |
+
+### Identity & Access Management
+
+| RAM              | # of Controls |
+| ---------------- | ------------- |
+| PasswordPolicy   | 8             |
+| Policy           | 1             |
+| Role             | 0             |
+| User             | 4             |
+| VirtualMFADevice | 0             |
+
+### Logging
+
+| ActionTrail | # of Controls |
+| ----------- | ------------- |
+| Trail       | 1             |
+
+### Security & Network
+
+| KMS    | # of Controls |
+| ------ | ------------- |
+| KMSKey | 0             |
+
+### Serverless
+
+| Cluster | # of Controls |
+| ------- | ------------- |
+| Cluster | 0             |
+
+### Services
+
+| SLS   | # of Controls |
+| ----- | ------------- |
+| Alert | 0             |
+
+| WAF    | # of Controls |
+| ------ | ------------- |
+| Domain | 1             |
+
+### Storage
+
+| OSS    | # of Controls |
+| ------ | ------------- |
+| Bucket | 4             |
+
+### Cloud-Wide
+
+In addition, Cyscale offers 58 more Alibaba Cloud controls that are not specific to a service or asset type. These are called cloud-wide controls.
