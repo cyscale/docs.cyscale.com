@@ -15,17 +15,17 @@ Once you are ready to connect your AWS account and have the required permissions
 
 ### Step 1
 
-In the first step you provide a **name** for your AWS account to be used throughout Cyscale. This is a plain-text identifier that helps you better manage your resources.
+In the first step, you provide a **name** for your AWS account to be used throughout Cyscale. This is a plain-text identifier that helps you better manage your resources.
 
-You also provide the **external ID**. The field is pre-populated by default and there is no real reason to change it other than if you want to use an already existing role. This is a native feature of AWS roles which helps the involved parties establish a more secure connection (see the [AWS docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) for more).
+You also provide the **external ID**. The field is pre-populated by default and there is no real reason to change it other than if you want to use an already existing role. This is a native feature of AWS roles that helps the involved parties establish a more secure connection (see the [AWS docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) for more).
 
 ### Step 2
 
-In the second step you create the AWS role. Cyscale gives you multiple ways to achieve this in order to adhere to your already existing processes.
+In the second step, you create the AWS role. Cyscale gives you multiple ways to achieve this to adhere to your already existing processes.
 
 #### CloudFormation (Default)
 
-The most straight-forward way to create the required AWS role is by using CloudFormation, the native infrastructure as code service from AWS.
+The most straightforward way to create the required AWS role is by using CloudFormation, the native infrastructure as code service from AWS.
 
 :::info Infrastructure as Code Benefits
 Besides being simple to use, just like the Terraform option, it provides a great way to manage the lifecycle of the created resources (role, policy). For example, if you decide to remove the connection to your AWS account, you simply delete the CloudFormation stack and all the related resources will be deleted automatically.
@@ -39,7 +39,7 @@ When you click on **Create AWS Stack**, a new browser window will open with the 
 
 ![AWS CloudFormation Stack](/img/aws-cf-create-stack.png)
 
-Review the name and the parameters of the stack, check the _I acknowledge that AWS CloudFormation might create IAM resources with custom names._ checkbox, and press **Create stack**. Your AWS resources should be ready within a few minutes (state `CREATE_COMPLETE`). From the **outputs** tab, copy the ARN and paste it in the _Role ARN from Output_ field in Cyscale, as displayed below.
+Review the name and the parameters of the stack, check the _I acknowledge that AWS CloudFormation might create IAM resources with custom names._ checkbox, and press **Create stack**. Your AWS resources should be ready within a few minutes (state `CREATE_COMPLETE`). From the **outputs** tab, copy the ARN and paste it into the _Role ARN from Output_ field in Cyscale, as displayed below.
 
 ![AWS Role ARN from CloudFormation](/img/aws-cf-role-arn.png)
 
@@ -67,10 +67,10 @@ The Cyscale AWS account (789815788242) follows all the best practices and is con
 
 ### Step 3
 
-In the third step you can select which AWS regions should be covered by Cyscale. By default, all regions are selected. In most cases you will want to choose the regions in which you have some resources deployed. You can change this after.
+In the third step, you can select which AWS regions should be covered by Cyscale. By default, all regions are selected. In most cases, you will want to choose the regions in which you have some resources deployed. You can change this after.
 
 :::tip Default Resources
-All AWS regions have some resources deployed by default such as the default VPC, default subnets (one for each AZ) and the default security group. These resources count towards the quota of your plan.
+All AWS regions have some resources deployed by default such as the default VPC, default subnets (one for each AZ), and the default security group. These resources count towards the quota of your plan.
 :::
 
 :::info Global Resources
@@ -79,13 +79,13 @@ Certain resources such as IAM resources (users, groups, roles, policies, etc.) d
 
 ### Step 4
 
-In step four, Cyscale makes sure the connection to your cloud account can be established and starts the first sync in the background. You can navigate to the cloud account overview page. The page will automatically refresh when the sync and assessment is completed.
+In step four, Cyscale makes sure the connection to your cloud account can be established and starts the first sync in the background. You can navigate to the cloud account overview page. The page will automatically refresh when the sync and assessment are completed.
 
 ## Deep Dive on Permissions
 
 Since Cyscale connects to your AWS account(s) by assuming the role you create, all permissions are controlled through the policies that are attached to the role.
 
-In order to benefit from everything Cyscale has and will have to offer, two policies should be attached:
+To benefit from everything Cyscale has and will have to offer, two policies should be attached:
 
 - **SecurityAudit** - This is an AWS-managed policy granting read access to most AWS services. You can read more about it in the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_security-auditor) and in the [AWS console](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/SecurityAudit).
 
