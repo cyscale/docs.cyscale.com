@@ -16,6 +16,8 @@ A cloud resource might contain multiple assets. For example, an EC2 instance, be
 
 :::
 
+**Sync** represents the process of synchronizing your actual cloud resources with the Cyscale database. You can read more about it on the [Getting Started page](../getting-started.md#syncassessment).
+
 **Control** is the rule describing a best practice or requirement. For example, ISO 27001 comes with Annex A which is basically a table of controls, each telling you what to check for. Within Cyscale, a control is a rule such as “Ensure S3 bucket MFA Delete is enabled”. Besides the name, each Cyscale control also comes with a description (what the control is and why it’s important), remediation steps, and severity (low, medium, high).
 
 **Policy** is generally a document defining how to secure certain aspects within an organization. For example, you might have a policy describing how your organization handles identity and access management. A policy within Cyscale represents an entity that, besides content such as text and images, might also contain controls. Cyscale enables you to specify how certain policy sections are actually implemented by mapping controls to them through procedures.
