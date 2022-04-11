@@ -14,32 +14,32 @@ All plans include the following:
 
 - Unlimited connectors
 - All supported providers (AWS, Azure, GCP, Alibaba, Okta)
-- Inventory
-- Out of the box Controls (380+)
+- Asset Inventory
 - Alerts
 - Notification Channels (Teams, Slack, Webhook)
 - Email Notifications (alerts and weekly digest)
-- Standards
+- Standards (ISO 27001, SOC 2, PCI-DSS, HIPAA, and more)
+- Out of the box Controls (380+)
 - Out of the box Policies
 - Custom Policies
 - PDF Reports
 
 ### Free
 
-- Only manual sync (excepting the sync after cloud account onboarding)
+- Only manual [syncs](./intro/dictionary.md#sync) (excepting the sync after adding a cloud account)
 - Up to 25 monthly syncs
 - Up to 3 users
-- Up to 1000 assets
+- Up to 1000 [assets](./intro/dictionary.md#asset)
 
 ### Pro
 
-- Automatic + manual, unlimited syncs
+- Automatic + manual, unlimited [syncs](./intro/dictionary.md#sync)
 - Unlimited users
-- Up to 1000 assets
+- Up to 1000 [assets](./intro/dictionary.md#asset)
 
 ### Scale
 
-- Up to 5000 assets
+- Up to 5000 [assets](./intro/dictionary.md#asset)
 
 ### Enterprise
 
@@ -47,7 +47,7 @@ If your needs exceed the scale plan and/or you want a closer collaboration, reac
 
 ## Usage
 
-The main usage metric in Cyscale is the asset. This represents a node in the security knowledge graph. Examples of assets include EC2 instances, EBS volumes, VPCs, buckets, Azure AD users, GCP service accounts, Okta applications, and so on.
+The main usage metric in Cyscale is the asset. This represents a node in the [Security Knowledge Graph](./intro//overview.mdx#security-knowledge-graph). Examples of assets include EC2 instances, EBS volumes, VPCs, buckets, Azure AD users, GCP service accounts, Okta applications, and so on.
 
 Cyscale counts each unique resource seen at least once during the billing period as a separate asset.
 
