@@ -26,7 +26,7 @@ All plans include the following:
 
 ### Free
 
-- Only manual [syncs](./intro/dictionary.md#sync) (excepting the sync after adding a cloud account)
+- Only manual [syncs](./intro/dictionary.md#sync) (excepting the sync after adding a connector)
 - Up to 25 monthly syncs
 - Up to 3 users
 - Up to 1000 [assets](./intro/dictionary.md#asset)

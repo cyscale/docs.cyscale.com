@@ -16,4 +16,4 @@ You can invite more users to your Cyscale account. Go to the **Users** page from
 
 The person will receive an email invitation with a link to activate their user by setting a password. The invitation link is valid for 24 hours. Afterwards, you will have to send another invitation.
 
-Currently, one user can only be part of one account. If you try to invite a user with an email address that’s already part of another Cyscale account, the operation will fail.
+Currently, one user can only be part of one account. If you try to invite a user with an email address that's already part of another Cyscale account, the operation will fail.

@@ -16,11 +16,11 @@ Welcome to the Cyscale documentation website. Here you can find out more about w
 
 Cyscale Cloud Platform (Cyscale for short) helps you build and run secure and compliant cloud environments.
 
-If you ask Gartner, Cyscale is a CSPM (cloud security posture management) platform (for now). While these labels are useful for seasoned security engineers and for getting an idea of what the platform can do, most cloud engineers and architects aren’t necessarily accustomed to these terms, so here is what Cyscale can do today:
+If you ask Gartner, Cyscale is a CSPM (cloud security posture management) platform (for now). While these labels are useful for seasoned security engineers and for getting an idea of what the platform can do, most cloud engineers and architects aren't necessarily accustomed to these terms, so here is what Cyscale can do today:
 
 - **It acts as a central place to view all your cloud resources (i.e. asset inventory).**
 
-  You connect your cloud accounts through provider-specific secure and simple mechanisms and Cyscale starts discovering your infrastructure through the providers' SDKs/APIs. It stores a snapshot of your cloud infrastructure in a unified data format thus being able to uncover more complex scenarios and assess various rules.
+  You connect your cloud accounts and identity providers through provider-specific secure and simple mechanisms and Cyscale starts discovering your infrastructure through the providers' SDKs/APIs. It stores a snapshot of your cloud infrastructure in a unified data format thus being able to uncover more complex scenarios and assess various rules.
 
   Cyscale gives you an overview of your cloud infrastructure across multiple cloud providers, multiple accounts, and multiple regions.
 
@@ -30,12 +30,12 @@ If you ask Gartner, Cyscale is a CSPM (cloud security posture management) platfo
 
 - **Cyscale tracks your compliance with industry standards and policies alongside your internal policies**
 
-  The previously mentioned controls are also mapped to standards such as ISO 27001, PCI DSS, NIST 800-53, SOC 2, HIPAA. In general, these standards only tell you what to do, but not how. For example, most standards will tell you to use encryption and MFA, but each provider, platform, and even service offers specific ways to use these features. Using Cyscale’s powerful policy editor, you can specify precisely how each section or requirement of a standard or policy is covered within your organization.
+  The previously mentioned controls are also mapped to standards such as ISO 27001, PCI DSS, NIST 800-53, SOC 2, HIPAA. In general, these standards only tell you what to do, but not how. For example, most standards will tell you to use encryption and MFA, but each provider, platform, and even service offers specific ways to use these features. Using Cyscale's powerful policy editor, you can specify precisely how each section or requirement of a standard or policy is covered within your organization.
 
 ## Security Knowledge Graph
 
-While many vulnerabilities can be identified by applying simple rules such as ensuring that a flag is enabled for a certain asset (e.g. an AWS RDS instance is not publicly accessible), some require more context and understanding of the system’s architecture.
+While many vulnerabilities can be identified by applying simple rules such as ensuring that a flag is enabled for a certain asset (e.g. an AWS RDS instance is not publicly accessible), some require more context and understanding of the system's architecture.
 
-Moreover, vulnerabilities aren’t that big of a risk when they can’t be exploited. For example, while a security group allowing all traffic on all ports is in theory a big concern, as long as it is not attached to any EC2 instance, it doesn’t really expose anything. Of course, you should still address these issues when you have the capacity to do so (you shouldn’t have such permissive firewalls and shouldn’t have unused resources lying around).
+Moreover, vulnerabilities aren't that big of a risk when they can't be exploited. For example, while a security group allowing all traffic on all ports is in theory a big concern, as long as it is not attached to any EC2 instance, it doesn't really expose anything. Of course, you should still address these issues when you have the capacity to do so (you shouldn't have such permissive firewalls and shouldn't have unused resources lying around).
 
 In fact, a decent number of common vulnerabilities aren't that big of a concern if the affected asset is not accessible through the internet. This is where the Security Knowledge Graph comes into play. It is the knowledge base that helps you uncover vulnerabilities and prioritize them.

@@ -11,7 +11,7 @@ Cyscale enables you to keep track and secure your Azure infrastructure natively.
 
 ## Connecting Your Azure Subscription(s)
 
-Once you are ready to connect your Azure subscription(s) and have the required permissions, press the **Create** button from the top-right corner, select **Add Cloud Account**, and choose **Azure**. You will be greeted with a simple multi-step process.
+Once you are ready to connect your Azure subscription(s) and have the required permissions, press the **Create** button from the top-right corner, select **Add Connector**, and choose **Azure**. You will be greeted with a simple multi-step process.
 
 ### Step 1
 
@@ -19,7 +19,7 @@ In the first step you provide the ID of your Azure Active Directory tenant. You 
 
 You have two options for choosing which Azure subscriptions to connect:
 
-1. **Connect all subscriptions for the given AAD tenant** (default). Resources from all Azure subscriptions which you are authorized to access (you have the **Owner** role or the classic roles Service Administrator and Co-Administrator) will be imported. You can see a list of the subscriptions in the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) (check the My role column). Cyscale will automatically use the subscription name to identify the subscription throughout Cyscale (as the connector name). **Each subscription will be represented as a separate Cyscale cloud account**.
+1. **Connect all subscriptions for the given AAD tenant** (default). Resources from all Azure subscriptions which you are authorized to access (you have the **Owner** role or the classic roles Service Administrator and Co-Administrator) will be imported. You can see a list of the subscriptions in the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) (check the My role column). Cyscale will automatically use the subscription name to identify the subscription throughout Cyscale (as the connector name). **Each subscription will be represented as a separate Cyscale connector**.
 
 2. **Specify a certain subscription**. If you uncheck Onboard all Subscriptions for this Tenant (uncheck for a single Subscription), Cyscale will allow you to specify the ID of a certain Azure subscription (under the given tenant) and give it a name to be used throughout the Cyscale platform.
 
@@ -87,7 +87,7 @@ Cyscale requires only `Directory.Read.All` which enables it to read the IAM reso
 
 ## Managing Your Connected Azure Subscription(s)
 
-Once connected, your Azure subscription(s) will show up in the [Cloud Accounts](https://app.cyscale.com/#/cloud-accounts) list. From there, you can either use the inline actions or navigate to the overview page of the cloud account. The available options are:
+Once connected, your Azure subscription(s) will show up in the [Connectors](https://app.cyscale.com/#/connectors) list. From there, you can either use the inline actions or navigate to the overview page of the cloud account. The available options are:
 
 ### Configure
 
