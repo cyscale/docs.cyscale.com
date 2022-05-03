@@ -1,0 +1,47 @@
+---
+sidebar_position: 5
+---
+
+import DisableEnable from '../_partials/_disable.mdx';
+import Sync from '../_partials/_sync.mdx';
+
+# Okta
+
+Cyscale enables you to keep track and secure your Okta identities. You connect your Okta organization(s) by creating an [API Token](https://help.okta.com/oie/en-us/Content/Topics/Security/API.htm?cshid=Security_API#Security_API) that Cyscale uses to read your Okta resources.
+
+## Connecting Your Okta Organization
+
+Once you are ready to connect your Okta organization and have the required permissions, press the **Create** button from the top-right corner, select **Add Connector**, and choose **Okta**. You will be greeted with a simple multi-step process.
+
+### Step 1
+
+In the first step, you provide a **name** for your Okta connector to be used throughout Cyscale. This is a plain-text identifier that helps you better manage your resources.
+
+Here, you also provide the **organization URL** - _https://my-org.okta.com_ for example.
+
+### Step 2
+
+In the second step, you provide the API token that grants Cyscale access. You can find the exact steps to follow in order to create the token within the application.
+
+:::info Token Permissions
+Okta API tokens inherit the permissions of the user that creates them. Ideally, you would have a separate Okta user with read-only permissions (besides permission to create API Tokens) that you use to create the token.
+:::
+
+## Managing Your Connected Okta Organization(s)
+
+Once connected, your Okta organization(s) will show up in the [Connectors](https://app.cyscale.com/#/connectors) list. You can perform the following actions:
+
+### Configure
+
+You can update the following information for your Okta connectors:
+
+- Identity Provider Name - this helps you better identify the connector throughout Cyscale
+- **Okta API Token** - you might want to rotate the token or, in case the token hasn't been used for more than 30 days, you will have to replace it
+
+### Disable/Enable
+
+<DisableEnable />
+
+### Sync
+
+<Sync />
