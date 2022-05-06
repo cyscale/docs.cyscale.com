@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Billing
+# Billing & Usage
 
 While Cyscale is committed to offering a generous free plan and trial version, in case you want continuous support and greater quotas, you will need a paid plan.
 
@@ -50,6 +50,8 @@ If your needs exceed the scale plan and/or you want a closer collaboration, reac
 The main usage metric in Cyscale is the asset. This represents a node in the [Security Knowledge Graph](./intro//overview.mdx#security-knowledge-graph). Examples of assets include EC2 instances, EBS volumes, VPCs, buckets, Azure AD users, GCP service accounts, Okta applications, and so on.
 
 Cyscale counts each unique resource seen at least once during the billing period as a separate asset.
+
+You can always see how many assets Cyscale has read each month on the [usage page](https://app.cyscale.com/#/usage). The information could be delayed by a few minutes.
 
 The billing period is monthly, starting on the first of each month.
 
