@@ -6,9 +6,9 @@ sidebar_position: 2
 
 ### Sign Up
 
-To start using Cyscale, go to https://app.cyscale.com/#/register and sign up using your email or through the supported identity providers.
+To start using Cyscale, go to https://app.cyscale.com/register and sign up using your email or through the supported identity providers.
 
-Once signed up, you can start connecting your cloud accounts and identity providers (a.k.a. **connectors**) by choosing the provider(s) and following the onboarding steps - https://app.cyscale.com/#/select-cloud-provider.
+Once signed up, you can start connecting your cloud accounts and identity providers (a.k.a. **connectors**) by choosing the provider(s) and following the onboarding steps - https://app.cyscale.com/select-cloud-provider.
 
 ### Connecting Cloud Accounts/Identity Providers
 

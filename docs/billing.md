@@ -51,7 +51,7 @@ The main usage metric in Cyscale is the asset. This represents a node in the [Se
 
 Cyscale counts each unique resource seen at least once during the billing period as a separate asset.
 
-You can always see how many assets Cyscale has read each month on the [usage page](https://app.cyscale.com/#/usage). The information could be delayed by a few minutes.
+You can always see how many assets Cyscale has read each month on the [usage page](https://app.cyscale.com/usage). The information could be delayed by a few minutes.
 
 The billing period is monthly, starting on the first of each month.
 
