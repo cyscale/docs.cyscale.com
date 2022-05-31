@@ -68,7 +68,7 @@ The permissions Cyscale has with regards to your GCP infrastructure are dictated
 To benefit from everything Cyscale has to offer, the following **roles** are needed:
 
 - **Viewer** - This is a built-in basic role that allows **read** access to most resources in the project. You can read more about the Viewer role in the [GCP documentation](https://cloud.google.com/iam/docs/understanding-roles#basic-definitions), and you can see all permissions granted through this role with the command `gcloud iam roles describe roles/viewer`.
-- **Security Reviewer** - Another built-in role allowing **read** access to all resources. It is required because some key `list` permissions are not granted by the **viewer** role. You can read more about this role and see all the permissions that it grants in the [GCP documentation](https://cloud.google.com/iam/docs/understanding-roles#:~:text=workflows.workflows.setIamPolicy-,Security%20Reviewer,-(roles/iam.securityReviewer).
+- **Security Reviewer** - Another built-in role allowing **read** access to all resources. It is required because some key `list` permissions are not granted by the **viewer** role. You can read more about this role and see all the permissions that it grants in the [GCP documentation](https://cloud.google.com/iam/docs/understanding-roles#iam-roles).
 
 :::info Data Access
 It is important to make the distinction between infrastructure/configuration access and data access. Since Cyscale focuses currently on infrastructure, **these roles do not grant permissions to your data**. For example, Cyscale can read the configuration of your Cloud Storage buckets, but not their actual content (the objects) - i.e. there are no `storage.objects.*` permissions.
