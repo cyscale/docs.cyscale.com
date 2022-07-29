@@ -8,6 +8,10 @@ While Cyscale is committed to offering a generous free plan and trial version, i
 
 **To get started with the paid version or update your current plan, contact us at sales@cyscale.com.**
 
+## Azure Marketplace
+
+If you are already using Azure, you can subscribe to Cyscale through the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cyscale.cyscale) (or [Azure Portal link](https://portal.azure.com/#create/cyscale.cyscale/preview)). If you are not using Azure, but still using Microsoft products, you can subscribe to Cyscale through [AppSource](https://appsource.microsoft.com/en-us/product/web-apps/cyscale.cyscale).
+
 ## Plans
 
 All plans include the following:

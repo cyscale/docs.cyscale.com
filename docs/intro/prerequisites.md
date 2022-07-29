@@ -37,3 +37,7 @@ For more information, you can consult the [Google Cloud documentation on creatin
 ### Alibaba
 
 For Alibaba Cloud, Cyscale connects through a RAM role. You must have enough permissions to create the required role with read only permissions.
+
+### Okta
+
+For Okta, Cyscale connects through an API token. You must have the permissions to create the token and read access to most Okta entities such as users, groups, applications, policies - this is because the API token inherits the permissions of the user that creates it.

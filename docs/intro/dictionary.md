@@ -38,6 +38,6 @@ Procedures describe how to achieve something. Your organization might have a pro
 
 Alerts are commonly triggered when certain thresholds are crossed. In the context of Cyscale (and CSPM in general), alerts represent identified vulnerabilities and misconfigurations. Basically it's the resulting entity after an asset is verified against a control and fails to pass it.
 
-### Cloud accounts
+### Connectors
 
-Cloud accounts are the Cyscale entities representing your actual cloud accounts. If you want to assess and protect an AWS account, Azure subscription, GCP project, or Alibaba account, you add it to Cyscale by creating the corresponding cloud account.
+Connectors are the Cyscale entities representing your actual cloud accounts and identity provider accounts. If you want to assess and protect an AWS account, Azure subscription, GCP project, Alibaba account, or Okta organization, you add it to Cyscale by creating the corresponding connector.
