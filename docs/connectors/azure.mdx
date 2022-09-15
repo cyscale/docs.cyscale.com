@@ -27,10 +27,6 @@ You have two options for choosing which Azure subscriptions to connect:
 
 In the second step you create the AAD application, the service principal, and the custom role to grant access for Cyscale to your infrastructure.
 
-### Step 3
-
-In step four, Cyscale makes sure the connection to your cloud account can be established and starts the first sync in the background. You can navigate to the cloud account overview page. The page will automatically refresh when the sync and assessment is completed.
-
 #### Terraform (Default)
 
 Based on the information you provided in the first step, Cyscale generates a ready-to-use Terraform configuration file. You download this file and, using the [Terraform CLI](https://www.terraform.io/cli) either from your machine or using [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) (click [here](https://shell.azure.com/) to directly open the shell), you provision the required Azure resources.
@@ -60,6 +56,10 @@ While the permissions you grant to Cyscale are limited to **reading the configur
 
 Cyscale encrypts and stores the credentials in a database accessible only from within the Cyscale infrastructure. Then, a specialized microservice decrypts and uses the credentials to sync your Azure assets. No member of the Cyscale team has access to your credentials.
 :::
+
+### Step 3
+
+In the third step, Cyscale makes sure the connection to your cloud account can be established and starts the first sync in the background. You can navigate to the cloud account overview page. This page will automatically refresh when Cyscale finishes syncing and assessing your cloud account.
 
 ## Deep Dive on Permissions
 
