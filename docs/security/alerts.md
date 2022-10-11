@@ -37,7 +37,7 @@ You can influence which controls Cyscale must generate alerts for. You have to o
 The default level is **medium**. Cyscale will not generate alerts for low severity controls out of the box. We made this choice in order to keep the number of alerts as manageable as possible, especially after you connect your accounts for the first time.
 :::
 
-:::warn Changing alert generation
+:::caution Changing alert generation
 As soon as you change the alert generation, Cyscale will disable any `Open` alerts that are no longer needed. For example, if you increase the severity alerting level from medium to high, Cyscale will disable all medium alerts. If you lower the level back to medium, Cyscale will start generating alerts for medium severity controls during the subsequent assessments.
 :::
 
