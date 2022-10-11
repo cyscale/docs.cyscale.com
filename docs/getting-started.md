@@ -26,11 +26,11 @@ If everything is configured properly, you should be greeted with the following v
 
 ### Sync/Assessment
 
-Cyscale now starts exploring your cloud infrastructure through the provider's APIs. Once Cyscale created a snapshot of your cloud assets, it will perform the assessment. This translates into Cyscale going over the list of controls and looking for assets that fail to meet the requirements. You can find out more about the assessment process [here](./security/assessment.md).
+Cyscale now starts exploring your cloud infrastructure through the provider's APIs. Once Cyscale created a snapshot of your cloud assets, it will perform the assessment. This translates into Cyscale going over the list of controls and looking for assets that fail to meet the requirements.
 
 By default, Cyscale synchronizes your cloud assets and performs the assessment every 24 hours. If you added a connector at 1:24 PM, all subsequent automatic scans will be conducted at 1:24 PM.
 
-Once the assessment is complete, Cyscale will generate the corresponding alerts and store the result in the form of “failed assets”. These are the basis for determining which controls fail (the ones with failed assets), the connector risk (given by the asset with the highest risk), and policy/standard status.
+Once the assessment is complete, Cyscale will generate the corresponding [alerts](./security/alerts.md) and store the result in the form of “failed assets”. These are the basis for determining which controls fail (the ones with failed assets), the connector risk (given by the asset with the highest risk), and policy/standard status.
 
 If you go to the Cloud Overview page and the synchronization is still in progress, you should see a loading indicator. Otherwise, you should see some high-level information about the security posture of the account you just added, similar to the following image:
 
