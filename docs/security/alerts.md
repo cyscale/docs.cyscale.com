@@ -28,7 +28,7 @@ The other alternative is when you disable the respective control or update it to
 
 ### Alert Generation
 
-You can influence which controls Cyscale must generate alerts for. You have to options:
+You can influence which controls Cyscale must generate alerts for. You have two options:
 
 1. Per control by disabling the **Create alerts when this control fails** flag. You can find this on the details panel of each control.
 2. For your entire Cyscale account by changing the **Severity Alerting Level** from [the account settings page](https://app.cyscale.com/account-settings). Cyscale will generate alerts for controls with severity equal or greater than the configured level.
