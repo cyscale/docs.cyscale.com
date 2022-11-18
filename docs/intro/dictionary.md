@@ -40,4 +40,4 @@ Alerts are commonly triggered when certain thresholds are crossed. In the contex
 
 ### Connectors
 
-Connectors are the Cyscale entities representing your actual cloud accounts and identity provider accounts. If you want to assess and protect an AWS account, Azure subscription, GCP project, Alibaba account, or Okta organization, you add it to Cyscale by creating the corresponding connector.
+Connectors are the Cyscale entities representing your actual cloud accounts and identity provider accounts. If you want to assess and protect an AWS account, Azure subscription, Google Cloud project, Alibaba account, or Okta organization, you add it to Cyscale by creating the corresponding connector.

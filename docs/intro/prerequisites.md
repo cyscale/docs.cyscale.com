@@ -8,7 +8,7 @@ This page describes what you need to fully leverage Cyscale Cloud Platform.
 
 ## Public Cloud
 
-Cyscale is designed to work with systems running on public clouds. We currently support Amazon Web Services, Microsoft Azure, Google Cloud Platform, and Alibaba Cloud. Additionally, each one of these providers offers a large suite of services so make sure to consult the Service Coverage page to determine whether your infrastructure is sufficiently covered.
+Cyscale is designed to work with systems running on public clouds. We currently support Amazon Web Services, Microsoft Azure, Google Cloud Platform, and Alibaba Cloud. Additionally, each one of these providers offers a large suite of services so make sure to consult the service coverage section for each provider to determine whether your infrastructure is sufficiently covered.
 
 You should consider Cyscale when you have a medium to large, frequently changing infrastructure deployed in the cloud or if you are migrating your on-premises infrastructure to the cloud.
 
@@ -28,7 +28,7 @@ For Azure, Cyscale connects through an Azure Active Directory application. You m
 
 For more information, you can consult the [Azure documentation on registering an application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
 
-### GCP
+### Google Cloud
 
 For Google Cloud, Cyscale connects through a service account with read permissions at the project level. You must have enough privileges to create the service account and to enable the required APIs (Compute Engine, Resource Manager, KMS, Cloud Logging, Cloud Monitoring, Kubernetes Engine, Cloud DNS, Cloud SQL, BigQuery, Cloud Storage).
 

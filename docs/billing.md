@@ -17,7 +17,7 @@ If you are already using Azure, you can subscribe to Cyscale through the [Azure 
 All plans include the following:
 
 - Unlimited connectors
-- All supported providers (AWS, Azure, GCP, Alibaba, Okta)
+- All supported providers (AWS, Azure, Google Cloud, Alibaba Cloud, Okta)
 - Asset Inventory
 - Alerts
 - Notification Channels (Teams, Slack, Webhook)
@@ -51,7 +51,7 @@ If your needs exceed the scale plan and/or you want a closer collaboration, reac
 
 ## Usage
 
-The main usage metric in Cyscale is the asset. This represents a node in the [Security Knowledge Graph](./intro//overview.mdx#security-knowledge-graph). Examples of assets include EC2 instances, EBS volumes, VPCs, buckets, Azure AD users, GCP service accounts, Okta applications, and so on.
+The main usage metric in Cyscale is the asset. This represents a node in the [Security Knowledge Graph](./intro//overview.mdx#security-knowledge-graph). Examples of assets include EC2 instances, EBS volumes, VPCs, buckets, Azure AD users, Google Cloud service accounts, Okta applications, and so on.
 
 Cyscale counts each unique resource seen at least once during the billing period as a separate asset.
 

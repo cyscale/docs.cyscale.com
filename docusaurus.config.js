@@ -42,7 +42,7 @@ const config = {
         {
           name: 'keywords',
           content:
-            'cloud security, documentation, cspm, cloud compliance, aws security, azure security, gcp security',
+            'cloud security, documentation, cspm, cloud compliance, aws security, azure security, google cloud security',
         },
       ],
       navbar: {

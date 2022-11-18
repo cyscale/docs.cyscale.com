@@ -16,7 +16,7 @@ For specific details on how to integrate with each of the supported providers, f
 
 - [AWS Integration](./connectors/aws.mdx)
 - [Azure Integration](./connectors/azure.mdx)
-- [GCP Integration](./connectors/gcp.mdx)
+- [Google Cloud Integration](./connectors/gcp.mdx)
 - [Alibaba Integration](./connectors/alibaba.mdx)
 - [Okta](./connectors/okta.mdx)
 
