@@ -71,6 +71,8 @@ In order to benefit from everything Cyscale has to offer, the following roles ar
 
 - **Reader** - This is a built-in role which allows **read** access to all (infrastructure) resources. You can read more about the Reader role in the [Azure documentation](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader) or on the Access Control (IAM) page of your subscription (see the [Azure documentation](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions-list) for the exact steps).
 
+- **Key Vault Reader** - Cyscale needs this to check your encryption keys (e.g. rotation policy, expiration, etc.) and link them and the secrets to the resources using them (e.g. encryption with CMK, app service/function app references to Key Vaults). You can see the exact permissions in the [Azure documentations](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#key-vault-reader). This role does not grant access to the encryption keys/secrets themselves, just to their metadata.
+
 - **Custom Role** - Reading certain settings such as security settings for web apps are not covered by the reader role. More precisely, this role allows Cyscale to:
   - Get Network Security Groups configured on the network interface of the VM
   - View the configured and effective network security group rules applied on a VM
