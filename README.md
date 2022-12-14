@@ -1,41 +1,13 @@
-# Website
+# Cyscale Docs
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This repo contains [docs.cyscale.com](https://docs.cyscale.com/). It is built with [Docusaurus](https://docusaurus.io/).
 
-### Installation
+## Contributing to the Docs
 
-```
-$ yarn
-```
+First of all, this is all markdown. You might want to write the content in a dedicated word processor (e.g. on [Confluence](https://cyscale.atlassian.net/wiki/spaces/DOC/overview)) and, once you are happy with the content (the text is correct), copy it in the docs directory, in the corresponding file. Docusaurus generates the website with the structure following the directory structure.
 
-### Local Development
+To run the docs locally, you will need [Node.js](https://nodejs.org/en/) and [yarn](https://yarnpkg.com/getting-started/install). Run `yarn` to install the dependencies and `yarn start` to serve the website locally.
 
-```
-$ yarn start
-```
+## Deployment
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+GitHub actions handle the entire deployment process. Currently, we host the docs on [GitHub Pages](https://pages.github.com/).
