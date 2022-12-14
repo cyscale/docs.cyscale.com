@@ -6,9 +6,9 @@ sidebar_position: 2
 
 This page is a compilation of the most relevant terms encountered in the cloud security area in general and in the Cyscale Cloud Platform in particular.
 
-### CSPM
+### Alerts
 
-CSPM is actually a market segment defined by Gartner, but it commonly refers to the products that are part of this segment. Basically, a CSPM helps you identify cloud misconfigurations and stay compliant with industry standards, potentially across multiple cloud providers. It's the kind of tool that would tell you which S3 buckets are publicly accessible and with which sections of CIS and ISO 27001 your system is not compliant because of that.
+Alerts are commonly triggered when certain thresholds are crossed. In the context of Cyscale (and CSPM in general), alerts represent identified vulnerabilities and misconfigurations. Basically it's the resulting entity after an asset is verified against a control and fails to pass it.
 
 ### Asset
 
@@ -18,13 +18,17 @@ An asset refers to any resource your organization might have such as an AWS EC2 
 A cloud resource might contain multiple assets. For example, an EC2 instance, besides the actual instance (which is just some memory and vCPU), also comes with one or more EBS volumes, one or more ENIs, a security group, maybe an Elastic IP address, and others.
 :::
 
-### Sync
+### Connectors
 
-The sync represents the process of synchronizing your actual cloud resources with the Cyscale database. You can read more about it on the [Getting Started page](../getting-started.md#syncassessment).
+Connectors are the Cyscale entities representing your actual cloud accounts and identity provider accounts. If you want to assess and protect an AWS account, Azure subscription, Google Cloud project, Alibaba account, or Okta organization, you add it to Cyscale by creating the corresponding connector.
 
 ### Control
 
 A control is a rule describing a best practice or requirement. For example, ISO 27001 comes with Annex A which is basically a table of controls, each telling you what to check for. Within Cyscale, a control is a rule such as “Ensure S3 bucket MFA Delete is enabled”. Besides the name, each Cyscale control also comes with a description (what the control is and why it's important), remediation steps, and severity (low, medium, high).
+
+### CSPM
+
+CSPM is actually a market segment defined by Gartner, but it commonly refers to the products that are part of this segment. Basically, a CSPM helps you identify cloud misconfigurations and stay compliant with industry standards, potentially across multiple cloud providers. It's the kind of tool that would tell you which S3 buckets are publicly accessible and with which sections of CIS and ISO 27001 your system is not compliant because of that.
 
 ### Policy
 
@@ -34,10 +38,6 @@ A policy is generally a document defining how to secure certain aspects within a
 
 Procedures describe how to achieve something. Your organization might have a procedure specifying how to onboard a new employee. Within Cyscale, a procedure is basically a group of controls described by a title and a body.
 
-### Alerts
+### Sync
 
-Alerts are commonly triggered when certain thresholds are crossed. In the context of Cyscale (and CSPM in general), alerts represent identified vulnerabilities and misconfigurations. Basically it's the resulting entity after an asset is verified against a control and fails to pass it.
-
-### Connectors
-
-Connectors are the Cyscale entities representing your actual cloud accounts and identity provider accounts. If you want to assess and protect an AWS account, Azure subscription, Google Cloud project, Alibaba account, or Okta organization, you add it to Cyscale by creating the corresponding connector.
+The sync represents the process of synchronizing your actual cloud resources with the Cyscale database. You can read more about it on the [Getting Started page](../getting-started.md#syncassessment).
