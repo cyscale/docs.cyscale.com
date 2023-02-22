@@ -43,7 +43,7 @@ As soon as you change the alert generation, Cyscale will disable any `Open` aler
 
 ### The Alerts Page
 
-You can see all the alerts on [the alerts page](https://app.cyscale.com/alerts). By default, Cyscale shows you the latest `Open` alerts (i.e. sorted descendingly by the `Created at` date field).
+You can see all the alerts on [the alerts page](https://app.cyscale.com/alerts). You can view the alerts in two ways: **grouped by control** (the failing controls, each with the number of alerts - you can view the actual alerts in a dedicated modal) and **all alerts**. By default, Cyscale shows you the latest `Open` alerts (i.e. sorted descendingly by the `Created at` date field).
 
 Cyscale provides the following actions that you can perform on one or multiple alerts (batch):
 
