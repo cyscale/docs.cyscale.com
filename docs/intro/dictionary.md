@@ -30,6 +30,10 @@ A control is a rule describing a best practice or requirement. For example, ISO 
 
 CSPM is actually a market segment defined by Gartner, but it commonly refers to the products that are part of this segment. Basically, a CSPM helps you identify cloud misconfigurations and stay compliant with industry standards, potentially across multiple cloud providers. It's the kind of tool that would tell you which S3 buckets are publicly accessible and with which sections of CIS and ISO 27001 your system is not compliant because of that.
 
+### Exemptions
+
+Exemptions enable you to exclude a specific asset from being assessed against a specific control. Cyscale will consider the asset as passing that specific control.
+
 ### Policy
 
 A policy is generally a document defining how to secure certain aspects within an organization. For example, you might have a policy describing how your organization handles identity and access management. A policy within Cyscale represents an entity that, besides content such as text and images, might also contain controls. Cyscale enables you to specify how certain policy sections are actually implemented by mapping controls to them through procedures.
