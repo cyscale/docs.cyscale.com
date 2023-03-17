@@ -16,30 +16,40 @@ Currently, Cyscale has the following notification types:
 
 - **Security Posture** - a weekly digest with the security posture (high/medium/low risk asset count and their trend compared to the previous digest)
 - **Alerts** - Cyscale sends alert notifications whenever it finds new vulnerabilities. Due to how the assessment process takes place, Cyscale will batch all alerts for a given connector in a single email.
+- **Compliance threshold violations** - Cyscale sends a notification whenever it finds policies and standards with compliance scores below the threshold.  We will skip those policies and standards that haven't changed since the last notification. You can configure the threshold from **Account Settings**.
 
 ## Notification Channels
 
 Cyscale also enables you to receive alerts on **Slack**, **Teams**, and via **Webhook**. You can configure up to 10 notification channels and up to 3 notification channels for each provider (e.g., you can have up to 3 Slack notification channels).
 
-Whenever Cyscale creates new alerts for a given connector, it will batch and send them as a platform-specific message such as the Teams example below:
+Note that Cyscale will paginate the messages for Slack and Microsoft Teams. The current page sizes are `100` for alerts and `30` for compliance threshold violations. Cyscale will not paginate the messages for Webhook Integrations.
+
+#### Batched alerts message for a specific connector example
 
 ![Alerts via Teams Notification Channel](/img/alerts-teams.png)
+
+#### Compliance Threshold Violations message example
+
+![Compliance Threshold Violations via Teams Notification Channel](/img/compliance-teams.png)
 
 ### Microsoft Teams Integration
 
 In order for Cyscale to be able to send you notifications via Teams, you have to configure an **incoming webhook connector** on the Teams channel where Cyscale should send the messages. For the exact steps, consult the [Microsoft documentation](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook).
 
-Once you have the webhook URL, go to **Notification Channels** (from the top-right menu) and press the plus sign next to Microsoft Teams. Give it a descriptive name and description (optional) and paste in the webhook URL. You can make sure that the integration works by pressing **Test Connection** which tells Cyscale to send you the following message “_This message confirms you've properly configured Microsoft Teams notifications in Cyscale_”.
+Once you have the webhook URL, go to **Notification Channels** (from the top-right menu) and press the plus sign next to Microsoft Teams. Give it a descriptive name and description (optional) and paste the webhook URL. You can make sure that the integration works by pressing **Test Connection** which tells Cyscale to send you the following message “_This message confirms you've properly configured Microsoft Teams notifications in Cyscale_”.  You can also select which notifications you'd like to receive: **New Alerts** or **Compliance threshold violations**.
 
 ### Slack Integration
 
 In order for Cyscale to be able to send you notifications via Slack, you have to configure a **Slack app with incoming webhooks** enabled. For the exact steps, consult the [Slack documentation](https://api.slack.com/messaging/webhooks).
 
-Once you have the webhook URL, go to **Notification Channels** (from the top-right menu) and press the plus sign next to Slack. Give it a descriptive name and description (optional) and paste in the webhook URL. You can make sure that the integration works by pressing **Test Connection** which tells Cyscale to send you the following message “_This message confirms you've properly configured Slack notifications in Cyscale_”.
+Once you have the webhook URL, go to **Notification Channels** (from the top-right menu) and press the plus sign next to Slack. Give it a descriptive name and description (optional) and paste the webhook URL. You can make sure that the integration works by pressing **Test Connection** which tells Cyscale to send you the following message “_This message confirms you've properly configured Slack notifications in Cyscale_”. You can also select which notifications you'd like to receive: **New Alerts** or **Compliance threshold violations**.
 
 ### Webhook Integration
 
-If you want Cyscale to push alerts directly to your endpoint, you can configure a webhook. Whenever Cyscale creates new alerts, it will send to your endpoint an array with them. See the example below:
+If you want Cyscale to push notifications directly to your endpoint, you can configure a webhook and choose which notifications you'd like to receive: **New Alerts** or **Compliance threshold violations**.
+
+#### New Alerts
+Whenever Cyscale creates new alerts, it will send to your endpoint an array with them. See the example below:
 
 ```json
 [
@@ -81,3 +91,51 @@ Note that some alerts might not contain asset-related fields since they cannot b
 The **severity** of the alerts can be `low`, `medium`, or `high` and the **status** can be `open` or `resolved` (however, Cyscale sends only `open` alerts for now).
 
 Note that `resolvedAtTimestamp` is always `“0001-01-01T00:00:00Z"` since Cyscale sends only newly created alerts - they are not resolved by definition.
+
+#### Compliance threshold violations
+
+Cyscale will send a notification with policies and standards with compliance scores below the threshold. See the example bellow:
+
+```json
+{
+    "threshold": 50,
+    "skippedCount": 6,
+    "policies": [
+        {
+            "name": "Change Management",
+            "slug": "change-management",
+            "isStandard": false,
+            "currentScore": { "passedAssets": 100, "totalAssets": 400, "score": 25 },
+            "previousScore": { "passedAssets": 125, "totalAssets": 400, "score": 31 }
+        },
+        {
+            "name": "Data Management",
+            "slug": "data-management",
+            "isStandard": false,
+            "currentScore": { "passedAssets": 50, "totalAssets": 150, "score": 33 },
+            "previousScore": { "passedAssets": 30, "totalAssets": 150, "score": 20 }
+        },
+        {
+            "name": "Data Protection",
+            "slug": "data-protection",
+            "isStandard": false,
+            "currentScore": { "passedAssets": 72, "totalAssets": 146, "score": 49 },
+            "previousScore": { "passedAssets": 130, "totalAssets": 146, "score": 89 }
+        },
+        {
+            "name": "GDPR",
+            "slug": "gdpr",
+            "isStandard": true,
+            "currentScore": { "passedAssets": 523, "totalAssets": 1050, "score": 49 },
+            "previousScore": { "passedAssets": 400, "totalAssets": 1050, "score": 38 }
+        },
+        {
+            "name": "Incident Reporting and Response",
+            "slug": "incident-response",
+            "isStandard": false,
+            "currentScore": { "passedAssets": 12, "totalAssets": 65, "score": 18 },
+            "previousScore": null	
+        }
+    ]
+}
+```
