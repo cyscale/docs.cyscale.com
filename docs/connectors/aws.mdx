@@ -268,13 +268,13 @@ If the Amazon Inspector is activated, you can see all findings alongside the **C
 
 The findings will be grouped by CVE ID and ordered by Severity in the Vulnerabilities inventory (accessible from the main menu).
 
-You can also check an asset vulnerabilities by navigating to the Vulnerabilities tab or in the Overview cards section.
+You can also check asset vulnerabilities by navigating to the Vulnerabilities tab or in the Overview Cards section.
 
 ### Severity
 
-A finding severity rating can be: Info, Low, Medium, High, Critical or Untriaged. 
+A finding severity rating can be Info, Low, Medium, High, Critical or Untriaged. 
 **Untriaged** findings are those the vendor hasn't yet assigned a score for. Cyscale will consider Untriaged findings a priority and will display them at the top of the list.
-Each Severity is marked with  color from light yellow to dark red.
+Each Severity is marked with a color from light yellow to dark red.
 
 You can [read more](https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html) about how Amazon Inspector computes severity scores.
 
@@ -286,5 +286,5 @@ Risk is calculated by normalizing the severity scores of both security misconfig
 
 * The Vulnerabilities inventory will be empty until the Amazon Inspector is enabled in one of your AWS connectors.
 * Once enabled, you should wait for the next sync or trigger a sync from the Connectors page. Check [Getting Started](/getting-started#syncassessment) for more details.
-* Cyscale will not show findings related with Network Reachability due their overlapping with our security controls.
-* From 19th of April 2023, Amazon Inspector supports [deep inspection of EC2 instances](https://aws.amazon.com/about-aws/whats-new/2023/04/amazon-inspector-deep-inspection-ec2-instances/). It will allow you to see vulnerabilities in application packages such as Python, Java, and Node.js.
+* Cyscale will not show findings related to Network Reachability due to their overlapping with our security controls.
+* Starting on 19 April 2023, Amazon Inspector supports [deep inspection of EC2 instances](https://aws.amazon.com/about-aws/whats-new/2023/04/amazon-inspector-deep-inspection-ec2-instances/). It allows you to see vulnerabilities in application packages such as Python, Java, and Node.js.
