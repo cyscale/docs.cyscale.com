@@ -83,9 +83,16 @@ In order to benefit from everything Cyscale has to offer, the following roles ar
 
 ### API Permissions
 
-While roles handle the permissions for cloud infrastructure, API permissions allow Cyscale to read Azure Active Directory resource - i.e. users, groups, apps, etc.
+While roles cover the permissions for cloud infrastructure, API permissions allow Cyscale to read Azure Active Directory resources - i.e. users, groups, apps, etc.
 
-Cyscale requires only `Directory.Read.All` which enables it to read the IAM resources from your tenant. Since this is considered a high privilege permission, you will have to grant admin consent for it. You can read more about admin consent in the [Azure documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent?WT.mc_id=Portal-Microsoft_AAD_RegisteredApps#admin-consent).
+Cyscale requires the following permissions:
+
+- `Directory.Read.All` - enables Cyscale to read the IAM resources (users, groups, applications, etc.) from your tenant.
+- `UserAuthenticationMethod.Read.All` and `AuditLog.Read.All` - enables Cyscale to read MFA and admin information for users.
+
+Since these are considered high privilege permissions, you will have to grant admin consent. You can read more about admin consent in the [Azure documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent?WT.mc_id=Portal-Microsoft_AAD_RegisteredApps#admin-consent).
+
+If you do not grant the permissions or the admin consent, Cyscale will not read the corresponding data.
 
 ## Managing Your Connected Azure Subscription(s)
 
