@@ -13,7 +13,7 @@ The alerts are part of the assessment process that happens whenever Cyscale sync
 When Cyscale identifies that an asset does not pass a control for the first time, it creates a new alert with the status `Open`.
 
 :::info Alert Notifications
-Whenever Cyscale generates new alerts, it sends them via email to each user that’s part of the Cyscale account. Each user can change this from the [user settings page](https://app.cyscale.com/user-settings). Read more on [the notifications docs](../account/notifications.md).
+Whenever Cyscale generates new alerts, it sends them via email to each user that’s part of the Cyscale account. Each user can change this from the [user settings page](https://app.cyscale.com/user-settings). Read more on [the notifications docs](../general/notifications.md).
 :::
 
 The alert will remain `Open` until the asset either passes the control or is removed (or no longer visible to Cyscale - e.g., you might have changed the AWS regions in Cyscale), in which case the alert is moved to `Resolved`.
