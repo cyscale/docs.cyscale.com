@@ -1,0 +1,34 @@
+---
+sidebar_position: 3
+---
+
+# Asset Score
+
+The asset score is a metric that indicates the security impact of an asset. It is calculated based on the controls that are relevant for that asset and any assets that are impacted by the failure. The asset score is a number between 0 and 100, where 0 means that the asset has a high impact on you security posture and 100 means the asset is compliant with all the controls that check it.
+
+## How is the asset score calculated?
+
+The asset score is calculated based on the:
+ - number of controls the asset has failed
+ - the severity of the controls the asset has failed
+ - the number of assets that are impacted by the asset failing a particular control
+
+For example, if an asset fails a control with <b>high</b> severity, the asset score will be lowered by <b>50%</b>. If another control with high severity is failed by the same asset, the asset score will be lowered by another <b>50%</b> from the new score, resulting in a score of <b>25%</b>.
+
+![Example Asset](/img/asset-score-25.png)
+
+
+If the asset also increases the risk of other assets, the score of the asset will be lowered for each of the impacted assets as if additional controls were failed by the asset.
+
+So, if an asset fails a control with high severity and impacts 2 other assets, the asset score will be lowered recursively by 50%, resulting in a score of <b>13</b> (the numbers are rounded to the nearest integer).
+
+## Severity factors
+
+As previously discussed, each control has a severity associated with it. The severity of a control is used to calculate the impact of the asset failing that control on the score. The severity of a control is one of the following:
+ - <b>Low</b> - the asset score is lowered by 10%
+ - <b>Medium</b> - the asset score is lowered by 25%
+ - <b>High</b> - the asset score is lowered by 50%
+
+## How can I improve the asset score?
+
+You can improve the asset score by following the remediation steps for the controls that the asset has failed. The asset score will be recalculated after the next assessment.
