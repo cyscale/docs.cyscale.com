@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Asset Score
 
-The asset score is a metric that indicates the security impact of an asset. It is calculated based on the controls that are relevant for that asset and any assets that are impacted by the failure. The asset score is a number between 0 and 100, where 0 means that the asset has a high impact on you security posture and 100 means the asset is compliant with all the controls that check it.
+The asset score is a metric that indicates the security impact of an asset. It is calculated based on the controls that are relevant for that asset and any assets that are impacted by the failure. The asset score is a number between 0 and 100, where 0 means that the asset has a high impact on your security posture and 100 means the asset is compliant with all the controls that check it.
 
 ## How is the asset score calculated?
 
@@ -29,6 +29,6 @@ As previously discussed, each control has a severity associated with it. The sev
  - <b>Medium</b> - the asset score is lowered by 25%
  - <b>High</b> - the asset score is lowered by 50%
 
-## How can I improve the asset score?
+## How can I improve my asset score?
 
 You can improve the asset score by following the remediation steps for the controls that the asset has failed. The asset score will be recalculated after the next assessment.
