@@ -15,7 +15,7 @@ The asset score is calculated based on the:
 
 For example, if an asset fails a control with <b>high</b> severity, the asset score will be lowered by <b>50%</b>. If another control with high severity is failed by the same asset, the asset score will be lowered by another <b>50%</b> from the new score, resulting in a score of <b>25%</b>.
 
-![Example Asset](/img/asset-score-25.png)
+![Example Asset](/img/asset-security-score.png)
 
 
 If the asset also increases the risk of other assets, the score of the asset will be lowered for each of the impacted assets as if additional controls were failed by the asset.
