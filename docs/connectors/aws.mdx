@@ -23,6 +23,10 @@ You also provide the **external ID**. The field is pre-populated by default and 
 
 In the second step, you create the AWS role. Cyscale gives you multiple ways to achieve this to adhere to your already existing processes.
 
+:::tip Tip
+If you use Okta to manage your users and groups, consider [connecting your Okta account to Cyscale](./okta.mdx). This will enable Cyscale to link your Okta users with the AWS SSO users, thus providing you with the complete picture of what each Okta user can do in each AWS account.
+:::
+
 #### CloudFormation (Default)
 
 The most straightforward way to create the required AWS role is by using CloudFormation, the native infrastructure as code service from AWS.
@@ -67,24 +71,6 @@ The Cyscale AWS account (789815788242) follows all the best practices and is con
 
 ### Step 3
 
-You can tell Cyscale to also discover the AWS SSO resources (users and groups) managed through [SCIM](https://docs.aws.amazon.com/singlesignon/latest/developerguide/what-is-scim.html). These endpoints are used, in most cases, for automatic provisioning of users and groups from an identity provider such as Okta.
-
-Enable the SCIM integration if you have configured SSO for your AWS account. This implies that the AWS account is the management account of the AWS Organization. Read more in the [AWS documentation](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-accounts.html).
-
-You will have to provide the SCIM endpoint and the access token - you can create a new one by following the steps described in the [AWS docs](https://docs.aws.amazon.com/singlesignon/latest/userguide/provision-automatically.html#generate-token).
-
-Cyscale only reads the SSO users and groups through SCIM.
-
-:::info Limitations
-Currently, the AWS SCIM implementation limits the number of [users](https://docs.aws.amazon.com/singlesignon/latest/developerguide/listusers.html#constraints-listusers) and [groups](https://docs.aws.amazon.com/singlesignon/latest/developerguide/listgroups.html#constraints-listgroups) that can be retrieved to 50. If you need more contact us - we might be able to leverage more information provided by the identity provider.
-:::
-
-:::tip Tip
-If you use Okta to manage your users and groups, consider [connecting your Okta account to Cyscale](./okta.mdx). This will enable Cyscale to link your Okta users with the AWS SSO users, thus providing you with the complete picture of what each Okta user can do in each AWS account.
-:::
-
-### Step 4
-
 In this step, you can select which AWS regions should be covered by Cyscale. By default, all regions are selected. In most cases, you will want to choose the regions in which you have some resources deployed. You can change this after.
 
 :::tip Default Resources
@@ -95,7 +81,7 @@ All AWS regions have some resources deployed by default such as the default VPC,
 Certain resources such as IAM resources (users, groups, roles, policies, etc.) do not belong to a certain region. These are classified by Cyscale as **global assets**.
 :::
 
-### Step 5
+### Step 4
 
 In this step, Cyscale makes sure the connection to your cloud account can be established and starts the first sync in the background. You can navigate to the cloud account overview page. The page will automatically refresh when the sync and assessment are completed.
 
