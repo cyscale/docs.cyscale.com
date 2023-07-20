@@ -43,10 +43,14 @@ As soon as you change the alert generation, Cyscale will disable any `Open` aler
 
 ### The Alerts Page
 
-You can see all the alerts on [the alerts page](https://app.cyscale.com/alerts). You can view the alerts in two ways: **grouped by control** (the failing controls, each with the number of alerts - you can view the actual alerts in a dedicated modal) and **all alerts**. By default, Cyscale shows you the latest `Open` alerts (i.e. sorted descendingly by the `Created at` date field).
+You can see all the alerts on [the alerts page](https://app.cyscale.com/alerts). You can view the alerts in two ways: **grouped by control** (the failing controls, each with the number of alerts - you can view the actual alerts in a dedicated modal) and **all alerts**. By default, Cyscale shows you the latest `Open` alerts (i.e. sorted descendingly by the `Created at` date field). Besides the provided sorting criteria, Cyscale shows the alerts that have the most impacted assets first if the alerts have the same value for the sorting criteria (e.g. if you sort the alerts page by severity descendingly, Cyscale will show the alerts with the highest severity that have the most impacted assets first, then the highest severity alerts that have no impacted assets followed by alerts with a lower severity).
 
 Cyscale provides the following actions that you can perform on one or multiple alerts (batch):
 
 1. **Dismiss** - this is how you tell Cyscale that you don’t want to see the selected alert(s). Cyscale will move the alert(s) to the **Dismissed** tab until the next assessment. If the issue is still there, Cyscale will move the alert back to the main tab.
 2. **Acknowledge** - you can think of this action as of the read/unread state most email clients offer. Cyscale will not change the acknowledgement state during the subsequent assessments (as opposed to dismiss). You might find filtering by the acknowledgement state useful.
 3. **Exempt** - instruct Cyscale to always consider this asset as passing this control. You will have to provide a reason for exemption.
+
+
+#### Impacted assets
+The alerts for contextual controls also display the impacted assets for that misconfiguration, that is assets, which become vulnerable due to the issue identified in the primary assets by the control. For example, an alert for a control that checks if the security group allows SSH access from the internet will display the assets using the misconfigured security group, since those assets would be vulnerable to an external remote service attack.
