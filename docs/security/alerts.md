@@ -28,13 +28,10 @@ The other alternative is when you disable the respective control or update it to
 
 ### Alert Generation
 
-You can influence which controls Cyscale must generate alerts for. You have two options:
-
-1. Per control by disabling the **Create alerts when this control fails** flag. You can find this on the details panel of each control.
-2. For your entire Cyscale account by changing the **Severity Alerting Level** from [the account settings page](https://app.cyscale.com/account-settings). Cyscale will generate alerts for controls with severity equal or greater than the configured level.
+You can influence which controls Cyscale must generate alerts for by changing the **Severity Alerting Level** from [the account settings page](https://app.cyscale.com/account-settings). Cyscale will generate alerts for controls with severity equal to or greater than the configured level.
 
 :::info Default severity alerting level
-The default level is **medium**. Cyscale will not generate alerts for low severity controls out of the box. We made this choice in order to keep the number of alerts as manageable as possible, especially after you connect your accounts for the first time.
+The default level is **medium**. Cyscale will not generate alerts for low severity controls out of the box. We made this choice to keep the number of alerts as manageable as possible, especially after you connect your accounts for the first time.
 :::
 
 :::caution Changing alert generation
@@ -43,10 +40,19 @@ As soon as you change the alert generation, Cyscale will disable any `Open` aler
 
 ### The Alerts Page
 
-You can see all the alerts on [the alerts page](https://app.cyscale.com/alerts). You can view the alerts in two ways: **grouped by control** (the failing controls, each with the number of alerts - you can view the actual alerts in a dedicated modal) and **all alerts**. By default, Cyscale shows you the latest `Open` alerts (i.e. sorted descendingly by the `Created at` date field).
+You can see all the alerts on [the alerts page](https://app.cyscale.com/alerts). You can view the alerts in two ways:
+
+- **grouped by control** (the failing controls, each with the number of alerts)
+- **all alerts**
+
+By default, Cyscale shows you the latest `Open` alerts (i.e. sorted descending by the `Created at` date field). Besides the provided sorting criteria, Cyscale shows the alerts that have the most impacted assets first if the alerts have the same value for the sorting criteria. For example, if you sort the alerts page by severity descending, Cyscale will show the alerts with the highest severity that have the most impacted assets first, then the highest severity alerts that have no impacted assets followed by alerts with a lower severity.
 
 Cyscale provides the following actions that you can perform on one or multiple alerts (batch):
 
 1. **Dismiss** - this is how you tell Cyscale that you don’t want to see the selected alert(s). Cyscale will move the alert(s) to the **Dismissed** tab until the next assessment. If the issue is still there, Cyscale will move the alert back to the main tab.
 2. **Acknowledge** - you can think of this action as of the read/unread state most email clients offer. Cyscale will not change the acknowledgement state during the subsequent assessments (as opposed to dismiss). You might find filtering by the acknowledgement state useful.
 3. **Exempt** - instruct Cyscale to always consider this asset as passing this control. You will have to provide a reason for exemption.
+
+#### Impacted assets
+
+The alerts for contextual controls also display the impacted assets for that misconfiguration, that is assets, which become vulnerable due to the issue identified in the primary assets by the control. For example, an alert for a control that checks if the security group allows SSH access from the internet will display the assets (VMs) using the misconfigured security group, since those assets would be vulnerable to an external remote service attack.
