@@ -34,5 +34,5 @@ When this filter is applied, the inventory will display all the assets impacted 
 
 We've created an intuitive yet familiar control selector  which allows you to search for controls based on `Name`, `Provider`, `Severity` and `Category`. You can then click to select one or multiple controls. Notice that you can only select `Failed` controls.
 
-![Impacted by Controls filter UI](/img/impacted-by-controls-filter.png)
+![Impacted by Controls filter UI](/img/impacted-by-controls-filter.gif)
 
