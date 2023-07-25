@@ -22,6 +22,13 @@ If the asset also increases the risk of other assets, the score of the asset wil
 
 So, if an asset fails a control with high severity and impacts 2 other assets, the asset score will be lowered recursively by 50%, resulting in a score of <b>13</b> (the numbers are rounded to the nearest integer).
 
+You can see the number of impacted assets when you hover over the score. A number of <b>0</b> means that the asset does not impact any other assets except itself.
+
+![Example Asset](/img/impacted-assets-score.png)
+> <i>For this example, we can see that the misconfigurations on this asset also impact 12 other assets, 6 for one control and 6 for another control.</i>
+
+> <i>Impacted assets are not guaranteed to be distinct, meaning that of the 12 impacted assets, some of them may be the same asset, but impacted by different controls.</i>
+
 ## Severity factors
 
 As previously discussed, each control has a severity associated with it. The severity of a control is used to calculate the impact of the asset failing that control on the score. The severity of a control is one of the following:
