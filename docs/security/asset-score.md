@@ -20,7 +20,7 @@ For example, if an asset fails a control with <b>high</b> severity, the asset sc
 
 If the asset also increases the risk of other assets, the score of the asset will be lowered for each of the impacted assets as if additional controls were failed by the asset.
 
-So, if an asset fails a control with high severity and impacts 2 other assets, the asset score will be lowered recursively by 50%, resulting in a score of <b>13</b> (the numbers are rounded to the nearest integer).
+So, if an asset fails a control with high severity and impacts 2 other assets, the asset score will be lowered recursively by 50%, resulting in a score of <b>13%</b> (the numbers are rounded to the nearest integer).
 
 You can see the number of impacted assets when you hover over the score. A number of <b>0</b> means that the asset does not impact any other assets except itself.
 
