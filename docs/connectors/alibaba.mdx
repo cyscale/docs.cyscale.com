@@ -60,72 +60,57 @@ You can update the following information for your Aliyun cloud accounts:
 
 ## Service Coverage
 
-The list of Alibaba Cloud resources that Cyscale can handle are listed in the tables below, along with the number of controls that check their configuration
+The Alibaba Cloud resources that Cyscale can handle are listed in the tables below, along with the number of controls that check their configuration:
 
-### Compute
+| Compute         | # of Controls |
+| --------------- | ------------- |
+| Cluster (ACK)   | 0             |
+| Function        | 1             |
+| FunctionService | 0             |
+| VM (ECS)        | 2             |
 
-| ECS           | # of Controls |
+| Databases             | # of Controls |
+| --------------------- | ------------- |
+| DBInstance (ApsaraDB) | 7             |
+
+| IAM (RAM)           | # of Controls |
+| ------------------- | ------------- |
+| IAMGroup            | 0             |
+| IAMPasswordPolicy   | 8             |
+| IAMPolicy           | 1             |
+| IAMRole             | 0             |
+| IAMUser             | 5             |
+| IAMVirtualMFADevice | 0             |
+
+| Services        | # of Controls |
+| --------------- | ------------- |
+| MNSQueue        | 0             |
+| MNSSubscription | 0             |
+| MNSTopic        | 0             |
+
+| Management        | # of Controls |
+| ----------------- | ------------- |
+| CloudAccount      | 3             |
+| IAMAccountSummary | 0             |
+| Trail             | 0             |
+
+| Networking    | # of Controls |
 | ------------- | ------------- |
-| Disk          | 1             |
-| Instance      | 1             |
+| Domain        | 1             |
 | SecurityGroup | 3             |
+| VPC           | 0             |
+| VPCFlowLog    | 0             |
+| VPCRouteTable | 0             |
 
-| VPC        | # of Controls |
+| Operations | # of Controls |
 | ---------- | ------------- |
-| FlowLog    | 0             |
-| RouteTable | 0             |
-| VPC        | 0             |
+| Alert      | 0             |
 
-### Databases
+| Security | # of Controls |
+| -------- | ------------- |
+| KMSKey   | 5             |
 
-| RDS        | # of Controls |
-| ---------- | ------------- |
-| DBInstance | 2             |
-
-### Identity & Access Management
-
-| RAM              | # of Controls |
-| ---------------- | ------------- |
-| PasswordPolicy   | 8             |
-| Policy           | 1             |
-| Role             | 0             |
-| User             | 4             |
-| VirtualMFADevice | 0             |
-
-### Logging
-
-| ActionTrail | # of Controls |
-| ----------- | ------------- |
-| Trail       | 1             |
-
-### Security & Network
-
-| KMS    | # of Controls |
-| ------ | ------------- |
-| KMSKey | 0             |
-
-### Serverless
-
-| Cluster | # of Controls |
+| Storage | # of Controls |
 | ------- | ------------- |
-| Cluster | 0             |
-
-### Services
-
-| SLS   | # of Controls |
-| ----- | ------------- |
-| Alert | 0             |
-
-| WAF    | # of Controls |
-| ------ | ------------- |
-| Domain | 1             |
-
-### Storage
-
-| OSS    | # of Controls |
-| ------ | ------------- |
-| Bucket | 4             |
-
-### Cloud-Wide
-
-In addition, Cyscale offers 58 more Alibaba Cloud controls that are not specific to a service or asset type. These are called cloud-wide controls.
+| Bucket  | 10            |
+| Disk    | 2             |
