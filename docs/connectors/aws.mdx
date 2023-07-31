@@ -122,122 +122,6 @@ You can update the following information for your AWS cloud accounts:
 
 <Sync />
 
-## Service Coverage
-
-The list of AWS resources that Cyscale can handle are listed in the tables below, along with the number of controls that check their configuration
-
-### Compute
-
-| EC2              | # of Controls |
-| ---------------- | ------------- |
-| FlowLog          | 1             |
-| Image            | 1             |
-| NetworkACL       | 1             |
-| NetworkInterface | 0             |
-| SecurityGroup    | 6             |
-| Snapshot         | 0             |
-| Subnetwork       | 0             |
-| VM               | 4             |
-| Volume           | 0             |
-| VPC              | 0             |
-
-| ECS                  | # of Controls |
-| -------------------- | ------------- |
-| ECSContainerInstance | 0             |
-
-### Databases
-
-| RDS        | # of Controls |
-| ---------- | ------------- |
-| DBInstance | 4             |
-| DBCluster  | 0             |
-
-| DynamoDB      | # of Controls |
-| ------------- | ------------- |
-| DynamoDBTable | 0             |
-
-### Identity & Access Management
-
-| IAM               | # of Controls |
-| ----------------- | ------------- |
-| AccessAnalyzer    | 1             |
-| CredentialReport  | 0             |
-| Group             | 1             |
-| PasswordPolicy    | 7             |
-| Policy            | 2             |
-| Role              | 2             |
-| ServerCertificate | 1             |
-| User              | 4             |
-| UserCredentials   | 1             |
-| VirtualMFADevice  | 0             |
-
-### Logging
-
-| CloudTrail | # of Controls |
-| ---------- | ------------- |
-| Trail      | 4             |
-
-| CloudWatch   | # of Controls |
-| ------------ | ------------- |
-| MetricAlarm  | 0             |
-| MetricFilter | 0             |
-
-### Security & Network
-
-| ELB          | # of Controls |
-| ------------ | ------------- |
-| HTTPListener | 1             |
-| LoadBalancer | 3             |
-
-| KMS    | # of Controls |
-| ------ | ------------- |
-| KMSKey | 1             |
-
-### Serverless
-
-| Lambda   | # of Controls |
-| -------- | ------------- |
-| Function | 1             |
-
-### Services
-
-| Config                | # of Controls |
-| --------------------- | ------------- |
-| ConfigurationRecorder | 1             |
-
-| Kinesis           | # of Controls |
-| ----------------- | ------------- |
-| KinesisDataStream | 1             |
-
-| SNS             | # of Controls |
-| --------------- | ------------- |
-| SNSSubscription | 0             |
-| SNSTopic        | 1             |
-
-| ECS        | # of Controls |
-| ---------- | ------------- |
-| ECSCluster | 0             |
-
-| SQS      | # of Controls |
-| -------- | ------------- |
-| SQSQueue | 0             |
-
-| API Gateway  | # of Controls |
-| ------------ | ------------- |
-| API          | 0             |
-| VPCLink      | 0             |
-| CustomDomain | 0             |
-
-### Storage
-
-| S3     | # of Controls |
-| ------ | ------------- |
-| Bucket | 13            |
-
-### Cloud-Wide
-
-In addition, Cyscale offers 27 more AWS controls that are not specific to a service or asset type. These are called cloud-wide controls.
-
 ## Amazon Inspector
 
 ### Configure
@@ -258,7 +142,7 @@ You can also check asset vulnerabilities by navigating to the Vulnerabilities ta
 
 ### Severity
 
-A finding severity rating can be Info, Low, Medium, High, Critical or Untriaged. 
+A finding severity rating can be Info, Low, Medium, High, Critical or Untriaged.
 **Untriaged** findings are those the vendor hasn't yet assigned a score for. Cyscale will consider Untriaged findings a priority and will display them at the top of the list.
 Each Severity is marked with a color from light yellow to dark red.
 
@@ -270,7 +154,107 @@ Risk is calculated by normalizing the severity scores of both security misconfig
 
 ### Mentions
 
-* The Vulnerabilities inventory will be empty until the Amazon Inspector is enabled in one of your AWS connectors.
-* Once enabled, you should wait for the next sync or trigger a sync from the Connectors page. Check [Getting Started](/getting-started#syncassessment) for more details.
-* Cyscale will not show findings related to Network Reachability due to their overlapping with our security controls.
-* Starting on 19 April 2023, Amazon Inspector supports [deep inspection of EC2 instances](https://aws.amazon.com/about-aws/whats-new/2023/04/amazon-inspector-deep-inspection-ec2-instances/). It allows you to see vulnerabilities in application packages such as Python, Java, and Node.js.
+- The Vulnerabilities inventory will be empty until the Amazon Inspector is enabled in one of your AWS connectors.
+- Once enabled, you should wait for the next sync or trigger a sync from the Connectors page. Check [Getting Started](/getting-started#syncassessment) for more details.
+- Cyscale will not show findings related to Network Reachability due to their overlapping with our security controls.
+- Starting on 19 April 2023, Amazon Inspector supports [deep inspection of EC2 instances](https://aws.amazon.com/about-aws/whats-new/2023/04/amazon-inspector-deep-inspection-ec2-instances/). It allows you to see vulnerabilities in application packages such as Python, Java, and Node.js.
+
+## Service Coverage
+
+The AWS resources that Cyscale can handle are listed in the tables below, along with the number of controls that check their configuration:
+
+| AI/ML             | # of Controls |
+| ----------------- | ------------- |
+| SageMakerNoteBook | 3             |
+
+| Compute              | # of Controls |
+| -------------------- | ------------- |
+| AutoScalingGroup     | 0             |
+| ECSCluster           | 1             |
+| ECSContainerInstance | 0             |
+| Function             | 2             |
+| VM (EC2 instance)    | 7             |
+
+| Containers           | # of Controls |
+| -------------------- | ------------- |
+| ContainerRegistry    | 0             |
+| ECRImage             | 0             |
+| ECRPublicImage       | 0             |
+| ECRPublicRepository  | 0             |
+| ECRRepository        | 0             |
+| ECSScheduledTask     | 0             |
+| ECSService           | 2             |
+| ECSTask              | 0             |
+| ECSTaskContainer     | 0             |
+| ECSTaskContainerSpec | 0             |
+| ECSTaskDefinition    | 5             |
+| ECSTaskSet           | 0             |
+
+| IAM                 | # of Controls |
+| ------------------- | ------------- |
+| AccessAnalyzer      | 0             |
+| IAMGroup            | 2             |
+| IAMPasswordPolicy   | 7             |
+| IAMPolicy           | 0             |
+| IAMRole             | 3             |
+| IAMUser             | 11            |
+| IAMVirtualMFADevice | 0             |
+| SSOGroup            | 0             |
+| SSOPermissionSet    | 0             |
+| SSOUser             | 0             |
+
+| Integration         | # of Controls |
+| ------------------- | ------------- |
+| API                 | 0             |
+| DataStream          | 1             |
+| EventBridgeRule     | 0             |
+| EventBridgeSchedule | 0             |
+| MQBroker            | 0             |
+| SNSSubscription     | 0             |
+| SNSTopic            | 1             |
+| SQSQueue            | 1             |
+
+| Management            | # of Controls |
+| --------------------- | ------------- |
+| CloudAccount          | 22            |
+| ConfigurationRecorder | 0             |
+| EBSSettings           | 1             |
+| IAMAccountSummary     | 0             |
+| OrgAccount (SSO)      | 0             |
+| Trail                 | 3             |
+
+| Networking       | # of Controls |
+| ---------------- | ------------- |
+| CustomDomain     | 0             |
+| FlowLog          | 0             |
+| HTTPListener     | 0             |
+| LoadBalancer     | 4             |
+| NetworkACL       | 1             |
+| NetworkInterface | 0             |
+| PrefixList       | 0             |
+| SecurityGroup    | 8             |
+| Subnetwork       | 0             |
+| TargetGroup      | 0             |
+| VPC              | 1             |
+| VPCLink          | 0             |
+
+| Operations            | # of Controls |
+| --------------------- | ------------- |
+| LaunchTemplate        | 0             |
+| LaunchTemplateVersion | 3             |
+| MetricAlarm           | 0             |
+| MetricFilter          | 0             |
+| Snapshot              | 0             |
+| Image (AMI)           | 1             |
+
+| Security             | # of Controls |
+| -------------------- | ------------- |
+| Certificate          | 1             |
+| IAMServerCertificate | 1             |
+| KeyPair              | 0             |
+| KMSKey               | 8             |
+
+| Storage | # of Controls |
+| ------- | ------------- |
+| Bucket  | 17            |
+| Disk    | 1             |
