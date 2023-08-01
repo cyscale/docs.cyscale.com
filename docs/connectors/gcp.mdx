@@ -100,93 +100,67 @@ You can update the following information for your Google Cloud cloud accounts:
 
 ## Service Coverage
 
-The list of Google Cloud resources that Cyscale can handle are listed in the tables below, along with the number of controls that check their configuration
+The Google Cloud resources that Cyscale can handle are listed in the tables below, along with the number of controls that check their configuration:
 
-### Compute
+| Compute  | # of Controls |
+| -------- | ------------- |
+| Cluster  | 18            |
+| Function | 1             |
+| VM       | 8             |
 
-| Compute          | # of Controls |
+| Databases        | # of Controls |
 | ---------------- | ------------- |
-| Disk             | 1             |
-| FirewallRule     | 9             |
-| Project          | 1             |
+| BigQueryTable    | 1             |
+| BigTable         | 0             |
+| CloudSpanner     | 0             |
+| CloudSQLInstance | 18            |
+
+| IAM                  | # of Controls |
+| -------------------- | ------------- |
+| IAMGroup             | 0             |
+| IAMPermission        | 0             |
+| IAMPolicy            | 0             |
+| IAMRole              | 1             |
+| IAMServiceAccount    | 4             |
+| IAMServiceAccountKey | 1             |
+| IAMUser              | 5             |
+
+| Integration            | # of Controls |
+| ---------------------- | ------------- |
+| PubSubLiteSubscription | 0             |
+| PubSubLiteTopic        | 0             |
+| PubSubSubscription     | 1             |
+| PubSubTopic            | 1             |
+
+| Management   | # of Controls |
+| ------------ | ------------- |
+| CloudAccount | 10            |
+| Project      | 1             |
+
+| Networking       | # of Controls |
+| ---------------- | ------------- |
+| Firewall         | 10            |
+| ManagedZone      | 3             |
+| NetworkInterface | 0             |
 | PublicIP         | 0             |
-| SSLPolicy        | 0             |
+| Subnetwork       | 0             |
 | TargetHTTPSProxy | 1             |
 | TargetSSLProxy   | 1             |
-| VM               | 6             |
 | VPC              | 4             |
 
-### Databases
-
-| BigQuery      | # of Controls |
-| ------------- | ------------- |
-| BigQueryTable | 1             |
-
-| BigTable | # of Controls |
-| -------- | ------------- |
-| BigTable | 0             |
-
-| Cloud SQL        | # of Controls |
-| ---------------- | ------------- |
-| CloudSQLInstance | 13            |
-| SQLUser          | 1             |
-
-| Cloud Spanner | # of Controls |
-| ------------- | ------------- |
-| CloudSpanner  | 0             |
-
-### Identity & Access Management
-
-| IAM               | # of Controls |
-| ----------------- | ------------- |
-| IAMUser           | 5             |
-| Role              | 1             |
-| ServiceAccount    | 4             |
-| ServiceAccountKey | 1             |
-
-### Logging
-
-| Monitoring  | # of Controls |
+| Operations  | # of Controls |
 | ----------- | ------------- |
 | AlertPolicy | 0             |
+| LogBucket   | 1             |
+| LogMetric   | 0             |
+| LogSink     | 0             |
 
-| Logging   | # of Controls |
+| Security  | # of Controls |
 | --------- | ------------- |
-| LogMetric | 0             |
-| LogSink   | 0             |
-
-### Security & Network
-
-| Cloud KMS | # of Controls |
-| --------- | ------------- |
-| KMSKey    | 2             |
-
-| DNS         | # of Controls |
-| ----------- | ------------- |
-| ManagedZone | 3             |
-
-| Network          | # of Controls |
-| ---------------- | ------------- |
-| NetworkInterface | 1             |
-
-### Serverless
-
-| Cloud Functions | # of Controls |
-| --------------- | ------------- |
-| CloudFunction   | 0             |
-
-### Services
-
-| Container | # of Controls |
-| --------- | ------------- |
-| Cluster   | 18            |
-
-### Storage
+| KMSKey    | 9             |
+| SSLPolicy | 0             |
 
 | Storage | # of Controls |
 | ------- | ------------- |
-| Bucket  | 6             |
-
-### Cloud-Wide
-
-In addition, Cyscale offers 20 more Google Cloud controls that are not specific to a service or asset type. These are called cloud-wide controls.
+| Bucket  | 12            |
+| Disk    | 2             |
