@@ -56,3 +56,16 @@ Cyscale provides the following actions that you can perform on one or multiple a
 #### Impacted assets
 
 The alerts for contextual controls also display the impacted assets for that misconfiguration, that is assets, which become vulnerable due to the issue identified in the primary assets by the control. For example, an alert for a control that checks if the security group allows SSH access from the internet will display the assets (VMs) using the misconfigured security group, since those assets would be vulnerable to an external remote service attack.
+
+
+#### Contextual Control Graph for an Impacted Asset
+
+To view a contextual control graph for an alert, you should click on the specific alert to open the Alert Details and navigate to the Graph tab. Alternatively, you can click on the "Impacted Assets" column within the alert to access the graph directly. This will allow you to visualize the relationships and connections associated with the alert.
+
+You can view a graph displaying the primary asset along with all the impacted assets for a specific control. This graph allows you to examine and trace the path between the primary asset and any impacted asset. Additionally, you can observe all the assets located between the primary and impacted assets.
+
+For example, for the 'Ensure Datastores are not accessible by users without MFA' control, you can refer to the following graph:
+
+![Alert graph](/img/contextual-control-graph.png)
+
+In the example below, an IAMUser without MFA has been granted access to multiple datastores (such as Buckets, DynamoDB Tables, Discs, etc.).
