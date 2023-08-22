@@ -8,7 +8,7 @@ This page describes what you need to fully leverage Cyscale Cloud Platform.
 
 ## Public Cloud
 
-Cyscale is designed to work with systems running on public clouds. We currently support Amazon Web Services, Microsoft Azure, Google Cloud Platform, and Alibaba Cloud. Additionally, each one of these providers offers a large suite of services so make sure to consult the service coverage section for each provider to determine whether your infrastructure is sufficiently covered.
+Cyscale is designed to work with systems running on public clouds. We currently support Amazon Web Services, Microsoft Azure, Google Cloud, and Alibaba Cloud. Additionally, each one of these providers offers a large suite of services so make sure to consult the service coverage section for each provider to determine whether your infrastructure is sufficiently covered.
 
 You should consider Cyscale when you have a medium to large, frequently changing infrastructure deployed in the cloud or if you are migrating your on-premises infrastructure to the cloud.
 
