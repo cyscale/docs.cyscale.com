@@ -60,12 +60,18 @@ The alerts for contextual controls also display the impacted assets for that mis
 
 #### Contextual Control Graph for an Impacted Asset
 
-To view a contextual control graph for an alert, you should click on the specific alert to open the Alert Details and navigate to the Graph tab. Alternatively, you can click on the "Impacted Assets" column within the alert to access the graph directly. This will allow you to visualize the relationships and connections associated with the alert.
+To view a contextual control graph for an alert, click on the "Impacted Assets" column within the alert to access the graph with a list of impacted assets. Alternatively, you can click on the specific alert to open the Alert Details and then navigate to the Graph tab. This will allow you to visualize the relationships and connections associated with the alert.
 
-You can view a graph displaying the primary asset along with all the impacted assets for a specific control. This graph allows you to examine and trace the path between the primary asset and any impacted asset. Additionally, you can observe all the assets located between the primary and impacted assets.
+On the left side, you can see a list of Impacted assets, and on the right side, a graph is displayed. When nothing is selected from the Impacted assets list, you can view a graph that displays the primary asset along with all the impacted assets for a specific control. This graph allows you to examine and trace the path between the primary asset and any impacted asset. Additionally, you can observe all the assets located between the primary and impacted assets.
+
+You can select one or more assets from the impacted assets list. When an asset is selected, the graph will show the relationships between the primary asset and the selected secondary asset.
 
 For example, for the 'Ensure Datastores are not accessible by users without MFA' control, you can refer to the following graph:
 
-![Alert graph](/img/contextual-control-graph.png)
+![Alert graph](/img/contextual-control-graph-with-assets-list.png)
 
 In the example below, an IAMUser without MFA has been granted access to multiple datastores (such as Buckets, DynamoDB Tables, Discs, etc.).
+
+If you want to see the relations related to a specific Bucket and SQSQueue, you can click on the assets from the list, and the graph will filter the nodes to show only the selected impacted assets.
+
+![Alert graph with selected impacted assets](/img/contextual-control-graph-with-selected-impacted-assets.png)
