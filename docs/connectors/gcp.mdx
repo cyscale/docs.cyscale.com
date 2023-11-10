@@ -99,6 +99,12 @@ You can update the following information for your Google Cloud cloud accounts:
 
     <Sync />
 
+## Vulnerabilities
+
+If you are using the [OS scanning](https://cloud.google.com/artifact-analysis/docs/os-overview) feature of [Artifact Registry](https://cloud.google.com/artifact-registry), Cyscale will automatically pull the reported vulnerability findings, enrich them from other sources, and display the findings in the context of your infrastructure (e.g. on the Cloud Run services running the vulnerable images):
+
+![OS Scanning findings for Cloud Run](/img/gcp-vulnerabilities.png)
+
 ## Service Coverage
 
 The Google Cloud resources that Cyscale can handle are listed in the tables below, along with the number of controls that check their configuration:
