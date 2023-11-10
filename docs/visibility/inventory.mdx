@@ -14,27 +14,27 @@ Besides these, Cyscale supports filtering by `Security Score` and `Failed Contro
 
 ### Security Score
 
-The asset score is a metric that indicates the security impact of an asset. When filtering by  score, you can choose from 4 options:
- - **Minimal Risk**: 100% score (or no risk detected by Cyscale)
- - **Low Risk**: 76% - 99% score
- - **Medium Risk**: 51% - 75% score
- - **High Risk**: 0% - 50%
+The asset score is a metric that indicates the security impact of an asset. When filtering by score, you can choose from 4 options:
+
+- **Minimal Risk**: 100% score (or no risk detected by Cyscale)
+- **Low Risk**: 76% - 99% score
+- **Medium Risk**: 51% - 75% score
+- **High Risk**: 0% - 50%
 
 This will allow you to check which are the most insecure assets and focus on remediating them to increase your overall security posture.
 
-You can combine this filter with any other to get powerful insights like *"AWS Virtual Machines with High Risk"* or *"Assets with `env: production` tag with Medium Risk"*.
+You can combine this filter with any other to get powerful insights like _"AWS Virtual Machines with High Risk"_ or _"Assets with `env: production` tag with Medium Risk"_.
 
-For more information check [Asset Score Page](../security/asset-score.md).
+For more information check [Asset Score Page](../security/security-score.mdx).
 
 ### Failed Controls
 
-Another powerful filter is **Failed Controls**. This will allow you to filter the inventory based on specific security controls like *"Ensure VMs are not publicly accessible"*.
+Another powerful filter is **Failed Controls**. This will allow you to filter the inventory based on specific security controls like _"Ensure VMs are not publicly accessible"_.
 
 When this filter is applied, the inventory will display all the assets impacted by a control (notice that secondary impacted assets are displayed as well, check [Alerts Page](../security/alerts.md#impacted-assets) for more details about this).
 
-We've created an intuitive yet familiar control selector  which allows you to search for controls based on `Name`, `Provider`, `Severity` and `Category`. You can then click to select one or multiple controls. Notice that you can only select `Failed` controls.
+We've created an intuitive yet familiar control selector which allows you to search for controls based on `Name`, `Provider`, `Severity` and `Category`. You can then click to select one or multiple controls. Notice that you can only select `Failed` controls.
 
-For example, you can combine this filter with any other to get valuable information of *"Production AWS Virtual Machines publicly accessible from the Internet"*:
+For example, you can combine this filter with any other to get valuable information of _"Production AWS Virtual Machines publicly accessible from the Internet"_:
 
 ![Failed Controls filter UI](/img/impacted-by-controls-filter.png)
-

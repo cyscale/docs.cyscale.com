@@ -116,41 +116,27 @@ You can update the following information for your AWS cloud accounts:
 
 ### Disable/Enable
 
-<DisableEnable />
+    <DisableEnable />
 
 ### Sync
 
-<Sync />
+    <Sync />
 
-## Amazon Inspector
+## Vulnerabilities
 
-### Configure
+Cyscale pulls vulnerabilities/findings reported by [Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html) (EC2 instances, Lambda functions, ECR images) and [ECR Basic Scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-basic.html) (ECR images). We recommend using them if possible.
 
-Amazon Inspector is an automated vulnerability management service that continually scans Amazon Elastic Compute Cloud (EC2), AWS Lambda functions, and container workloads for software vulnerabilities and unintended network exposure.
-
-You can activate Amazon Inspector for your entire organization or an individual account with a few clicks in the AWS Management Console. For more information check [FAQ](https://aws.amazon.com/inspector/faqs/?nc=sn&loc=6) section of Amazon Inspector.
-
-Once activated, Cyscale will pull all the findings automatically.
-
-### Vulnerabilities
-
-If the Amazon Inspector is activated, you can see all findings alongside the **CVE ID** (and the reference in [MITRE](https://cve.mitre.org/cve/)), **Severity**, Affected **Packages**, **Description** of the CVE and the **Remediation** steps.
+Cyscale will show you all findings alongside the **CVE ID** (and the reference in [MITRE](https://cve.mitre.org/cve/)), **Severity**, Affected **Packages**, **Description** of the CVE and the **Remediation** steps.
 
 The findings will be grouped by CVE ID and ordered by Severity in the Vulnerabilities inventory (accessible from the main menu).
 
-You can also check asset vulnerabilities by navigating to the Vulnerabilities tab or in the Overview Cards section.
+You can also check the vulnerabilities for a specific asset by navigating to the Vulnerabilities tab or in the Overview Cards section of the asset.
 
 ### Severity
 
-A finding severity rating can be Info, Low, Medium, High, Critical or Untriaged.
-**Untriaged** findings are those the vendor hasn't yet assigned a score for. Cyscale will consider Untriaged findings a priority and will display them at the top of the list.
-Each Severity is marked with a color from light yellow to dark red.
+A finding severity rating can be Info, Low, Medium, High, Critical or Untriaged. **Untriaged** findings are those the vendor hasn't yet assigned a score for.
 
 You can [read more](https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html) about how Amazon Inspector computes severity scores.
-
-### Asset Risk
-
-Risk is calculated by normalizing the severity scores of both security misconfigurations and vulnerable packages to a common scale, and then combining them using a weighted average based on their relative importance. The resulting weighted risk score is categorized into risk levels such as **Low**, **Medium**, or **High**.
 
 ### Mentions
 
