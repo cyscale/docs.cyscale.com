@@ -8,7 +8,9 @@ Cyscale is based on two entities: **users** and **accounts**. When you register,
 
 ## User Management
 
-You can invite more users to your Cyscale account. Go to the **Users** page from top-right menu (gear icon), press **Invite user**, and provide the name and the email address of the new user. You can also choose whether the user has admin rights or not.
+You can invite more users to your Cyscale account by following the steps from the image below. You will provide the name and the email address of the new user. You can also choose whether the user has admin rights or not.
+
+![Invite users](/img/users.png)
 
 :::info Permissions
 **Admin** users, as opposed to non-admin users, can **manage users** (invite, update, delete) and have access to **the account activity log** - all user-related actions performed by the users of the account (e.g., `login`, `logout`, `user_modified`).
