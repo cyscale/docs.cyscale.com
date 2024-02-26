@@ -1,0 +1,75 @@
+---
+sidebar_position: 6
+---
+
+# Kubernetes
+
+Cyscale enables you to keep track of and secure your Kubernetes resources natively. You connect your Kubernetes clusters by deploying the [Cyscale agent](https://hub.docker.com/repository/docker/cyscaledev/kubernetes-agent/general). The agent, at its core, is a [Kubernetes controller](https://kubernetes.io/docs/concepts/architecture/controller/) that listens to changes in your cluster, aggregates them, and sends them to Cyscale.
+
+You can connect any type of Kubernetes cluster, including Amazon EKS, Azure Kubernetes Service (AKS), Google Kubernetes Engine (GKE), and self-managed clusters. If you connect EKS, AKS, or GKE clusters, and the corresponding cloud environment is also connected, Cyscale will link the resources helping you understand the infrastructure, networking, and IAM context of your Kubernetes workloads.
+
+## Connecting Your Kubernetes Clusters
+
+You connect your Kubernetes clusters to Cyscale by installing the [Helm chart](https://github.com/cyscale/helm-charts/tree/3b902c37334cbf05e4a4a82e10f17b77c661d2d6/charts/kubernetes-agent) containing the Cyscale Kubernetes agent.
+
+1. Add the Cyscale Helm repository on your machine:
+
+```shell
+helm repo add cyscale https://cyscale.github.io/helm-charts
+helm repo update
+```
+
+2. **Install/upgrade** the chart into the cluster:
+
+```shell
+helm upgrade -i cyscale -n cyscale --create-namespace --set config.cyscaleAPIKey=<your_key> cyscale/kubernetes-agent
+```
+
+You can choose a different release name (`cyscale` by default). This is used as a prefix for the resources that will be created such as the deployment, service account, and secret. You can also choose a different namespace in which to install the agent (`cyscale` by default).
+
+Cyscale identifies your cluster using the **API key**. This is a unique value for each Kubernetes connector. You can obtain it only during the cluster onboarding and, if you forgot it or want to rotate it, you can always generate a new one and update your release in the cluster using the same helm command from above.
+
+## Permissions
+
+The helm chart creates a cluster role and role binding together with a service account.
+
+By default, the agent synchronizes most Kubernetes resources. You can configure this by overwriting the default `config.resourcesToScan` value from the chart. See [values.yaml](https://github.com/cyscale/helm-charts/blob/main/charts/kubernetes-agent/values.yaml#L11). Changing this will also change the permissions granted by the cluster role.
+
+### Exclusions
+
+The `permission` configuration also allows you to exclude certain resources from being processed and sent to the Cyscale application for scanning.
+
+The resource exclusion is done for each entry in the `config.resourcesToScan` list, meaning you can granularly exclude resources from any **GVK** (Group Version Kind; E.g., `apps/v1/deployments`) that you have selected for monitoring.
+
+You can do this in 2 ways:
+
+1. `excludeSelectors` - you can define a label selector to be used to exclude assets that match the selector
+2. `excludeResources` - You can add a list of namespaced names of that GVK to be excluded from the selected assets.
+
+```yaml
+httpClientTimeout: '5s'
+cyscaleAPIBaseURL: 'https://app.cyscale.com/collect/kubernetes'
+cyscaleAPIKey: ''
+resourcesToScan:
+  - group: 'apps'
+    version: 'v1'
+    kind: 'Deployment'
+    excludeSelectors:
+      - labelSelector:
+          matchExpressions:
+            - key: 'testKey'
+              operator: 'In'
+              values:
+                - 'testValue'
+    excludeResources:
+      - name: 'app-name'
+        namespace: 'app-namespace'
+```
+
+## Additional Notes
+
+- The agent attempts to find out if the cluster is managed based on several heuristics:
+  - It attempts to call the [GKE metadata server](https://cloud.google.com/kubernetes-engine/docs/concepts/workload-identity#metadata_server) and retrieve the cluster UID, which then Cyscale will use to link it to the actual GKE cluster asset (if you also connected the corresponding Google Cloud project)
+  - It attempts to retrieve the FQDN from the `KUBERNETES_SERVICE_HOST` environment variable set on pods from the kube-system namespace for [AKS](https://learn.microsoft.com/en-us/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters).
+  - It attempts to retrieve the server hostname from the `kube-proxy` configmap for EKS.
+- For Kubernetes, Cyscale updates the asset inventory in real-time. However, it still updates the relationships between assets (between Kubernetes assets, between the Kubernetes assets and the cloud provider resources, and with the vulnerabilities) as well as assesses the assets against the controls library at specific time intervals. You can also trigger this process manually at any given time.
