@@ -1,0 +1,56 @@
+---
+sidebar_position: 7
+---
+
+# Entra ID
+
+Cyscale enables you to keep track of Entra entities (users, groups, devices, etc.) and what they have access to, such as Azure resources and even resources from other cloud providers if you are using Entra ID as an IdP for your SSO setup. You connect Cyscale to your Entra ID tenant through an **app registration**.
+
+## Connecting Your Entra ID Tenant
+
+Once you are ready to connect your Entra ID tenant and have the required permissions, press the **+** button from the sidebar and choose **Microsoft Entra ID**. You will be greeted with a simple multi-step process.
+
+### Step 1
+
+In the first step, you provide the ID of your Entra ID tenant. You can find your tenant ID using the Azure Portal [here](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+
+### Step 2
+
+In the second step you create the Entra ID app registration, the service principal, and assign the required permissions.
+
+:::tip Linking with Existing Azure Connectors
+If you already have Azure subscriptions connected, Cyscale will reuse the app registration and credentials. All you have to do is assign the Entra ID permissions and grant admin consent.
+:::
+
+#### Terraform
+
+Download the Terraform configuration file and, using the [Terraform CLI](https://www.terraform.io/cli) either from your machine or using [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) (click [here](https://shell.azure.com/) to directly open the shell), you provision the required resources.
+
+:::info Authentication and Authorization
+Terraform uses the provider's APIs/SDKs to manage the resource. Cyscale makes use of the `hashicorp/azuread` Terraform provider for creating the Entra ID app registration and service principal. You can read more about the available authentication options [here](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs#authenticating-to-azure-active-directory).
+
+Perhaps the simplest option is to let the provider use the credentials stored by the `az` CLI.
+:::
+
+Inspect the Terraform configuration file and follow the instructions provided by Cyscale.
+
+#### Manual
+
+If you prefer setting up the resources manually from the Azure portal, follow the steps provided by Cyscale.
+
+:::info Access Security
+While the permissions you grant to Cyscale are limited to reading the entities from your Entra ID tenant, you might still be concerned about the security of your information. Providing the service principal credentials to Cyscale means that any entity with access to these credentials can read your Entra ID data.
+
+Cyscale encrypts and stores the credentials in a database accessible only from within the Cyscale infrastructure. Then, a specialized service decrypts and uses the credentials to read your Entra ID assets. No member of the Cyscale team has access to your credentials.
+:::
+
+## Deep Dive on Permissions
+
+Cyscale requires the following Entra ID permissions:
+
+- `Directory.Read.All` - for reading the users, groups, and other resources
+- `UserAuthenticationMethod.Read.All` - for the reading the MFA information
+- `Policy.Read.All` - for reading the [Security Defaults](https://learn.microsoft.com/en-us/entra/fundamentals/security-defaults)
+- `AuditLog.Read.All` - for reading the MFA information
+
+Since these are considered high privilege permissions, you will have to grant admin consent for them. You can read more about admin consent in the [Azure documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent?WT.mc_id=Portal-Microsoft_AAD_RegisteredApps#admin-consent).
