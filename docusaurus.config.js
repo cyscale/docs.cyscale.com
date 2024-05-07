@@ -115,6 +115,19 @@ const config = {
         disableSwitch: true,
       },
     }),
+
+  plugins: [
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 85,
+        max: 1500, // max resized image's size.
+        min: 720, // min resized image's size. if original is lower, use that size.
+        steps: 4, // the max number of images generated between min and max (inclusive)
+        disableInDev: false,
+      },
+    ],
+  ],
 };
 
 export default config;

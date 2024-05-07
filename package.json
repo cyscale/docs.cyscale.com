@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",
+    "@docusaurus/plugin-ideal-image": "^3.3.2",
     "@docusaurus/preset-classic": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
@@ -40,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
