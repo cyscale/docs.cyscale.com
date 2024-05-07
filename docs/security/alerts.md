@@ -50,13 +50,12 @@ By default, Cyscale shows you the latest `Open` alerts (i.e. sorted descending b
 Cyscale provides the following actions that you can perform on one or multiple alerts (batch):
 
 1. **Dismiss** - this is how you tell Cyscale that you don’t want to see the selected alert(s). Cyscale will move the alert(s) to the **Dismissed** tab until the next assessment. If the issue is still there, Cyscale will move the alert back to the main tab.
-2. **Acknowledge** - you can think of this action as of the read/unread state most email clients offer. Cyscale will not change the acknowledgement state during the subsequent assessments (as opposed to dismiss). You might find filtering by the acknowledgement state useful.
-3. **Exempt** - instruct Cyscale to always consider this asset as passing this control. You will have to provide a reason for exemption.
+2. **Exempt** - instruct Cyscale to always consider this asset as passing this control. You will have to provide a reason for exemption.
+3. **Create Jira Issue** - create a Jira issue directly from Cyscale with the details of the alert. See [Jira Cloud](../integrations/jira.mdx) for more.
 
 #### Impacted assets
 
 The alerts for contextual controls also display the impacted assets for that misconfiguration, that is assets, which become vulnerable due to the issue identified in the primary assets by the control. For example, an alert for a control that checks if the security group allows SSH access from the internet will display the assets (VMs) using the misconfigured security group, since those assets would be vulnerable to an external remote service attack.
-
 
 #### Contextual Control Graph for an Impacted Asset
 

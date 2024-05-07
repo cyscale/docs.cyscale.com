@@ -1,0 +1,29 @@
+---
+sidebar_position: 2
+---
+
+import Image from '@theme/IdealImage';
+
+# Jira Cloud
+
+You can connect your Jira Cloud account to create Jira issues directly from Cyscale. This is a one-time process and supports both Jira Software and Jira Service Management (previously known as Jira Service Desk).
+
+You can connect your Jira account from **Organization → Notification Channels → Add Jira**. Alternatively, you can initiate this process by pressing **Connect Jira** on an alert. This process relies on the Jira account you are currently signed in. After you fill in the required fields, you will be redirected to the authorization page:
+
+<Image img={require('/img/jira-connect.png')} />
+
+Cyscale requires permission to read and update (create, add comments) Jira issues.
+
+After pressing **Accept**, you will be redirected back to Cyscale, where you will configure the **project** and the **issue type**. Cyscale allows you to configure the issue type (e.g., bug, task, story) based on the project you select.
+
+You can now create Jira issues by pressing the **Create Jira Issue** on a specific alert. Once you create an issue for an alert, you have the option to open it in Jira. The create issue will look like the following example:
+
+<Image img={require('/img/jira-issue-example.png')} />
+
+## Resolved Alerts
+
+When Cyscale resolves an alert for you (e.g., if the misconfiguration has been addressed or the corresponding asset deleted), it will add the following comment to the corresponding Jira issue: “This alert has been resolved in Cyscale.” The author will be the user that connected the Jira account.
+
+:::tip Status Updates
+You can use Jira automation to update the status of the issue or perform other actions using the comment as a trigger.
+:::
