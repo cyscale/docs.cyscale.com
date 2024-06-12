@@ -51,7 +51,7 @@ const config = {
         items: [
           {
             to: 'https://app.cyscale.com/',
-            label: 'Sign In',
+            label: 'Access Cyscale',
             position: 'right',
             className: 'button button--primary white-text',
           },
