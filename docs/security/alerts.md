@@ -28,7 +28,7 @@ The other alternative is when you disable the respective control or update it to
 
 ### Alert Generation
 
-You can influence which controls Cyscale must generate alerts for by changing the **Severity Alerting Level** from [the Organization Settings page](https://app.cyscale.com/organization/overview). Cyscale will generate alerts for controls with severity equal to or greater than the configured level.
+You can influence which controls Cyscale must generate alerts for by changing the **Severity Alerting Level** from [the Organization Settings page](https://app.cyscale.com/account/overview). Cyscale will generate alerts for controls with severity equal to or greater than the configured level.
 
 :::info Default severity alerting level
 The default level is **medium**. Cyscale will not generate alerts for low severity controls out of the box. We made this choice to keep the number of alerts as manageable as possible, especially after you connect your accounts for the first time.
