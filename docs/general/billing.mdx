@@ -45,6 +45,10 @@ If you provide services for your customers and want to add Cyscale to your offer
 
 If you already use Azure, subscribe to Cyscale through the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cyscale.cyscale) (or [Azure Portal link](https://portal.azure.com/#create/cyscale.cyscale/preview)). If you are not using Azure but are still using Microsoft products, you can subscribe to Cyscale through [AppSource](https://appsource.microsoft.com/en-us/product/web-apps/cyscale.cyscale).
 
+## Invoicing
+
+Once we have exchanged all the required billing information, we will email you the invoices. You can pay them via wire transfer.
+
 ## Usage
 
 The primary usage metric in Cyscale is the asset. This represents a node in the security knowledge graph. Examples of assets include EC2 instances, EBS volumes, VPCs, buckets, Azure AD users, GCP service accounts, Okta applications, etc.
@@ -53,8 +57,141 @@ Cyscale counts each unique resource seen at least once during the billing period
 
 You can always see how many assets Cyscale has read monthly on the [usage page](https://app.cyscale.com/#/usage). The information could be delayed by a few minutes.
 
-Certain assets like volume/disk snapshots, prefix lists, and subnetworks do not count toward your usage.
+Certain assets like volume/disk snapshots, prefix lists, subnetworks, and other assets that are not analyzed nor used for the analysis do not count toward your usage.
 
-## Invoicing
+### Billable AWS Services
 
-Once we have exchanged all the required billing information, we will email you the invoices. You can pay them via wire transfer.
+If your AWS Account is part of an AWS Organization, make sure you select the correct one.
+
+[Click here to identify your billable AWS resources.](https://console.aws.amazon.com/resource-groups/tag-editor/find-resources?region=us-east-1#query=regions:!%28%27AllSupported%27%29,resourceTypes:!%28%27Lambda::Function%27,%27IAM::InstanceProfile%27,%27IAM::ManagedPolicy%27,%27EC2::VPC%27,%27EC2::Subnet%27,%27EC2::NetworkAcl%27,%27EC2::NetworkInterface%27,%27ElasticLoadBalancingV2::LoadBalancer%27,%27ElasticLoadBalancing::LoadBalancer%27,%27EC2::EIP%27,%27EC2::SecurityGroup%27,%27EC2::RouteTable%27,%27Route53::Domain%27,%27RDS::DBSubnetGroup%27,%27EC2::Instance%27,%27ECS::Cluster%27,%27EKS::Cluster%27,%27S3::Bucket%27,%27RDS::DBInstance%27,%27RDS::DBCluster%27,%27IAM::VirtualMFADevice%27,%27KMS::Key%27,%27RDS::DBSecurityGroup%27,%27Redshift::ClusterSubnetGroup%27,%27CertificateManager::Certificate%27,%27IAM::ServerCertificate%27,%27SNS::Topic%27,%27SecretsManager::Secret%27,%27CodeArtifact::Repository%27,%27EC2::Image%27,%27CloudTrail::Trail%27,%27CloudWatch::Alarm%27,%27CloudFront::Distribution%27%29,tagFilters:!%28%29,type:TAG_EDITOR_1_0)
+
+```
+ACM::SSLCertificate
+ApiGateway
+CertificateManager::Certificate
+CloudFront::Distribution
+CloudTrail::Trail
+CloudWatch::Alarm
+CodeArtifact::Repository
+DynamoDB::Table
+EC2::EIP
+EC2::Image
+EC2::Instance
+EC2::NetworkInterface
+EC2::RouteTable
+EC2::SecurityGroup
+EC2::VPC
+ECS::Cluster
+ECS::EcrImage
+ECS::EcrRepository
+EKS::Cluster
+ElasticLoadBalancing::LoadBalancer
+ElasticLoadBalancingV2::LoadBalancer
+IAM::InstanceProfile
+IAM::ManagedPolicy
+IAM::Role
+IAM::ServerCertificate
+IAM::VirtualMFADevice
+KMS::Key
+Lambda::Function
+RDS::DBCluster
+RDS::DBInstance
+RDS::DBSecurityGroup
+Route53::Domain
+S3::Bucket
+SecretsManager::Secret
+SNS::Subscription
+SNS::Topic
+//not billable EC2::NetworkAcl
+//not billable EC2::Snapshot
+//not billable EC2::Subnet
+//not billable ElastiCache::Snapshot
+//not billable RDS::DBClusterSnapshot
+//not billable RDS::DBSnapshot
+//not billable RDS::DBSubnetGroup
+//not billable Redshift::ClusterSubnetGroup
+```
+
+### Billable Microsoft Azure Services
+
+If your Microsoft Azure Account is part of a Tenant, make sure you select the correct one.
+
+[Click here to identify your billable Azure resources.](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade)
+
+```
+AKSCluster
+AutoProvisioningSetting
+BlobContainer
+Cluster
+ContainerApp
+ContainerImage
+ContainerInstance
+CosmosDBAccount
+Disk
+Function
+FunctionApp
+IAMAccountSummary
+IAMRole
+IPConfiguration
+KMSKey
+KMSSecret
+KMSVault
+LoadBalancer
+ManagedIdentity
+NetworkInterface
+SecurityGroup
+Site
+SQLDatabase
+SQLServer
+StaticIP
+StorageAccount
+StorageAccountFileShare
+StorageAccountQueue
+StorageAccountTable
+VirtualNetwork
+VM
+```
+
+### Billable Google Cloud Services
+
+If your Google Cloud Project is part of a Folder or Organization, make sure you select the correct one.
+
+[Click here to identify your billable Google Cloud resources.](https://console.cloud.google.com/iam-admin/asset-inventory/)
+
+```
+AlertPolicy
+APIKey
+AppEngineApplication
+AppEngineService
+ArtifactRegistryRepository
+BigQueryTable
+Bucket
+CloudRunJob
+CloudRunRevision
+CloudRunService
+ComputeSSLCertificate
+ContainerImage
+Disk
+DNSPolicy
+Firewall
+Function
+IAMGroup
+IAMRole
+IAMServiceAccount
+IAMServiceAccountKey
+IAMUser
+KMSKey
+LogBucket
+LogMetric
+LogSink
+ManagedZone
+NetworkInterface
+PubSubSubscription
+PubSubTopic
+Secret
+SSLCertificate
+SSLPolicy
+StaticIP
+VM
+VPC
+```
