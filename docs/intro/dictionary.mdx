@@ -2,46 +2,94 @@
 sidebar_position: 2
 ---
 
-# Dictionary
+# Cloud Security Dictionary
 
-This page is a compilation of the most relevant terms encountered in the cloud security area in general and in the Cyscale Cloud Platform in particular.
+This guide explains key terms used in cloud security and the Cyscale Cloud Platform.
+
+## Core Concepts
 
 ### Alerts
+Security notifications triggered when:
+- Resources fail security checks
+- Misconfigurations are detected
+- Compliance violations occur
+- Security thresholds are exceeded
 
-Alerts are commonly triggered when certain thresholds are crossed. In the context of Cyscale (and CSPM in general), alerts represent identified vulnerabilities and misconfigurations. Basically it's the resulting entity after an asset is verified against a control and fails to pass it.
+In Cyscale, alerts are generated when assets fail to meet specific security controls.
 
-### Asset
+### Assets
+Any cloud resource in your infrastructure, such as:
+- Compute instances (EC2, Azure VMs)
+- Storage volumes
+- Network interfaces
+- Identity resources (users, roles)
+- Database instances
 
-An asset refers to any resource your organization might have such as an AWS EC2 instance or an Azure Active Directory user.
-
-:::info
-A cloud resource might contain multiple assets. For example, an EC2 instance, besides the actual instance (which is just some memory and vCPU), also comes with one or more EBS volumes, one or more ENIs, a security group, maybe an Elastic IP address, and others.
+:::info Asset Components
+Cloud resources often consist of multiple assets. For example, an AWS EC2 instance includes:
+- The compute instance itself
+- Attached EBS volumes
+- Network interfaces (ENIs)
+- Security groups
+- Elastic IP addresses (if assigned)
 :::
 
 ### Connectors
+Integration points that link Cyscale to your:
+- Cloud provider accounts
+  - AWS accounts
+  - Azure subscriptions
+  - Google Cloud projects
+  - Alibaba Cloud accounts
+- Identity providers
+  - Okta organizations
+  - Azure Active Directory
+  - Google Workspace
 
-Connectors are the Cyscale entities representing your actual cloud accounts and identity provider accounts. If you want to assess and protect an AWS account, Azure subscription, Google Cloud project, Alibaba account, or Okta organization, you add it to Cyscale by creating the corresponding connector.
-
-### Control
-
-A control is a rule describing a best practice or requirement. For example, ISO 27001 comes with Annex A which is basically a table of controls, each telling you what to check for. Within Cyscale, a control is a rule such as “Ensure S3 bucket MFA Delete is enabled”. Besides the name, each Cyscale control also comes with a description (what the control is and why it's important), remediation steps, and severity (low, medium, high).
+### Controls
+Security rules that verify specific requirements:
+- Based on industry standards (like ISO 27001)
+- Define specific checks (e.g., "Ensure S3 bucket MFA Delete is enabled")
+- Include:
+  - Detailed descriptions
+  - Remediation steps
+  - Severity ratings (Low/Medium/High)
+  - Implementation guidance
 
 ### CSPM
-
-CSPM is actually a market segment defined by Gartner, but it commonly refers to the products that are part of this segment. Basically, a CSPM helps you identify cloud misconfigurations and stay compliant with industry standards, potentially across multiple cloud providers. It's the kind of tool that would tell you which S3 buckets are publicly accessible and with which sections of CIS and ISO 27001 your system is not compliant because of that.
+Cloud Security Posture Management:
+- Gartner-defined security category
+- Focuses on cloud misconfigurations
+- Ensures compliance with security standards
+- Works across multiple cloud providers
+- Example: Identifying publicly accessible storage buckets
 
 ### Exemptions
+Rule exceptions that:
+- Exclude specific assets from specific controls
+- Mark excluded assets as compliant
+- Help manage false positives
+- Support legitimate business cases
 
-Exemptions enable you to exclude a specific asset from being assessed against a specific control. Cyscale will consider the asset as passing that specific control.
+### Policies
+Security governance documents that:
+- Define security requirements
+- Map to specific controls
+- Include implementation procedures
+- Support compliance frameworks
 
-### Policy
-
-A policy is generally a document defining how to secure certain aspects within an organization. For example, you might have a policy describing how your organization handles identity and access management. A policy within Cyscale represents an entity that, besides content such as text and images, might also contain controls. Cyscale enables you to specify how certain policy sections are actually implemented by mapping controls to them through procedures.
-
-### Procedure
-
-Procedures describe how to achieve something. Your organization might have a procedure specifying how to onboard a new employee. Within Cyscale, a procedure is basically a group of controls described by a title and a body.
+### Procedures
+Implementation guidelines that:
+- Group related controls
+- Provide step-by-step instructions
+- Define how to meet policy requirements
+- Include detailed documentation
 
 ### Sync
+The data synchronization process that:
+- Updates Cyscale's asset inventory
+- Reflects current cloud configurations
+- Triggers security assessments
+- Maintains accurate compliance status
 
-The sync represents the process of synchronizing your actual cloud resources with the Cyscale database. You can read more about it on the [Getting Started page](../getting-started.mdx#syncassessment).
+[Learn more about Syncs in Getting Started](../getting-started.mdx#syncassessment)

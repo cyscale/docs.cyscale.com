@@ -7,32 +7,55 @@ import DocCardList from '@theme/DocCardList';
 
 # Overview
 
-Welcome to the Cyscale documentation website. Here you can find out more about what the Cyscale Cloud Platform is, how it works, and when to use it.
+Welcome to the Cyscale documentation. Here you can find out more about what the Cyscale Cloud Platform is, how it works, and when to use it.
 
 ## Cyscale Cloud Platform
 
-Cyscale Cloud Platform (Cyscale for short) helps you build and run secure and compliant cloud environments.
+Cyscale Cloud Platform (Cyscale) helps organizations build and run secure and compliant cloud environments.
 
-If you ask Gartner, Cyscale is a CSPM (cloud security posture management) platform (for now). While these labels are useful for seasoned security engineers and for getting an idea of what the platform can do, most cloud engineers and architects aren't necessarily accustomed to these terms, so here is what Cyscale can do today:
+As a [CNAPP (Cloud-Native Application Protection Platform) recognized by Gartner](https://www.gartner.com/doc/reprints?id=1-2I6V52K2&ct=240726), Cyscale provides comprehensive cloud security capabilities including CSPM, CIEM, KSPM, and DSPM. While these classifications are helpful for security professionals, we prefer to explain our core capabilities in practical terms:
 
-- **It acts as a central place to view all your cloud resources (i.e. asset inventory).**
+### Key Capabilities
 
-  You connect your cloud accounts and identity providers through provider-specific secure and simple mechanisms and Cyscale starts discovering your infrastructure through the providers' SDKs/APIs. It stores a snapshot of your cloud infrastructure in a unified data format thus being able to uncover more complex scenarios and assess various rules.
+- **Unified Cloud Asset Inventory**
 
-  Cyscale gives you an overview of your cloud infrastructure across multiple cloud providers, multiple accounts, and multiple regions.
+  Connect your cloud accounts and identity providers through secure, provider-specific mechanisms. Cyscale discovers your infrastructure through native APIs, creating a comprehensive snapshot in a unified format. This enables deep analysis across multiple cloud providers, accounts, and regions.
 
-- **It verifies your infrastructure against controls and best practices described in CIS benchmarks and Well-Architected Frameworks.**
+- **Security Posture Assessment**
 
-  Once your cloud assets are discovered, Cyscale starts checking them against common misconfigurations and vulnerabilities helping you build more secure and robust systems. Cyscale runs these checks whenever your assets are synchronized and shows you the identified issues in the form of alerts.
+  Once connected, Cyscale continuously evaluates your infrastructure against CIS benchmarks and Well-Architected Frameworks. We identify misconfigurations and vulnerabilities in real-time, helping you build more secure and robust systems. Results are presented as actionable alerts during each asset synchronization.
 
-- **Cyscale tracks your compliance with industry standards and policies alongside your internal policies**
+- **Cloud Identity Management**
 
-  The previously mentioned controls are also mapped to standards such as ISO 27001, PCI DSS, NIST 800-53, SOC 2, HIPAA. In general, these standards only tell you what to do, but not how. For example, most standards will tell you to use encryption and MFA, but each provider, platform, and even service offers specific ways to use these features. Using Cyscale's powerful policy editor, you can specify precisely how each section or requirement of a standard or policy is covered within your organization.
+  Monitor and secure identity relationships across your cloud environments. Detect overprivileged accounts, analyze permission boundaries, and enforce least-privilege access principles through automated assessment of roles, policies, and effective permissions.
+
+- **Kubernetes Security**
+
+  Protect your container workloads with dedicated Kubernetes security posture management (KSPM). Identify misconfigurations, validate security best practices, and ensure compliance across your Kubernetes clusters, pods, and containers.
+
+- **Data Security**
+
+  Discover, classify, and protect sensitive data across cloud storage services. Monitor data access patterns, detect exposure risks, and ensure compliance with data protection requirements through continuous data security posture management (DSPM).
+
+- **Runtime Protection**
+
+  Detect and respond to threats in real-time across your cloud workloads. Monitor container runtime behavior, identify anomalies, and prevent attacks through automated security policies and incident response workflows.
+
+- **Compliance Management**
+
+  Our security controls map directly to major standards like ISO 27001, PCI DSS, NIST 800-53, SOC 2, and HIPAA. While these frameworks specify what to implement (like encryption and MFA), Cyscale helps you define how to implement them across different cloud providers and services. Our policy editor lets you precisely map your organization's compliance requirements to actual cloud configurations.
 
 ## Security Knowledge Graph
 
-While many vulnerabilities can be identified by applying simple rules such as ensuring that a flag is enabled for a certain asset (e.g. an AWS RDS instance is not publicly accessible), some require more context and understanding of the system's architecture.
+The Security Knowledge Graph provides context-aware security analysis that goes beyond simple configuration checks. For example:
 
-Moreover, vulnerabilities aren't that big of a risk when they can't be exploited. For example, while a security group allowing all traffic on all ports is in theory a big concern, as long as it is not attached to any EC2 instance, it doesn't really expose anything. Of course, you should still address these issues when you have the capacity to do so (you shouldn't have such permissive firewalls and shouldn't have unused resources lying around).
+- A public-facing RDS instance represents an immediate risk
+- A permissive security group only poses risk when attached to active resources
+- Many vulnerabilities have reduced impact when assets aren't internet-accessible
 
-In fact, a decent number of common vulnerabilities aren't that big of a concern if the affected asset is not accessible through the internet. This is where the Security Knowledge Graph comes into play. It is the knowledge base that helps you uncover vulnerabilities and prioritize them.
+This context-aware approach helps you:
+
+- Understand the relationships between cloud resources
+- Identify actual exploitation paths
+- Prioritize remediation based on real risk
+- Focus on addressing critical issues first
