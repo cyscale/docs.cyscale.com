@@ -110,10 +110,11 @@ For Managed Security Service Providers looking to integrate Cyscale into their s
   <TabItem value="aws" label="Billable AWS Services" attributes={{className: styles.orange}}>
     If your AWS Account is part of an AWS Organization, make sure you select the correct one.
 
-    [Click here to directly list your billable AWS resources. Wait for the filters to load, then press `Search resources`.](https://console.aws.amazon.com/resource-groups/tag-editor/find-resources?region=us-east-1#query=regions:!%28%27AWS::AllSupported%27%29,resourceTypes:!%28%27AWS::ACM::Certificate%27,%27AWS::ApiGateway::RestApi%27,%27AWS::CertificateManager::Certificate%27,%27AWS::CloudFront::Distribution%27,%27AWS::CloudTrail::Trail%27,%27AWS::CloudWatch::Alarm%27,%27AWS::CodeArtifact::Repository%27,%27AWS::DynamoDB::Table%27,%27AWS::EC2::EIP%27,%27AWS::EC2::Image%27,%27AWS::EC2::Instance%27,%27AWS::EC2::NetworkInterface%27,%27AWS::EC2::RouteTable%27,%27AWS::EC2::SecurityGroup%27,%27AWS::EC2::VPC%27,%27AWS::ECS::Cluster%27,%27AWS::ECR::Repository%27,%27AWS::ECR::Image%27,%27AWS::EKS::Cluster%27,%27AWS::ElasticLoadBalancing::LoadBalancer%27,%27AWS::ElasticLoadBalancingV2::LoadBalancer%27,%27AWS::IAM::InstanceProfile%27,%27AWS::IAM::ManagedPolicy%27,%27AWS::IAM::Role%27,%27AWS::IAM::ServerCertificate%27,%27AWS::IAM::VirtualMFADevice%27,%27AWS::KMS::Key%27,%27AWS::Lambda::Function%27,%27AWS::RDS::DBCluster%27,%27AWS::RDS::DBInstance%27,%27AWS::RDS::DBSecurityGroup%27,%27AWS::Route53::Domain%27,%27AWS::S3::Bucket%27,%27AWS::SecretsManager::Secret%27,%27AWS::SNS::Subscription%27,%27AWS::SNS::Topic%27%29,tagFilters:!%28%29,type:TAG_EDITOR_1_0)
+    [Click here to directly list your billable AWS resources. Wait for the filters to load, then press `Search resources`.](https://console.aws.amazon.com/resource-groups/tag-editor/find-resources?region=us-east-1#query=regions:!%28%27AWS::AllSupported%27%29,resourceTypes:!%28%27AWS::ACM::Certificate%27,%27AWS::ApiGateway::RestApi%27,%27AWS::CertificateManager::Certificate%27,%27AWS::CloudFront::Distribution%27,%27AWS::CloudTrail::Trail%27,%27AWS::CloudWatch::Alarm%27,%27AWS::CodeArtifact::Repository%27,%27AWS::DynamoDB::Table%27,%27AWS::EC2::EIP%27,%27AWS::EC2::Image%27,%27AWS::EC2::Instance%27,%27AWS::EC2::NetworkInterface%27,%27AWS::EC2::RouteTable%27,%27AWS::EC2::SecurityGroup%27,%27AWS::EC2::VPC%27,%27AWS::ECS::Cluster%27,%27AWS::ECR::Repository%27,%27AWS::ECR::Image%27,%27AWS::EKS::Cluster%27,%27AWS::ElasticLoadBalancing::LoadBalancer%27,%27AWS::ElasticLoadBalancingV2::LoadBalancer%27,%27AWS::IAM::InstanceProfile%27,%27AWS::IAM::ManagedPolicy%27,%27AWS::IAM::Role%27,%27AWS::IAM::ServerCertificate%27,%27AWS::IAM::VirtualMFADevice%27,%27AWS::KMS::Key%27,%27AWS::Lambda::Function%27,%27AWS::RDS::DBCluster%27,%27AWS::RDS::DBInstance%27,%27AWS::RDS::DBSecurityGroup%27,%27AWS::Route53::Domain%27,%27AWS::S3::Bucket%27,%27AWS::SecretsManager::Secret%27,%27AWS::SNS::Subscription%27,%27AWS::SNS::Topic%27,%27AWS::SageMaker::NotebookInstance%27,%27AWS::SQS::Queue%27,%27AWS::AmazonMQ::Broker%27%29,tagFilters:!%28%29,type:TAG_EDITOR_1_0)
 
     ```
     ACM::SSLCertificate
+    AmazonMQ::Broker
     ApiGateway
     CertificateManager::Certificate
     CloudFront::Distribution
@@ -146,9 +147,11 @@ For Managed Security Service Providers looking to integrate Cyscale into their s
     RDS::DBSecurityGroup
     Route53::Domain
     S3::Bucket
+    SageMaker::NotebookInstance
     SecretsManager::Secret
     SNS::Subscription
     SNS::Topic
+    SQS::Queue
     //not billable EC2::NetworkAcl
     //not billable EC2::Snapshot
     //not billable EC2::Subnet
