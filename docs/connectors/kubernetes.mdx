@@ -29,6 +29,8 @@ You can choose a different release name (`cyscale` by default). This is used as 
 
 Cyscale identifies your cluster using the **API key**. This is a unique value for each Kubernetes connector. You can obtain it only during the cluster onboarding and, if you forgot it or want to rotate it, you can always generate a new one and update your release in the cluster using the same helm command from above.
 
+During onboarding, you can also enable Kubernetes vulnerability scanning. When enabled, the Helm command includes the additional setting needed for SBOM collection.
+
 ## Permissions
 
 The helm chart creates a cluster role and role binding together with a service account.
@@ -66,6 +68,20 @@ resourcesToScan:
         namespace: 'app-namespace'
 ```
 
+## Vulnerability Scanning
+
+Cyscale can also scan the container images running in your Kubernetes clusters for package vulnerabilities.
+
+When this option is enabled:
+
+- the agent discovers the images used by your workloads
+- it generates SBOMs for those images inside the cluster
+- it sends the SBOMs to Cyscale for vulnerability analysis and daily re-scans
+
+This design helps keep the data collection lightweight while still letting Cyscale correlate Kubernetes vulnerabilities with the rest of your cloud and identity context.
+
+If you use private registries, additional registry-specific configuration can be required so the agent can pull the images.
+
 ## Additional Notes
 
 - The agent attempts to find out if the cluster is managed based on several heuristics:
@@ -73,3 +89,7 @@ resourcesToScan:
   - It attempts to retrieve the FQDN from the `KUBERNETES_SERVICE_HOST` environment variable set on pods from the kube-system namespace for [AKS](https://learn.microsoft.com/en-us/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters).
   - It attempts to retrieve the server hostname from the `kube-proxy` configmap for EKS.
 - For Kubernetes, Cyscale updates the asset inventory in real-time. However, it still updates the relationships between assets (between Kubernetes assets, between the Kubernetes assets and the cloud provider resources, and with the vulnerabilities) as well as assesses the assets against the controls library at specific time intervals. You can also trigger this process manually at any given time.
+
+## Further Reading
+
+If you want more background on how Cyscale approaches Kubernetes risk reduction beyond the connector setup itself, see the [Kubernetes Security Guide](https://cyscale.com/cloud-security-wiki/kubernetes-security/) in the Cyscale Security Wiki. It is useful for understanding how posture findings, image vulnerabilities, IAM context, and runtime exposure should be evaluated together.

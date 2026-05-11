@@ -4,13 +4,20 @@ sidebar_position: 1
 
 # Inventory
 
-Once at least one Connector is onboarded, Cyscale will periodically sync it. This will result in an extensive Inventory page that includes all the assets that Cyscale supports. You can check for supported assets on the Connectors page.
+Once at least one connector is onboarded, Cyscale will periodically sync it. This results in an Inventory section that lets you move between:
+
+- **Overview** for quick filters and investigation entry points
+- **All Assets** for the full asset list
+- **Grouped by Asset Type** for a coverage-oriented view
+- **Query Builder** for custom investigations and control authoring
+
+The exact asset types available depend on the connected providers and the services Cyscale currently covers for them. You can review provider-specific coverage from the connector pages and from the provider details shown during onboarding.
 
 ## Filtering
 
-The Inventory will include hundreds or even thousands of assets which will become difficult to manage. For this, Cyscale provides an intuitive filter palette that will allow you to filter by common asset properties like `Provider`, `Connector`, `Region`, `Asset Category`, `Asset Type` and `Tags`.
+The Inventory can include hundreds or even thousands of assets. To keep investigations practical, Cyscale provides a filter palette for common properties such as `Provider`, `Connector`, `Region`, `Asset Category`, `Asset Type`, and `Tags`.
 
-Besides these, Cyscale supports filtering by `Security Score` and `Failed Controls`.
+Besides these, Cyscale supports security-centric filters such as `Security Score` and `Failed Controls`, and many asset-specific properties exposed by the underlying resource model.
 
 ### Security Score
 
@@ -38,3 +45,17 @@ We've created an intuitive yet familiar control selector which allows you to sea
 For example, you can combine this filter with any other to get valuable information of _"Production AWS Virtual Machines publicly accessible from the Internet"_:
 
 ![Failed Controls filter UI](/img/impacted-by-controls-filter.png)
+
+## Query Builder
+
+Query Builder is designed for investigations that go beyond the standard filter palette.
+
+You can:
+
+- choose a supported resource type from the resource browser
+- build nested filters, including `AND` and `OR` logic
+- start from built-in examples for common investigations
+- inspect the generated query definition and run it directly against your inventory
+- save a useful query as a custom control when you want to operationalize it
+
+This is especially useful when you want to express a cloud-specific condition such as exposed admin ports on VMs, public buckets without encryption, or databases with weak TLS settings without waiting for a predefined view.

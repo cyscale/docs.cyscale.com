@@ -19,6 +19,12 @@ In the first step, you provide a **name** for your Google Cloud project to be us
 
 You also provide the project ID. You get this information from your Google Cloud Console (Cyscale will show you precisely how).
 
+#### Google Cloud organization support
+
+If you want to onboard a larger Google Cloud estate, you can additionally enable organization support in step 1.
+
+With organization support enabled, you still choose a project in which the Cyscale service account will be created, but you also provide the Google Cloud **organization ID** and optionally exclude specific project IDs. Cyscale will then automatically add the rest of the projects covered by that organization-level configuration.
+
 ### Step 2
 
 In the second step, you create the service account that Cyscale will use to read your infrastructure. The output of this step is a JSON file with the service account's credentials.
@@ -36,6 +42,8 @@ We recommend using user application default credentials that you can create with
 Inspect the Terraform configuration file, run `terraform init` and `terraform apply -auto-approve`. Terraform creates the service account, assigns the required roles, creates the key, and outputs the credentials. Since the key is sensitive information, you have to output it in a file using the command `terraform output -raw credentials_key > gcp-key.json` (the name of the file is not important). Upload this file to Cyscale. You will see something like
 
 ![Google Cloud Key Uploaded to Cyscale](/img/gcp-onboard-key.png)
+
+When organization support is enabled, the generated Terraform flow also accepts the organization ID so the service account can be granted the required access at the organization level.
 
 :::info Infrastructure as Code
 Besides being simple to use, it provides a great way to manage the lifecycle of the created resources. For example, if you decide to remove the connection to your Google Cloud project, you simply run `terraform destroy` to delete all Cyscale-related resources from your project.
@@ -58,6 +66,8 @@ In the third step, the system makes sure the connection to your cloud account ca
 :::info Global Resources
 Certain resources such as IAM resources (users, service accounts, etc.) do not belong to a certain region. These are classified by Cyscale as **global assets**.
 :::
+
+During onboarding, you can also configure connector notifications and, for cloud connectors, sync exclusions for specific asset types or key:value tag pairs.
 
 ## Deep Dive on Permissions
 
@@ -104,6 +114,19 @@ You can update the following information for your Google Cloud cloud accounts:
 If you are using the [OS scanning](https://cloud.google.com/artifact-analysis/docs/os-overview) feature of [Artifact Registry](https://cloud.google.com/artifact-registry), Cyscale will automatically pull the reported vulnerability findings, enrich them from other sources, and display the findings in the context of your infrastructure (e.g. on the Cloud Run services running the vulnerable images):
 
 ![OS Scanning findings for Cloud Run](/img/gcp-vulnerabilities.png)
+
+## Coverage Highlights
+
+Recent Google Cloud coverage additions include:
+
+- Cloud Run services and revisions, together with their relationships to Secret Manager, Cloud SQL, load balancers, and other supporting services
+- Cloud Functions 2nd Gen
+- Serverless VPC Access connectors
+- Artifact Registry repositories and vulnerability context from Artifact Analysis / OS scanning
+- Container Registry (GCR) usage visibility
+- Secret Manager relationships
+
+This makes the Google Cloud connector more useful both for service coverage and for contextual prioritization across serverless, storage, IAM, and vulnerability workflows.
 
 ## Service Coverage
 

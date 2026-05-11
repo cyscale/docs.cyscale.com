@@ -5,6 +5,8 @@ sidebar_position: 1
 # Standards
 ## CIS Amazon Web Services (AWS) Foundations Benchmark
 
+Cyscale supports the newer CIS AWS benchmark generations, including v3.0.0, alongside the older benchmark families.
+
 This document provides prescriptive guidance for configuring security options for a subset of Amazon Web Services with an emphasis on foundational, testable, and architecture agnostic settings. Some of the specific Amazon Web Services in scope for this document include:
 
 * AWS Identity and Access Management (IAM)
@@ -20,9 +22,11 @@ This document provides prescriptive guidance for configuring security options fo
 
 There are multiple recommendations within each section. Note the use of the term recommendation as opposed to control or requirement. This reinforces the point that CIS is a self-imposed, best-practices standard, as opposed to compulsory or regulated and centralized standards such as the PCI DSS for the payment card industry or HIPAA for covered health care entities.
 
-## CIS Google Cloud Platform (GCP) Foundation
+## CIS Google Cloud Foundation Benchmark
 
-This security configuration benchmark covers foundational elements of Google Cloud Platform. The recommendations detailed here are important security considerations when designing your infrastructure on Google Cloud Platform. Most of the recommendations provided with this release of the benchmark cover security considerations only at individual Project level and not at the organization level. It covers:
+Cyscale supports the newer Google Cloud benchmark generations, including v2.0.0.
+
+This security configuration benchmark covers foundational elements of Google Cloud. The recommendations detailed here are important security considerations when designing your infrastructure on Google Cloud. Most of the recommendations provided with this release of the benchmark cover security considerations only at individual Project level and not at the organization level. It covers:
 
 * Identity and Access Management
 * Logging and Monitoring configurations
@@ -34,7 +38,38 @@ This security configuration benchmark covers foundational elements of Google Clo
 
 ## CIS Microsoft Azure Foundations Benchmark
 
+Cyscale supports the latest CIS Microsoft Azure Foundations Benchmark v3.0.0.
+
 This document, CIS Microsoft Azure Foundations Security Benchmark, provides prescriptive guidance for establishing a secure baseline configuration for Microsoft Azure. The scope of this benchmark is to establish the foundation level of security for anyone adopting Microsoft Azure Cloud. The benchmark is, however, not an exhaustive list of all possible security configurations and architecture. You should take the benchmark as a starting point and do the required site-specific tailoring wherever needed and when it is prudent to do so.
+
+The current benchmark family materially expands Azure coverage and also includes Microsoft Entra ID-focused recommendations as part of the standard.
+
+## CIS Kubernetes Benchmark
+
+Cyscale also includes Kubernetes benchmark coverage, including the current CIS Kubernetes v1.8.0 policy family.
+
+This framework provides prescriptive guidance for establishing a secure configuration posture for Kubernetes. It covers:
+
+* Control plane configurations
+* Worker node configuration
+* RBAC and service-account security
+* Pod security
+* Network policies and CNI
+* Secrets management
+
+## CIS Amazon EKS Benchmark
+
+Cyscale includes dedicated coverage for Amazon EKS through the CIS Amazon EKS Benchmark v1.4.0 policy family.
+
+This benchmark focuses on the parts of Amazon EKS that can be configured by the customer, including:
+
+* Worker node hardening
+* RBAC and service-account controls
+* Pod security standards
+* CNI and networking configuration
+* Secrets management
+* Image registry and image scanning
+* Managed-service integrations such as KMS-backed encryption
 
 ## CIS Alibaba (Aliyun) Cloud Foundation Benchmark
 
@@ -121,3 +156,7 @@ Developed by the American Institute of Certified Public Accountants (AICPA), SOC
 ## Cyscale Security Framework
 
 The Cyscale Security Framework encompasses every piece of security-related knowledge we have gathered. It provides the complete cloud security posture for your assets across all supported services and providers.
+
+## Further Reading
+
+For guidance on running compliance as a continuous operating practice rather than a point-in-time reporting exercise, see the [Cloud Compliance Guide](https://cyscale.com/cloud-security-wiki/cloud-compliance/) in the Cyscale Security Wiki.
