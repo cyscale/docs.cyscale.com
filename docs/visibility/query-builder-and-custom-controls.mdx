@@ -1,0 +1,100 @@
+---
+sidebar_position: 2
+---
+
+# Query Builder and Custom Controls
+
+Query Builder lets you create structured asset investigations without writing raw graph queries. You can combine filters, inspect matching assets, and save important checks as custom controls.
+
+Use Query Builder when the standard Inventory filters are not specific enough or when you want to turn an investigation into an ongoing posture check.
+
+## What You Can Do
+
+With Query Builder you can:
+
+- choose a supported resource type
+- add nested filters with `AND` and `OR` logic
+- filter by provider, connector, region, tags, asset category, asset type, and asset-specific fields
+- inspect the generated query definition
+- run the query against your current inventory
+- save a query as a custom control
+- receive alerts when assets fail the saved control during future assessments
+
+## Common Use Cases
+
+### Public Exposure
+
+Find resources that are reachable from the internet, such as:
+
+- publicly accessible virtual machines
+- workloads behind public load balancers
+- public storage buckets
+- AI endpoints without private access controls
+
+### Identity and Permissions
+
+Find identity patterns that need review:
+
+- roles with broad permissions
+- service accounts used by public workloads
+- identities that can access sensitive data stores
+- guest users or external principals with cloud access
+
+### Data Security
+
+Find data stores with risky posture:
+
+- missing encryption
+- public access
+- weak TLS requirements
+- access from identities without the expected controls
+
+### AI Security
+
+Find AI-specific posture issues:
+
+- AI services in production accounts
+- public AI endpoints
+- model or agent identities with broad permissions
+- unencrypted AI datasets or feature stores
+- AI workloads running in Kubernetes clusters
+
+## Saving a Query as a Custom Control
+
+When a query represents a condition you want Cyscale to monitor continuously, save it as a custom control.
+
+1. Build and run the query.
+2. Confirm that the results match the risk condition you want to track.
+3. Save the query as a custom control.
+4. Choose the severity and policy mapping.
+5. Let the next assessment create alerts for matching assets.
+
+:::tip Validate before saving
+Run the query with a small scope or a specific connector first. This helps you confirm that the control will not generate noisy alerts.
+:::
+
+## How Custom Controls Generate Alerts
+
+Custom controls run during assessment, the same way built-in controls do. If an asset matches the failing condition, Cyscale creates an alert. If the asset later stops matching the condition, the alert is resolved during a subsequent assessment.
+
+You can manage the resulting alerts from the [Alerts](../security/alerts.md) page and use exemptions when a specific asset is intentionally outside the default posture requirement.
+
+## Practical Examples
+
+Examples of useful custom controls:
+
+- AWS virtual machines with public IPs and open administrative ports
+- storage buckets with public access and no compensating policy
+- Kubernetes services of type `LoadBalancer` in production namespaces
+- AI endpoints without private networking
+- service accounts attached to public workloads with broad roles
+- data stores created outside approved regions
+
+## Query Builder vs Inventory Filters
+
+Use Inventory filters for quick interactive searches. Use Query Builder when:
+
+- the condition needs nested logic
+- the condition involves asset-specific properties
+- the investigation must be saved and monitored
+- you want to turn the result into a control and alert workflow

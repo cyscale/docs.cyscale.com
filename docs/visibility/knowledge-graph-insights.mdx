@@ -1,0 +1,72 @@
+---
+sidebar_position: 3
+---
+
+# Knowledge Graph Insights
+
+Cyscale stores cloud, identity, Kubernetes, data, vulnerability, and compliance context in a security knowledge graph. The graph lets Cyscale compute properties and relationships that are difficult to understand from a single cloud resource in isolation.
+
+## Computed Properties
+
+Computed properties are derived fields that summarize security-relevant context.
+
+Examples include:
+
+- whether a bucket is publicly accessible after considering policies and access settings
+- whether a public, static, or elastic IP address is in use
+- whether an endpoint is publicly reachable
+- whether an asset is connected to sensitive or risky resources
+- whether an asset is impacted by a failing contextual control
+
+These fields are available in the application and can also be exposed through the API where supported.
+
+## In-App Asset Insights
+
+Asset Overview pages can show computed insights directly next to the asset details. This helps you understand posture without reconstructing relationships manually.
+
+Typical insight areas include:
+
+- public exposure
+- encryption and TLS posture
+- identity and role context
+- Kubernetes workload context
+- vulnerability context
+- AI-specific context for AI service assets
+
+## Relationship-Based Prioritization
+
+The graph is useful because risk often depends on relationships:
+
+- a permissive security group matters more when attached to an active public workload
+- a vulnerable container image matters more when running in a public Kubernetes workload
+- a service account matters more when it is used by an exposed workload
+- an AI endpoint matters more when it can access sensitive datasets or broad identities
+
+Cyscale uses these relationships to help prioritize remediation and reduce investigation time.
+
+## Public and Static IP Standardization
+
+Cyscale standardizes public, static, and elastic IP representation across cloud providers. This makes it easier to:
+
+- search for public IPs across providers
+- identify whether an IP is attached or unused
+- understand which asset owns or uses the IP
+- investigate exposure paths consistently
+
+## How to Use These Insights
+
+1. Open **Inventory** and select an asset.
+2. Review the **Overview** tab for computed properties and insight cards.
+3. Open the graph view when you need to understand relationships.
+4. Use [Query Builder](./query-builder-and-custom-controls.mdx) when you want to search or control on a computed property.
+5. Use [Alerts](../security/alerts.md) when the insight is tied to a failing control.
+
+## Troubleshooting
+
+### A computed property looks stale
+
+Computed properties are refreshed during sync and assessment workflows. Trigger a connector sync if you recently changed the cloud resource.
+
+### A relationship is missing
+
+Relationships depend on provider APIs, connector permissions, and the assets discovered during sync. Check the connector permissions and make sure related providers or Kubernetes clusters are also connected where needed.

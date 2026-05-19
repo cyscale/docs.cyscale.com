@@ -1,0 +1,63 @@
+---
+sidebar_position: 4
+---
+
+# Latest Capabilities
+
+This page summarizes recent Cyscale capabilities and points you to the documentation pages that explain how to use them.
+
+## AI Security and AI-SPM
+
+Cyscale is adding AI Security Posture Management capabilities so teams can discover AI assets, understand AI bill-of-materials context, review model and agent access, and prioritize AI risks in the same graph as cloud infrastructure, identities, data, and vulnerabilities.
+
+Use these docs:
+
+- [AI Security](../security/ai-security.mdx) for the AI Security workspace, AI inventory, AI-BOM, controls, and connector permission updates
+- [Inventory](../visibility/inventory.mdx) for filtering by asset category and asset type
+- [Query Builder and Custom Controls](../visibility/query-builder-and-custom-controls.mdx) for turning AI-specific searches into controls
+
+## Query Builder and Custom Controls
+
+Query Builder lets you build asset searches with nested filter logic, inspect the generated query, and save useful investigations as custom controls.
+
+Use it when you want to operationalize questions such as:
+
+- Which production workloads are internet reachable?
+- Which data stores are public or weakly encrypted?
+- Which assets match an AI-specific posture condition?
+- Which identities or workloads match an excessive-permission pattern?
+
+See [Query Builder and Custom Controls](../visibility/query-builder-and-custom-controls.mdx).
+
+## Knowledge Graph Insights
+
+Cyscale now surfaces more computed asset properties and relationship-based insights directly in Inventory and Asset Detail pages. Examples include public accessibility, in-use public/static IPs, and contextual relationships that explain why an asset is impacted.
+
+See [Knowledge Graph Insights](../visibility/knowledge-graph-insights.mdx).
+
+## Kubernetes Exposure and Vulnerability Context
+
+Kubernetes coverage includes Kubernetes posture, image vulnerability scanning through the Cyscale Kubernetes agent, and network reachability context for workloads exposed through Ingress, default backends, Gateway-style exposure, and services of type `LoadBalancer` where supported.
+
+Use these docs:
+
+- [Kubernetes connector](../connectors/kubernetes.mdx) for installation, permissions, vulnerability scanning, and exposure context
+- [Vulnerability Management](../security/vulnerability-management.mdx) for how findings are displayed and prioritized
+
+## Identity and Permission Insights
+
+Cyscale highlights guest users, unused identities, broad permissions, identities used by publicly reachable workloads, and external access paths where supported by provider-native findings such as AWS IAM Access Analyzer and Google Cloud Recommender.
+
+See [Identity and Permission Insights](../security/identity-insights.mdx).
+
+## Organization Onboarding
+
+AWS Organizations and Google Cloud Organization support help you onboard large estates without connecting every account or project manually. You connect a management account or bootstrap project, define the scope, and let Cyscale discover covered member accounts or projects.
+
+See [Organization Onboarding](../connectors/organization-onboarding.mdx).
+
+## Marketplace Subscriptions
+
+Cyscale can be subscribed to through cloud marketplaces, including AWS Marketplace. Marketplace procurement can simplify billing, procurement approval, and vendor management for eligible customers.
+
+See [Billing and Usage](../general/billing.mdx#marketplace-availability).

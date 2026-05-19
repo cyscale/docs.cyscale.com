@@ -1,0 +1,81 @@
+---
+sidebar_position: 6
+---
+
+# Identity and Permission Insights
+
+Cyscale helps you review human and workload identities across cloud environments and identity providers. The goal is to reduce excessive access and make risky identity relationships visible in context.
+
+## What Cyscale Highlights
+
+Identity insights can include:
+
+- guest users with access to cloud environments
+- unused identities
+- identities with broad permissions
+- identities used by publicly reachable workloads
+- roles or service accounts that allow external access
+- service accounts, keys, roles, policies, and permission relationships
+- provider-native findings from services such as AWS IAM Access Analyzer and Google Cloud Recommender
+
+## Guest Users
+
+Guest users are external or invited users who can access your environment. They can be legitimate business users, contractors, vendors, auditors, or managed service providers.
+
+Cyscale labels guest users where the provider makes this distinction available. Use the label to:
+
+- review access periodically
+- verify ownership and business purpose
+- remove stale or unnecessary guest access
+- prioritize guest users with sensitive or broad permissions
+
+## Workload Identities
+
+Workload identities are non-human identities used by cloud workloads, Kubernetes workloads, serverless functions, applications, and automation.
+
+Review workload identities when they:
+
+- are attached to public workloads
+- can access sensitive data stores
+- have broad administrative permissions
+- have unused permissions
+- are assumable by external principals
+- are used by AI services, agents, or model endpoints
+
+## Provider Recommendations
+
+Where supported, Cyscale imports provider-native recommendations and findings.
+
+Examples:
+
+- AWS IAM Access Analyzer findings for external access and policy review
+- Google Cloud Recommender signals for excessive permissions or unused service accounts
+
+These findings are useful on their own, but they become more actionable when combined with Cyscale's graph context.
+
+## How to Use Identity Insights
+
+1. Open the identity or inventory area relevant to your provider.
+2. Filter by identity type, provider, connector, or guest status.
+3. Review the user's or service account's access details.
+4. Check relationships to workloads, data stores, alerts, and public exposure.
+5. Remove unused identities or reduce permissions in the cloud provider.
+6. Trigger a connector sync to refresh the graph.
+
+## Practical Reviews
+
+Run these reviews regularly:
+
+- guest users with active cloud access
+- service accounts with owner/admin-style permissions
+- public workloads using privileged identities
+- AI endpoints or agents using broad service accounts
+- externally assumable roles and trust relationships
+- unused identities and stale keys
+
+## Related Pages
+
+- [Inventory](../visibility/inventory.mdx)
+- [Knowledge Graph Insights](../visibility/knowledge-graph-insights.mdx)
+- [AI Security](./ai-security.mdx)
+- [Alerts](./alerts.md)

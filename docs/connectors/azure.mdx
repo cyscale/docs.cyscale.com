@@ -81,6 +81,19 @@ In order to benefit from everything Cyscale has to offer, the following roles ar
   - Get the configuration of service URI and custom headers for a webhook
   - List Web App's security sensitive settings, such as publishing credentials, app settings and connection strings
 
+### AI Security Permissions
+
+If AI Security is enabled for your account, Cyscale may request additional Azure read permissions for AI and Machine Learning resources such as Azure Machine Learning, Azure AI Search, Azure OpenAI, Microsoft Foundry / AI Foundry-related resources, Cognitive Services families, Bot Services, Document Intelligence, Speech, Translator, Language, Computer Vision, and related AI service metadata.
+
+The connector permission update flow can show either:
+
+- a predefined Azure role option, where applicable
+- a custom permissions list that you can add to the Cyscale custom role
+
+After updating permissions in Azure, mark the connector as updated in Cyscale and trigger a sync.
+
+See [AI Security](../security/ai-security.mdx#updating-connector-permissions).
+
 ### API Permissions
 
 While roles cover the permissions for cloud infrastructure, API permissions allow Cyscale to read Azure Active Directory resources - i.e. users, groups, apps, etc.

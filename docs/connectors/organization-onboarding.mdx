@@ -1,0 +1,82 @@
+---
+sidebar_position: 8
+---
+
+# Organization Onboarding
+
+Organization onboarding helps you connect large cloud estates without adding every account or project manually.
+
+Cyscale currently supports organization-style onboarding for:
+
+- AWS Organizations
+- Google Cloud Organizations
+
+## AWS Organizations
+
+With AWS Organizations support, you connect the AWS management account and configure which parts of the organization Cyscale should cover.
+
+You can:
+
+- onboard the full AWS Organization
+- limit onboarding to specific organizational units (OUs)
+- exclude specific AWS accounts
+- automatically onboard future member accounts
+- manage member account regions after onboarding
+
+### How It Works
+
+1. Start AWS connector onboarding.
+2. Enable **AWS Organizations** in the first step.
+3. Provide the root ID or OU IDs that should be covered.
+4. Add exclusions for accounts that should not be connected.
+5. Create the CloudFormation stack shown by Cyscale.
+6. Let the StackSet deploy the Cyscale role and policy to covered member accounts.
+7. Complete onboarding and wait for sync.
+
+The CloudFormation flow uses service-managed StackSets. If StackSet creation fails, check whether trusted access is enabled for AWS CloudFormation StackSets in AWS Organizations.
+
+### Updating Scope
+
+If you later add OUs in Cyscale that were not part of the initial CloudFormation parameters, update the CloudFormation stack and use the existing template. Update the organizational unit parameter to match the new scope.
+
+## Google Cloud Organizations
+
+With Google Cloud Organization support, you create one bootstrap service account in a selected project and grant organization-level read permissions so Cyscale can discover covered projects.
+
+You can:
+
+- onboard projects across a Google Cloud Organization
+- exclude specific project IDs
+- let Cyscale discover projects without creating one connector at a time
+- review project and asset coverage from the Connectors and Inventory pages
+
+### How It Works
+
+1. Start Google Cloud connector onboarding.
+2. Enable organization support.
+3. Provide the bootstrap project ID and organization ID.
+4. Download and run the generated Terraform configuration.
+5. Upload the generated service account key.
+6. Complete onboarding and wait for project discovery and sync.
+
+## Best Practices
+
+- Start with a limited OU or project set when validating a new rollout.
+- Exclude sandbox or intentionally out-of-scope accounts if they should not count toward operational coverage.
+- Review connector regions after organization onboarding.
+- Keep the generated infrastructure as code so role and policy updates can be applied repeatably.
+- Trigger a sync after changing organization scope or permissions.
+
+## Troubleshooting
+
+### New AWS accounts are not appearing
+
+Check that automatic onboarding is enabled, the account belongs to a covered OU or root, and the StackSet deployed successfully.
+
+### Google Cloud projects are missing
+
+Check that the service account has organization-level access, the project is not excluded, and required APIs are enabled.
+
+### Member accounts sync but have missing assets
+
+Review connector permissions and provider service APIs. Some new Cyscale modules, such as AI Security, may require updated read permissions before additional asset types can be synced.

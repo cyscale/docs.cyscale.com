@@ -157,6 +157,23 @@ Developed by the American Institute of Certified Public Accountants (AICPA), SOC
 
 The Cyscale Security Framework encompasses every piece of security-related knowledge we have gathered. It provides the complete cloud security posture for your assets across all supported services and providers.
 
+## AI Best Practices
+
+The AI Best Practices framework gives security, cloud, and AI platform teams a focused baseline for AI Security Posture Management.
+
+It groups AI-specific controls for:
+
+* AI discovery and inventory
+* public AI endpoints
+* model and endpoint access
+* agent tool permissions
+* training data, feature stores, embeddings, and vector stores
+* encryption and logging
+* guardrail configuration
+* Kubernetes-hosted AI workloads
+
+Use this framework together with [AI Security](../security/ai-security.mdx) to review AI assets and prioritize remediation across cloud and Kubernetes environments.
+
 ## Further Reading
 
 For guidance on running compliance as a continuous operating practice rather than a point-in-time reporting exercise, see the [Cloud Compliance Guide](https://cyscale.com/cloud-security-wiki/cloud-compliance/) in the Cyscale Security Wiki.

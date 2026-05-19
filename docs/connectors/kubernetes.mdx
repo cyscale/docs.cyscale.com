@@ -31,6 +31,16 @@ Cyscale identifies your cluster using the **API key**. This is a unique value fo
 
 During onboarding, you can also enable Kubernetes vulnerability scanning. When enabled, the Helm command includes the additional setting needed for SBOM collection.
 
+## Agent Version Tracking
+
+Cyscale tracks the installed Kubernetes agent version reported by the cluster connector. Where available, the Connectors page and connector details can show:
+
+- installed chart or agent version
+- latest available chart or image version
+- whether an upgrade is recommended
+
+Use this information to keep the in-cluster agent current without manually checking the Helm repository every time you review connectors.
+
 ## Permissions
 
 The helm chart creates a cluster role and role binding together with a service account.
@@ -81,6 +91,27 @@ When this option is enabled:
 This design helps keep the data collection lightweight while still letting Cyscale correlate Kubernetes vulnerabilities with the rest of your cloud and identity context.
 
 If you use private registries, additional registry-specific configuration can be required so the agent can pull the images.
+
+For the vulnerability workflow and prioritization model, see [Vulnerability Management](../security/vulnerability-management.mdx).
+
+## Network Reachability
+
+Cyscale can map Kubernetes workload exposure using supported Kubernetes networking resources. This helps answer whether a workload can be reached from outside the cluster and which path exposes it.
+
+Supported exposure signals can include:
+
+- Ingress rules
+- Ingress default backends
+- services of type `LoadBalancer`
+- provider-specific links when the Kubernetes cluster is connected together with AWS, Azure, or Google Cloud
+
+Exposure context is used in Inventory, asset details, graphs, and alert prioritization.
+
+## AI Workloads in Kubernetes
+
+Kubernetes is commonly used to host AI runtimes, inference services, agents, vector services, and model-serving workloads. When AI Security is enabled, the Kubernetes agent can help Cyscale identify AI-related workloads based on workload metadata, images, labels, and service context.
+
+See [AI Security](../security/ai-security.mdx) for how those assets are shown in the AI Security workspace.
 
 ## Additional Notes
 

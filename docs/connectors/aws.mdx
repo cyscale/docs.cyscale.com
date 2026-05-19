@@ -66,6 +66,8 @@ The StackSet runs across your AWS accounts using service-managed permissions. If
 <Image img={require('/img/aws-trusted-access.png')} alt="Activate trusted access from the CloudFormation console" className="text--center" />
 :::
 
+For a full organization onboarding workflow, see [Organization Onboarding](./organization-onboarding.mdx).
+
 #### Terraform
 
 Another option based on infrastructure as code is to use Terraform. If your current workflow leverages Terraform, you might want to choose this approach.
@@ -119,6 +121,14 @@ It is important to make the distinction between infrastructure/configuration acc
 
 One area you might want to pay attention to is **logging**. Cyscale will have access to your logs from Amazon CloudWatch. While Cyscale does not process the content of the logs in any way, it is still important to not leak any sensitive information in logs.
 :::
+
+### AI Security Permissions
+
+If AI Security is enabled for your account, Cyscale may request additional read permissions for AI-related services such as SageMaker and related model, endpoint, feature group, and data-store metadata.
+
+When new AI permissions are needed, Cyscale shows an update-permissions notice in the app and in the relevant connector details. Use the provided **Copy updated IAM Policy content** action to combine the existing custom Cyscale policy with the new read permissions, update the policy in AWS IAM, then mark the connector as updated in Cyscale and sync it.
+
+See [AI Security](../security/ai-security.mdx#updating-connector-permissions).
 
 ## Managing Your Connected AWS Account(s)
 

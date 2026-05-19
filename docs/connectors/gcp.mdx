@@ -25,6 +25,8 @@ If you want to onboard a larger Google Cloud estate, you can additionally enable
 
 With organization support enabled, you still choose a project in which the Cyscale service account will be created, but you also provide the Google Cloud **organization ID** and optionally exclude specific project IDs. Cyscale will then automatically add the rest of the projects covered by that organization-level configuration.
 
+For a complete organization onboarding workflow, see [Organization Onboarding](./organization-onboarding.mdx).
+
 ### Step 2
 
 In the second step, you create the service account that Cyscale will use to read your infrastructure. The output of this step is a JSON file with the service account's credentials.
@@ -81,6 +83,8 @@ To benefit from everything Cyscale has to offer, the following **roles** are nee
 - **Security Reviewer** - Built-in role allowing **read** access to all resources. It is required because some key `list` permissions are not granted by the **viewer** role. You can read more about this role and see all the permissions that it grants in the [Google Cloud documentation](https://cloud.google.com/iam/docs/understanding-roles#iam-roles).
 - **Cloud Asset Viewer** - Built-in role allowing **read** access to [Cloud Asset Inventory](https://cloud.google.com/asset-inventory). Cyscale only needs this to read images stored in Google Container Registry (GCR) (there is no other way/API to read them). If you are not storing container/docker images on Google Cloud or you are using [Artifact Registry](https://cloud.google.com/artifact-registry), you don't need to provide this role.
 
+- **Vertex AI Viewer** - If AI Security is enabled and you want Cyscale to sync Google Cloud AI assets, grant `roles/aiplatform.viewer` or an equivalent custom role with the AI Platform read and list permissions shown in the connector permission update flow.
+
 :::info Data Access
 It is important to make the distinction between infrastructure/configuration access and data access. Since Cyscale focuses currently on infrastructure, **these roles do not grant permissions to your data**. For example, Cyscale can read the configuration of your Cloud Storage buckets, but not their actual content (the objects) - i.e. there are no `storage.objects.*` permissions.
 :::
@@ -125,6 +129,7 @@ Recent Google Cloud coverage additions include:
 - Artifact Registry repositories and vulnerability context from Artifact Analysis / OS scanning
 - Container Registry (GCR) usage visibility
 - Secret Manager relationships
+- Vertex AI models, endpoints, datasets, feature stores, and related AI Security context when the AI Security module and permissions are enabled
 
 This makes the Google Cloud connector more useful both for service coverage and for contextual prioritization across serverless, storage, IAM, and vulnerability workflows.
 

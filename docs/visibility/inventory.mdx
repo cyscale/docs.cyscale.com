@@ -10,6 +10,7 @@ Once at least one connector is onboarded, Cyscale will periodically sync it. Thi
 - **All Assets** for the full asset list
 - **Grouped by Asset Type** for a coverage-oriented view
 - **Query Builder** for custom investigations and control authoring
+- **AI Security** for AI-specific inventory and AI-BOM workflows when the module is enabled
 
 The exact asset types available depend on the connected providers and the services Cyscale currently covers for them. You can review provider-specific coverage from the connector pages and from the provider details shown during onboarding.
 
@@ -18,6 +19,12 @@ The exact asset types available depend on the connected providers and the servic
 The Inventory can include hundreds or even thousands of assets. To keep investigations practical, Cyscale provides a filter palette for common properties such as `Provider`, `Connector`, `Region`, `Asset Category`, `Asset Type`, and `Tags`.
 
 Besides these, Cyscale supports security-centric filters such as `Security Score` and `Failed Controls`, and many asset-specific properties exposed by the underlying resource model.
+
+### Asset Category
+
+Asset Category lets you focus on broad resource families such as Compute, IAM, Data, Networking, Kubernetes, Vulnerabilities, and AI Services.
+
+When AI Security is enabled, AI-related assets are grouped under **AI Services**. Use this filter to find AI models, endpoints, datasets, feature stores, AI services, and AI workloads without mixing them with the general asset list.
 
 ### Security Score
 
@@ -59,3 +66,11 @@ You can:
 - save a useful query as a custom control when you want to operationalize it
 
 This is especially useful when you want to express a cloud-specific condition such as exposed admin ports on VMs, public buckets without encryption, or databases with weak TLS settings without waiting for a predefined view.
+
+For detailed usage, see [Query Builder and Custom Controls](./query-builder-and-custom-controls.mdx).
+
+## Asset Insights
+
+Cyscale can show computed properties and relationship-based insights directly on asset pages. These insights are based on the security knowledge graph and can include public exposure, in-use public IPs, Kubernetes workload context, identity relationships, vulnerability context, and AI-specific details.
+
+For more details, see [Knowledge Graph Insights](./knowledge-graph-insights.mdx).
