@@ -1,0 +1,68 @@
+---
+sidebar_position: 6
+---
+
+# Code Scanner Capabilities
+
+Cyscale Code Security combines repository security assessments with scanner-runner findings and the Cyscale cloud security graph. The goal is to show application security issues in the same context as running containers, Kubernetes workloads, cloud functions, virtual machines, identities, network exposure, vulnerabilities, and compliance controls.
+
+## What Cyscale Checks
+
+Cyscale Code Security can surface findings from these security techniques and control families:
+
+- **OSS Dependency monitoring**: identifies vulnerable open-source dependencies and packages discovered from source manifests and software bill-of-materials data.
+- **SAST**: identifies source-code defects that can lead to injection, unsafe deserialization, path traversal, weak cryptography, insecure request handling, and similar application risks.
+- **DAST**: represents runtime or surface-monitoring findings when dynamic application evidence is available.
+- **IaC**: checks infrastructure-as-code files for cloud and Kubernetes misconfiguration before those settings become runtime exposure.
+- **Secrets scanning**: detects secrets in source code, repository history, and supported runtime locations. Findings keep the location so teams can rotate, remove, and verify exposure.
+- **Supply-chain malware**: highlights suspicious or malicious package risk signals that affect the software supply chain.
+- **License issues**: reports dependency license risk where policy or legal review is required.
+
+## How Cyscale Discovers Code Risk
+
+After a GitHub connector is configured, Cyscale first imports available repository security assessments such as dependency alerts, code scanning alerts, and secret scanning alerts. This gives immediate coverage for connected repositories.
+
+When the code scanner runner is enabled, Cyscale can also scan selected repositories to build package inventory, detect additional code defects, identify secrets, and evaluate IaC files. The runner uses short-lived GitHub App installation access and sends normalized security findings back to Cyscale.
+
+Cyscale does not require users to manage scanner internals. Findings are presented as Code Security issues with repository, file, line, package, severity, evidence, remediation, and source context where available.
+
+## Runtime and Cloud Correlation
+
+Code findings are most useful when they are connected to what is actually running. Cyscale correlates repositories with runtime assets such as:
+
+- container images
+- Kubernetes workloads
+- cloud containers
+- cloud functions
+- virtual machines and disk-backed evidence, where available
+
+Cyscale can infer a repository-to-runtime relationship from names, image metadata, registries, and workload context. Users can also set or change the association manually. Manual links take priority over automatic matches.
+
+Once a repository is linked to runtime, Cyscale can:
+
+- show which code findings affect a running asset
+- deduplicate overlapping code and runtime findings
+- prioritize defects by cloud exposure, identity access, and workload context
+- preserve secret locations in source or runtime evidence
+- connect application risk to infrastructure and compliance controls
+
+## Associated Controls
+
+The following control areas are represented in the Code Security module:
+
+| Control area         | What it answers                                                              |
+| -------------------- | ---------------------------------------------------------------------------- |
+| OSS Dependency       | Which packages and versions introduce known vulnerabilities?                 |
+| SAST                 | Which source-code defects can lead to exploitable behavior?                  |
+| DAST                 | Which runtime or exposed surfaces show application weakness?                 |
+| IaC                  | Which infrastructure files would deploy unsafe cloud or Kubernetes settings? |
+| Secrets scanning     | Where are credentials or tokens exposed in source or runtime locations?      |
+| Supply-chain malware | Which dependencies show suspicious or malicious package risk?                |
+| License issues       | Which dependencies require license review?                                   |
+
+## Operational Notes
+
+- Code Security is an account module. If it is not enabled, repository-to-runtime linking does not affect standard cloud, container, or Kubernetes inventory.
+- The GitHub App installation must include the repository access needed for the selected repositories.
+- If scanner-runner cloning is enabled, the GitHub App installation must allow repository contents read access.
+- Runtime correlation depends on repository naming, image metadata, workload names, and manual overrides.
