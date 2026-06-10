@@ -1,0 +1,99 @@
+---
+sidebar_position: 3
+---
+
+# Multi-Account Management
+
+Multi-account management lets you work with several Cyscale accounts from one place. It is useful when your organization manages multiple companies, subsidiaries, customers, regions, or business units and needs each entity to have its own security data, connectors, users, and operational context.
+
+Instead of asking teams to create separate logins or mix unrelated environments in a single account, Cyscale lets users switch between the accounts they can access. Each account remains its own workspace, while the primary account provides the umbrella for management and product access.
+
+:::info Availability
+Multi-account management is available when your Cyscale plan includes Multi-Account support. If you cannot see the management options described here, contact your Cyscale administrator or Cyscale support.
+:::
+
+## How Multi-Account Works
+
+A multi-account setup is based on a primary account and one or more managed accounts.
+
+- The **primary account** is the main account used to manage the multi-account setup. It controls the feature availability and commercial limits for the accounts under it.
+- A **managed account** represents a separate entity, such as a customer, subsidiary, department, region, or environment.
+- **Users** can be invited to the accounts they need to access. A user can have access to more than one account, and their permissions are evaluated in the account they are currently using.
+- The **account switcher** changes the active account context. After switching, dashboards, assets, connectors, alerts, policies, and compliance views show data for the selected account.
+
+This keeps the experience simple for users while preserving separation between entities. A consultant can move between customer accounts, a group security team can review subsidiaries, and an administrator can manage several environments without signing in and out repeatedly.
+
+## When to Use Multiple Accounts
+
+Use multi-account management when you need clear separation between entities but still want one operational view for the people managing them.
+
+Common examples include:
+
+- Managed security providers that operate Cyscale for several customers.
+- Enterprises with multiple subsidiaries or legal entities.
+- Organizations that separate production, staging, and development environments.
+- Teams that manage cloud security separately by region, department, or business unit.
+
+If the same connectors, assets, users, and reports should be managed together, keep them in one account. If the data belongs to a distinct entity with different users, ownership, or reporting needs, create a separate managed account.
+
+## Configure a Multi-Account Setup
+
+Before creating accounts, decide how you want to group your entities. Choose a structure that matches how your organization assigns responsibility and reviews security posture.
+
+1. Open the Cyscale management area and confirm that Multi-Account support is enabled for your primary account.
+2. Create a managed account for each entity you want to operate separately.
+3. Use clear account names, such as the customer name, subsidiary name, region, or environment.
+4. Invite the users who should access each account.
+5. Assign permissions according to what each user needs to manage in that account.
+6. Switch into each managed account and configure its connectors.
+7. Review the dashboards, inventory, alerts, and compliance views for each account after the first sync completes.
+
+Each managed account should be treated as its own workspace. Configure cloud connectors, source integrations, policies, and reporting inside the account where that data belongs.
+
+## Manage Users Across Accounts
+
+Users do not need a different Cyscale login for every account they work with. Invite them to the accounts they should access, and they can switch between those accounts after signing in.
+
+For example, an administrator may have access to the primary account and all managed accounts, while a customer user may only have access to their own account. This keeps access easy to use without exposing data from unrelated entities.
+
+:::info Permissions
+Review user access separately for each account. A user should only be invited to the accounts they need, and administrator permissions should be granted only where they are required.
+:::
+
+## Work With Account Context
+
+The selected account controls what you see and manage in Cyscale. When you switch accounts, Cyscale updates the active context for the session.
+
+Use the account switcher before performing account-specific actions such as:
+
+- Adding or editing connectors.
+- Reviewing assets and attack paths.
+- Investigating alerts and security findings.
+- Managing compliance reports.
+- Inviting users for a specific entity.
+- Updating account settings.
+
+If you cannot find expected data, first check that you are working in the correct account. Connectors and their synchronized assets belong to the account where they were configured.
+
+## Best Practices
+
+- Use one managed account for each entity that needs separate access, reporting, or ownership.
+- Keep account names consistent and recognizable.
+- Invite users only to the accounts they need to operate.
+- Configure connectors inside the account that owns the cloud environment or source system.
+- Review user access regularly, especially when customers, subsidiaries, or internal teams change.
+- Use the primary account to keep the overall multi-account structure clean and predictable.
+
+## Troubleshooting
+
+If a user cannot see an account, confirm that they were invited to that account and that their invitation was accepted.
+
+If the Multi-Account management options are missing, confirm that the plan includes Multi-Account support.
+
+If dashboards or lists look empty after switching accounts, check that connectors were configured in the selected account and that their syncs completed successfully.
+
+If a user can see an account but cannot perform an action, review their permissions in that account.
+
+## Related Release Note
+
+You can also read the [Multi-account release note](https://headwayapp.co/cyscale-release-notes/multi-account-more-294294) for the original product announcement.
