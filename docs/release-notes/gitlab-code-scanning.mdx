@@ -1,0 +1,26 @@
+---
+sidebar_position: 3
+title: GitLab Code Scanning
+description: Cyscale Code Security supports GitLab.com and self-hosted GitLab repositories.
+---
+
+# GitLab Code Scanning
+
+![GitLab code scanning workflow](/img/release-notes/gitlab-code-scanning.svg)
+
+Cyscale Code Security now supports GitLab repositories, including projects hosted on GitLab.com and projects hosted in self-managed GitLab instances.
+
+Teams can connect GitLab, discover selected groups and projects, and use Cyscale scanner workflows to surface application and supply-chain risk next to cloud posture, vulnerabilities, identities, runtime assets, and compliance controls.
+
+## What Is New
+
+- GitLab.com projects can be connected for repository discovery and scanner runs.
+- Self-hosted GitLab instances can be connected when they are reachable by the scanning workflow.
+- Scanner runs can identify vulnerable dependencies, source-code defects, secrets, IaC issues, supply-chain malware signals, and license risk.
+- Findings are normalized into Code Security issues with project, file, package, severity, evidence, and remediation context where available.
+
+## Why It Matters
+
+Many organizations use GitLab as their primary engineering system, and many enterprise teams run private GitLab instances. Cyscale supports both models so security teams can bring GitLab findings into the same graph-driven prioritization workflow they already use for infrastructure and runtime risk.
+
+See [Code Scanner Capabilities](../security/code-scanner-capabilities.mdx#supported-repository-providers).

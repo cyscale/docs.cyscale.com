@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">GitLab code scanning workflow</title>
+  <desc id="desc">GitLab.com and self-hosted GitLab projects connected to Cyscale Code Security.</desc>
+  <defs>
+    <linearGradient id="gl-bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#eef7ff"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#11204d" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" markerHeight="12" markerWidth="12" orient="auto" refX="10" refY="6">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#0f26aa"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="640" rx="28" fill="url(#gl-bg)"/>
+  <rect x="56" y="54" width="1088" height="532" rx="24" fill="#ffffff" filter="url(#soft-shadow)"/>
+  <text x="96" y="118" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700" fill="#111827">GitLab code scanning</text>
+  <text x="96" y="154" font-family="Inter, Arial, sans-serif" font-size="20" fill="#475569">Support for GitLab.com and reachable self-hosted GitLab instances.</text>
+
+  <g transform="translate(96 220)">
+    <rect width="284" height="116" rx="18" fill="#fff7ed" stroke="#fed7aa" stroke-width="2"/>
+    <text x="30" y="44" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#c2410c">GitLab.com</text>
+    <text x="30" y="78" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Groups and projects</text>
+  </g>
+  <g transform="translate(96 370)">
+    <rect width="284" height="116" rx="18" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="30" y="44" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">Self-hosted GitLab</text>
+    <text x="30" y="78" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Reachable private instances</text>
+  </g>
+
+  <line x1="396" y1="278" x2="466" y2="326" stroke="#0f26aa" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="396" y1="428" x2="466" y2="376" stroke="#0f26aa" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(486 244)">
+    <rect width="276" height="220" rx="18" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <text x="30" y="44" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700" fill="#0f26aa">Cyscale connector</text>
+    <text x="30" y="82" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Repository discovery</text>
+    <text x="30" y="116" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Branch and project scope</text>
+    <text x="30" y="150" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Scanner workflow access</text>
+    <text x="30" y="184" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Normalized findings</text>
+  </g>
+
+  <line x1="780" y1="354" x2="836" y2="354" stroke="#0f26aa" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(858 220)">
+    <rect width="250" height="266" rx="18" fill="#f8fafc" stroke="#d9e1ec" stroke-width="2"/>
+    <text x="28" y="42" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#111827">Cyscale context</text>
+    <g transform="translate(28 76)">
+      <rect width="194" height="44" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+      <text x="18" y="29" font-family="Inter, Arial, sans-serif" font-size="16" fill="#b45309">Secrets</text>
+    </g>
+    <g transform="translate(28 132)">
+      <rect width="194" height="44" rx="10" fill="#ffffff" stroke="#fecaca"/>
+      <text x="18" y="29" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#b91c1c">Vulnerable package</text>
+    </g>
+    <g transform="translate(28 188)">
+      <rect width="194" height="44" rx="10" fill="#ffffff" stroke="#bbf7d0"/>
+      <text x="18" y="29" font-family="Inter, Arial, sans-serif" font-size="16" fill="#166534">Runtime link</text>
+    </g>
+  </g>
+</svg>

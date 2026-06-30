@@ -6,6 +6,8 @@ sidebar_position: 6
 
 Cyscale Code Security combines repository security assessments with scanner-runner findings and the Cyscale cloud security graph. The goal is to show application security issues in the same context as running containers, Kubernetes workloads, cloud functions, virtual machines, identities, network exposure, vulnerabilities, and compliance controls.
 
+Cyscale supports code scanning for repositories hosted in GitHub, GitLab.com, and self-hosted GitLab instances. This lets teams bring source-code risk into Cyscale without changing where engineering teams already work.
+
 ## What Cyscale Checks
 
 Cyscale Code Security can surface findings from these security techniques and control families:
@@ -20,11 +22,19 @@ Cyscale Code Security can surface findings from these security techniques and co
 
 ## How Cyscale Discovers Code Risk
 
-After a GitHub connector is configured, Cyscale first imports available repository security assessments such as dependency alerts, code scanning alerts, and secret scanning alerts. This gives immediate coverage for connected repositories.
+After a GitHub or GitLab connector is configured, Cyscale first imports available repository and security context for the connected projects. For GitHub, this can include repository security assessments such as dependency alerts, code scanning alerts, and secret scanning alerts where they are available. For GitLab.com and self-hosted GitLab, Cyscale can use the configured GitLab access to discover selected groups, projects, branches, and security evidence exposed by that instance.
 
-When the code scanner runner is enabled, Cyscale can also scan selected repositories to build package inventory, detect additional code defects, identify secrets, and evaluate IaC files. The runner uses short-lived GitHub App installation access and sends normalized security findings back to Cyscale.
+When the code scanner runner is enabled, Cyscale can also scan selected repositories to build package inventory, detect additional code defects, identify secrets, and evaluate IaC files. The runner uses the repository access configured for the connected provider and sends normalized security findings back to Cyscale.
 
 Cyscale does not require users to manage scanner internals. Findings are presented as Code Security issues with repository, file, line, package, severity, evidence, remediation, and source context where available.
+
+## Supported Repository Providers
+
+| Provider                 | Supported coverage                                                                 |
+| ------------------------ | ---------------------------------------------------------------------------------- |
+| GitHub                   | GitHub organizations, repositories, provider security alerts, and scanner runs      |
+| GitLab.com               | GitLab SaaS groups and projects, repository discovery, and scanner runs             |
+| Self-hosted GitLab       | Private GitLab instances, reachable projects, repository discovery, and scanner runs |
 
 ## Runtime and Cloud Correlation
 
@@ -64,5 +74,7 @@ The following control areas are represented in the Code Security module:
 
 - Code Security is an account module. If it is not enabled, repository-to-runtime linking does not affect standard cloud, container, or Kubernetes inventory.
 - The GitHub App installation must include the repository access needed for the selected repositories.
-- If scanner-runner cloning is enabled, the GitHub App installation must allow repository contents read access.
+- GitLab.com and self-hosted GitLab connectors must include access to the groups, projects, and branches you want Cyscale to inspect.
+- If scanner-runner cloning is enabled, the connected provider must allow repository contents read access.
+- Self-hosted GitLab instances must be reachable from the scanning workflow and use TLS settings trusted by that workflow.
 - Runtime correlation depends on repository naming, image metadata, workload names, and manual overrides.

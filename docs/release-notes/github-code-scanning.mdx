@@ -1,0 +1,26 @@
+---
+sidebar_position: 2
+title: GitHub Code Scanning
+description: Cyscale Code Security supports GitHub repositories and scanner runs.
+---
+
+# GitHub Code Scanning
+
+![GitHub code scanning workflow](/img/release-notes/github-code-scanning.svg)
+
+Cyscale Code Security now makes it easier to bring GitHub repository risk into the same workspace as cloud infrastructure, Kubernetes workloads, virtual machines, identities, vulnerabilities, and compliance controls.
+
+After GitHub is connected, Cyscale can discover repositories, import available provider security context, and run selected scanner workflows to identify open-source dependency risk, source-code defects, secrets, infrastructure-as-code misconfiguration, supply-chain malware signals, and license issues.
+
+## What Is New
+
+- GitHub repository findings can be represented as Code Security issues in Cyscale.
+- Scanner runs can inspect selected repositories and return normalized findings.
+- Findings include repository, file, line, package, severity, evidence, and remediation context where available.
+- Repository findings can be correlated with runtime assets such as containers, Kubernetes workloads, cloud functions, and virtual machines.
+
+## Why It Matters
+
+Application findings are easier to prioritize when they are connected to runtime context. Cyscale helps teams see whether a GitHub finding affects code that is actually deployed, exposed, connected to sensitive identities, or related to infrastructure that already fails security controls.
+
+See [Code Scanner Capabilities](../security/code-scanner-capabilities.mdx).

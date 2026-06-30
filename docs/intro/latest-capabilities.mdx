@@ -6,6 +6,30 @@ sidebar_position: 4
 
 This page summarizes recent Cyscale capabilities and points you to the documentation pages that explain how to use them.
 
+## Virtual Machine Vulnerability Scanning
+
+Cyscale can now scan virtual machines directly through snapshot-based collection or SSH-based package inventory. This gives teams a practical path to VM vulnerability coverage even when provider-native scanners are not available or do not cover every host.
+
+Use it when you want to answer questions such as:
+
+- Which VMs have operating system or package vulnerabilities?
+- Which vulnerable hosts are exposed or connected to sensitive resources?
+- Which scan mode works best for each environment: snapshot evidence or live SSH collection?
+
+See [Vulnerability Management](../security/vulnerability-management.mdx#virtual-machine-vulnerability-scanning) and the [VM scanning release note](../release-notes/vm-scanning.mdx).
+
+## GitHub and GitLab Code Scanning
+
+Cyscale Code Security now supports repositories hosted in GitHub, GitLab.com, and self-hosted GitLab instances. You can bring repository findings into the same operating model as cloud assets, Kubernetes workloads, virtual machines, identities, vulnerabilities, and compliance controls.
+
+Use it when you want to answer questions such as:
+
+- Which application findings affect code that is connected to running cloud assets?
+- Which repositories contain vulnerable dependencies, secrets, IaC issues, or source-code defects?
+- Which GitHub or GitLab projects should be prioritized because their runtime assets are exposed?
+
+See [Code Scanner Capabilities](../security/code-scanner-capabilities.mdx), the [GitHub release note](../release-notes/github-code-scanning.mdx), and the [GitLab release note](../release-notes/gitlab-code-scanning.mdx).
+
 ## Lifecycle Deadlines
 
 Cyscale now helps teams track time-bound cloud risks such as provider retirements, deprecated function runtimes, database engine end-of-life, operating system end-of-life, model retirements, and minimum security baseline changes.

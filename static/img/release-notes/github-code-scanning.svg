@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub code scanning workflow</title>
+  <desc id="desc">GitHub repositories connected to Cyscale Code Security and correlated with runtime assets.</desc>
+  <defs>
+    <linearGradient id="gh-bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#11204d" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" markerHeight="12" markerWidth="12" orient="auto" refX="10" refY="6">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#0f26aa"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="640" rx="28" fill="url(#gh-bg)"/>
+  <rect x="56" y="54" width="1088" height="532" rx="24" fill="#ffffff" filter="url(#soft-shadow)"/>
+  <text x="96" y="118" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700" fill="#111827">GitHub code scanning</text>
+  <text x="96" y="154" font-family="Inter, Arial, sans-serif" font-size="20" fill="#475569">Connect repositories, run scanners, and prioritize findings by runtime context.</text>
+
+  <g transform="translate(96 216)">
+    <rect width="282" height="270" rx="18" fill="#f8fafc" stroke="#d9e1ec" stroke-width="2"/>
+    <rect width="282" height="54" rx="18" fill="#111827"/>
+    <text x="26" y="35" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">GitHub</text>
+    <g transform="translate(26 84)">
+      <rect width="230" height="42" rx="10" fill="#ffffff" stroke="#d1d5db"/>
+      <circle cx="24" cy="21" r="7" fill="#0f26aa"/>
+      <text x="46" y="27" font-family="Inter, Arial, sans-serif" font-size="17" fill="#1f2937">api-service</text>
+    </g>
+    <g transform="translate(26 142)">
+      <rect width="230" height="42" rx="10" fill="#ffffff" stroke="#d1d5db"/>
+      <circle cx="24" cy="21" r="7" fill="#22c55e"/>
+      <text x="46" y="27" font-family="Inter, Arial, sans-serif" font-size="17" fill="#1f2937">frontend-app</text>
+    </g>
+    <g transform="translate(26 200)">
+      <rect width="230" height="42" rx="10" fill="#ffffff" stroke="#d1d5db"/>
+      <circle cx="24" cy="21" r="7" fill="#f59e0b"/>
+      <text x="46" y="27" font-family="Inter, Arial, sans-serif" font-size="17" fill="#1f2937">infra-modules</text>
+    </g>
+  </g>
+
+  <g transform="translate(462 234)">
+    <rect width="276" height="236" rx="18" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+    <text x="30" y="44" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700" fill="#0f26aa">Cyscale scanner</text>
+    <text x="30" y="82" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">OSS dependencies</text>
+    <text x="30" y="116" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">SAST and secrets</text>
+    <text x="30" y="150" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">IaC misconfiguration</text>
+    <text x="30" y="184" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">License risk</text>
+  </g>
+
+  <line x1="394" y1="350" x2="442" y2="350" stroke="#0f26aa" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="756" y1="350" x2="824" y2="350" stroke="#0f26aa" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(844 216)">
+    <rect width="264" height="270" rx="18" fill="#f8fafc" stroke="#d9e1ec" stroke-width="2"/>
+    <text x="28" y="42" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#111827">Code Security</text>
+    <g transform="translate(28 74)">
+      <rect width="208" height="45" rx="10" fill="#ffffff" stroke="#fecaca"/>
+      <text x="18" y="29" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#b91c1c">Critical dependency</text>
+    </g>
+    <g transform="translate(28 132)">
+      <rect width="208" height="45" rx="10" fill="#ffffff" stroke="#fed7aa"/>
+      <text x="18" y="29" font-family="Inter, Arial, sans-serif" font-size="16" fill="#b45309">Secret in source</text>
+    </g>
+    <g transform="translate(28 190)">
+      <rect width="208" height="45" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+      <text x="18" y="29" font-family="Inter, Arial, sans-serif" font-size="16" fill="#1e40af">Linked to runtime</text>
+    </g>
+  </g>
+</svg>

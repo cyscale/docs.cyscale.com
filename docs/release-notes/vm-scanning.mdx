@@ -1,0 +1,26 @@
+---
+sidebar_position: 1
+title: VM Scanning
+description: Cyscale can scan virtual machines through snapshot and SSH-based collection.
+---
+
+# VM Scanning
+
+![VM scanning workflow](/img/release-notes/vm-scanning.svg)
+
+Cyscale now supports direct virtual machine vulnerability scanning. Teams can collect VM package evidence through disk snapshots or SSH access, then review the results in the same vulnerability workflow used for cloud, Kubernetes, and application context.
+
+This gives security teams an easier way to cover hosts that are not fully represented by provider-native vulnerability scanners. It also keeps VM findings connected to the rest of the Cyscale graph, so a vulnerable host can be prioritized by exposure, identities, data relationships, posture failures, and compliance scope.
+
+## What Is New
+
+- **Snapshot scanning** uses disk snapshot evidence where supported, without requiring in-guest credentials.
+- **SSH scanning** connects to running hosts with approved SSH access and collects package inventory from the operating system.
+- VM findings are normalized into the Cyscale vulnerability model with CVE, package, severity, and remediation context where available.
+- Findings can be reviewed from the vulnerability inventory, asset details, graph context, and prioritization views.
+
+## Why It Matters
+
+VM estates rarely fit one scanning model. Some teams prefer snapshot evidence for cloud workloads. Others need SSH collection for hosts where snapshot workflows are not available or where the live OS package view matters. Cyscale supports both approaches so teams can choose the least disruptive option for each environment.
+
+See [Vulnerability Management](../security/vulnerability-management.mdx#virtual-machine-vulnerability-scanning).

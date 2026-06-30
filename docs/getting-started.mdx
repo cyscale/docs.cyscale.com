@@ -6,7 +6,7 @@ sidebar_position: 2
 
 To start using Cyscale, [start your Free Trial](https://cyscale.com/free-trial/), or please contact us at sales@cyscale.com.
 
-### Connecting Cloud Accounts, Clusters, and Identity Providers
+### Connecting Cloud Accounts, Clusters, Identity Providers, and Code Providers
 
 For specific details on how to integrate with each of the supported providers, follow the links below:
 
@@ -17,6 +17,7 @@ For specific details on how to integrate with each of the supported providers, f
 - [Kubernetes Integration](./connectors/kubernetes.mdx) (cluster)
 - [Okta](./connectors/okta.mdx) (IdP)
 - [Entra ID](./connectors/entra.mdx) (IdP)
+- [Code Scanner Capabilities](./security/code-scanner-capabilities.mdx) (GitHub, GitLab.com, and self-hosted GitLab)
 
 The connector wizard is designed to cover both straightforward and larger-scale onboarding scenarios:
 
@@ -24,6 +25,8 @@ The connector wizard is designed to cover both straightforward and larger-scale 
 - Azure can onboard a single subscription or all subscriptions available under a tenant.
 - Google Cloud can onboard a single project or use organization support to discover matching projects.
 - Kubernetes onboarding generates a connector-specific API key and Helm command, with optional SBOM collection for vulnerability scanning.
+- Code scanning starts from the repository provider you already use: GitHub, GitLab.com, or a self-hosted GitLab instance.
+- Virtual machine scanning can use disk snapshots or SSH access, so teams can choose the collection model that fits their environment.
 
 During onboarding, Cyscale can also preconfigure connector-level notification types and, for supported cloud providers, sync exclusions for specific asset types or tagged resources.
 
@@ -46,7 +49,7 @@ Besides the scheduled syncs, you can manually trigger the process at any moment 
 At this point you can explore the rest of the platform:
 
 - use the [Inventory](./visibility/inventory.mdx) section to browse assets, pivot by asset type, and investigate with Query Builder
-- review [Alerts](./security/alerts.md), vulnerabilities, and connector overview cards to prioritize remediation
+- review [Alerts](./security/alerts.md), vulnerabilities, code findings, and connector overview cards to prioritize remediation
 - open the controls library to inspect built-in or custom controls
 - check compliance coverage for standards such as ISO 27001, SOC 2, PCI DSS, CIS, and others
 - configure notification channels and issue-management integrations for your operating workflow
