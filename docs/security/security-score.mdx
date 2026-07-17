@@ -4,25 +4,29 @@ sidebar_position: 3
 
 # Security Score
 
-The security score per asset is a metric that indicates the security impact of an asset. It is calculated based on the controls that are relevant for that asset and any assets that are impacted by the failure. The asset score is a number between 0 and 100, where 0 means that the asset has a high impact on your security posture and 100 means the asset is compliant with all the controls that check it.
+The security score is a 0–100 measure of an asset's security posture and the risk it creates for your environment. A score of **100%** means that Cyscale has not detected risk for the asset. A lower score means that the asset has failed one or more relevant controls, has a more severe failure, or affects other assets through its relationships.
+
+The score is shown in the asset list as a gauge. As the score decreases, the gauge moves from minimal risk toward high risk. The score is recalculated after each assessment, so it reflects the latest control results and asset relationships.
+
+![Security score gauge showing how failed controls and impacted assets change the score](/img/security-score-gauge.svg)
 
 ## How is the asset score calculated?
 
 The asset score is calculated based on the:
 
 - number of controls the asset has failed
-- the severity of the controls the asset has failed
-- the number of assets that are impacted by the asset failing a particular control
+- severity of each failed control
+- number of assets impacted when the asset fails a control
 
-For example, if an asset fails a control with <b>high</b> severity, the asset score will be lowered by <b>50%</b>. If another control with high severity is failed by the same asset, the asset score will be lowered by another <b>50%</b> from the new score, resulting in a score of <b>25%</b>.
+The calculation is multiplicative: each risk factor reduces the current score, rather than subtracting from the original 100. For example, a <b>high</b>-severity failure reduces 100% to 50%. A second high-severity failure reduces the remaining 50% to 25%.
 
 ![Example Asset](/img/asset-security-score.png)
 
-If the asset also increases the risk of other assets, the score of the asset will be lowered for each of the impacted assets as if additional controls were failed by the asset.
+If the asset also increases the risk of other assets, each impacted asset is counted as an additional risk factor, as if another control failure had been found on the asset.
 
-So, if an asset fails a control with high severity and impacts 2 other assets, the asset score will be lowered recursively by 50%, resulting in a score of <b>13%</b> (the numbers are rounded to the nearest integer).
+For example, if an asset has one high-severity failure and impacts two other assets, the score is reduced three times: 100% × 0.5 × 0.5 × 0.5 = 12.5%, which is displayed as <b>13%</b> after rounding.
 
-You can see the number of impacted assets when you hover over the score. A number of <b>0</b> means that the asset does not impact any other assets except itself.
+You can see the number of impacted assets when you hover over the score. A value of <b>0</b> means that the asset does not impact any other assets besides itself.
 
 ![Example Asset](/img/impacted-assets-score.png)
 
@@ -30,13 +34,20 @@ You can see the number of impacted assets when you hover over the score. A numbe
 
 > <i>Impacted assets are not guaranteed to be distinct, meaning that of the 12 impacted assets, some of them may be the same asset, but impacted by different controls.</i>
 
-## Severity factors
+## Score bands and severity factors
 
-As previously discussed, each control has a severity associated with it. The severity of a control is used to calculate the impact of the asset failing that control on the score. The severity of a control is one of the following:
+Use these bands to prioritize investigation:
 
-- <b>Low</b> - the asset score is lowered by 10%
-- <b>Medium</b> - the asset score is lowered by 25%
-- <b>High</b> - the asset score is lowered by 50%
+- **Minimal Risk** — 100% (or no risk detected by Cyscale)
+- **Low Risk** — 76–99%
+- **Medium Risk** — 51–75%
+- **High Risk** — 0–50%
+
+Each failed control has a severity factor. The factor is applied to the current score for the asset:
+
+- <b>Low</b> — the current score is reduced by 10% (multiplied by 0.90)
+- <b>Medium</b> — the current score is reduced by 25% (multiplied by 0.75)
+- <b>High</b> — the current score is reduced by 50% (multiplied by 0.50)
 
 ## How can I improve my asset score?
 
