@@ -4,29 +4,27 @@ sidebar_position: 6
 
 # Code Scanner Capabilities
 
-Cyscale Code Security combines repository security assessments with scanner-runner findings and the Cyscale cloud security graph. The goal is to show application security issues in the same context as running containers, Kubernetes workloads, cloud functions, virtual machines, identities, network exposure, vulnerabilities, and compliance controls.
+Cyscale Code Security combines repository security assessments with Cyscale scan findings and the cloud security graph. The goal is to show application security issues in the same context as running containers, Kubernetes workloads, cloud functions, virtual machines, identities, network exposure, vulnerabilities, and compliance controls.
 
-Cyscale supports code scanning for repositories hosted in GitHub, GitLab.com, and self-hosted GitLab instances. This lets teams bring source-code risk into Cyscale without changing where engineering teams already work.
+Cyscale supports code scanning for repositories hosted in GitHub, GitLab.com, and self-hosted GitLab instances. Connect the provider, choose which repositories or projects Cyscale can access, then start scans from a repository’s details in Code Security or Inventory. See the setup guides for [GitHub](../connectors/github.mdx) and [GitLab](../connectors/gitlab.mdx).
 
 ## What Cyscale Checks
 
-Cyscale Code Security can surface findings from these security techniques and control families:
+Cyscale Code Security can bring together provider findings and Cyscale scan results. The Cyscale repository scan currently checks:
 
-- **OSS Dependency monitoring**: identifies vulnerable open-source dependencies and packages discovered from source manifests and software bill-of-materials data.
-- **SAST**: identifies source-code defects that can lead to injection, unsafe deserialization, path traversal, weak cryptography, insecure request handling, and similar application risks.
-- **DAST**: represents runtime or surface-monitoring findings when dynamic application evidence is available.
-- **IaC**: checks infrastructure-as-code files for cloud and Kubernetes misconfiguration before those settings become runtime exposure.
-- **Secrets scanning**: detects secrets in source code, repository history, and supported runtime locations. Findings keep the location so teams can rotate, remove, and verify exposure.
-- **Supply-chain malware**: highlights suspicious or malicious package risk signals that affect the software supply chain.
-- **License issues**: reports dependency license risk where policy or legal review is required.
+- **Dependencies and packages**: inventories packages and identifies known dependency vulnerabilities.
+- **Infrastructure as code**: checks supported configuration files for misconfiguration.
+- **Secrets**: detects likely secrets in repository files. Secret values are redacted from the source context displayed with findings.
+
+GitHub or GitLab may also provide their own security findings, depending on provider configuration and the access granted to the connector. Those provider findings are distinct from the checks performed by a Cyscale repository scan. Other issue types shown in Code Security may come from those provider integrations or other available evidence.
 
 ## How Cyscale Discovers Code Risk
 
 After a GitHub or GitLab connector is configured, Cyscale first imports available repository and security context for the connected projects. For GitHub, this can include repository security assessments such as dependency alerts, code scanning alerts, and secret scanning alerts where they are available. For GitLab.com and self-hosted GitLab, Cyscale can use the configured GitLab access to discover selected groups, projects, branches, and security evidence exposed by that instance.
 
-When the code scanner runner is enabled, Cyscale can also scan selected repositories to build package inventory, detect additional code defects, identify secrets, and evaluate IaC files. The runner uses the repository access configured for the connected provider and sends normalized security findings back to Cyscale.
+When you start a repository scan, Cyscale uses the access configured for the connected provider to inspect the selected repository. It builds package inventory and checks dependencies, repository files for exposed secrets, and supported infrastructure-as-code files. The scan runs against the repository’s available default branch. Cyscale presents normalized findings with repository, file, line, package, severity, evidence, and remediation context where available.
 
-Cyscale does not require users to manage scanner internals. Findings are presented as Code Security issues with repository, file, line, package, severity, evidence, remediation, and source context where available.
+You do not need to install or configure scanner tools yourself. Secret values are redacted from source context shown with findings. Treat repository contents as sensitive and limit connector access to the projects that should be assessed.
 
 ## Supported Repository Providers
 
@@ -60,21 +58,27 @@ Once a repository is linked to runtime, Cyscale can:
 
 The following control areas are represented in the Code Security module:
 
-| Control area         | What it answers                                                              |
-| -------------------- | ---------------------------------------------------------------------------- |
-| OSS Dependency       | Which packages and versions introduce known vulnerabilities?                 |
-| SAST                 | Which source-code defects can lead to exploitable behavior?                  |
-| DAST                 | Which runtime or exposed surfaces show application weakness?                 |
-| IaC                  | Which infrastructure files would deploy unsafe cloud or Kubernetes settings? |
-| Secrets scanning     | Where are credentials or tokens exposed in source or runtime locations?      |
-| Supply-chain malware | Which dependencies show suspicious or malicious package risk?                |
-| License issues       | Which dependencies require license review?                                   |
+| Control area   | What it answers                                                              |
+| -------------- | ---------------------------------------------------------------------------- |
+| OSS Dependency | Which packages and versions introduce known vulnerabilities?                 |
+| IaC            | Which infrastructure files would deploy unsafe cloud or Kubernetes settings? |
+| Secrets        | Which repository files contain likely secrets?                                |
 
 ## Operational Notes
 
 - Code Security is an account module. If it is not enabled, repository-to-runtime linking does not affect standard cloud, container, or Kubernetes inventory.
 - The GitHub App installation must include the repository access needed for the selected repositories.
 - GitLab.com and self-hosted GitLab connectors must include access to the groups, projects, and branches you want Cyscale to inspect.
-- If scanner-runner cloning is enabled, the connected provider must allow repository contents read access.
+- The connected provider must allow Cyscale to read repository contents for scans.
 - Self-hosted GitLab instances must be reachable from the scanning workflow and use TLS settings trusted by that workflow.
 - Runtime correlation depends on repository naming, image metadata, workload names, and manual overrides.
+
+## Start and review a scan
+
+1. Connect GitHub or GitLab and select the repositories to include.
+2. Open a repository in **Code Security** or Inventory.
+3. Start a scan from the repository details and follow its status in Code Security.
+4. Review findings by severity and type, then open a finding for its file, line, affected package, and suggested remediation when available.
+5. Use runtime correlation to determine whether the affected repository or package is associated with a deployed workload.
+
+Provider-native findings and Cyscale scan findings can appear together. A missing finding may mean the provider security feature is disabled, the connector cannot access that repository, or the selected scan has not completed.

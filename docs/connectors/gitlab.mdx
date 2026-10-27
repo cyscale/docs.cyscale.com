@@ -1,0 +1,46 @@
+---
+sidebar_position: 10
+---
+
+# GitLab Connector
+
+Connect GitLab.com or a self-hosted GitLab instance to discover repositories and bring available security context into Cyscale. You can limit the connector to selected projects and start an on-demand repository scan from a repository’s details.
+
+## Before you connect
+
+- Confirm that Code Security is enabled for your Cyscale account.
+- Sign in to GitLab with an account that can authorize Cyscale and access the groups or projects you want to connect.
+- For a self-hosted instance, make sure it is reachable from Cyscale and has a valid TLS certificate trusted by the connection.
+- Decide whether to include all projects available to the authorized account or selected projects.
+
+## Connect GitLab
+
+1. In Cyscale, open **Connectors** and choose **Add connector**.
+2. Select **GitLab** and give the connector a recognizable name.
+3. For GitLab.com, keep the default instance. For self-hosted GitLab, enable the self-hosted option and enter the instance’s base URL.
+4. Choose **Connect GitLab** and authorize Cyscale in GitLab.
+5. Return to Cyscale. Cyscale validates the authorization and lists projects available to that account.
+6. Choose all accessible projects or select the projects Cyscale should import and scan. Save the connector.
+
+The connection uses the authorization flow for the GitLab instance you selected. Do not paste access tokens into documentation, support requests, or other places where they are not required.
+
+## Run a repository scan
+
+1. Open **Code Security** and select a connected project, or open the repository from Inventory.
+2. In the repository details, use the scan action to start a scan.
+3. Review scan status and findings from the repository’s Code Security view.
+
+Scans inspect the selected project’s available default branch for package and dependency risk, exposed secrets, and supported infrastructure-as-code issues. GitLab security information available to the authorized account may also appear in Cyscale. Findings include repository and file context, severity, and remediation details where available; detected secret values are not shown in the finding’s source context.
+
+For supported checks and how to review results, see [Code Scanner Capabilities](../security/code-scanner-capabilities.mdx).
+
+## Change project access
+
+To include different projects, update the GitLab account’s group or project access, then refresh or validate the connector and adjust its project selection in Cyscale. The connector can only discover and scan projects that the authorized GitLab account can access.
+
+## Troubleshooting
+
+- **A project is missing:** confirm the authorized GitLab account can access it and that it is included in the connector’s project selection.
+- **Authorization expired or changed:** reconnect GitLab and validate access again.
+- **A self-hosted instance cannot be reached:** check the instance base URL, network reachability, and TLS certificate chain.
+- **A scan cannot clone a project:** confirm the project remains accessible to the account connected to Cyscale and that repository contents can be read.

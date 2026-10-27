@@ -1,0 +1,45 @@
+---
+sidebar_position: 9
+---
+
+# GitHub Connector
+
+Connect GitHub to bring repository inventory and available GitHub security alerts into Cyscale. You can choose which repositories Cyscale can access, then run an on-demand repository scan from the repository details page.
+
+## Before you connect
+
+- Confirm that Code Security is enabled for your Cyscale account.
+- Sign in to GitHub with an account that can install GitHub Apps for the organization or account you want to connect.
+- Decide whether to connect all repositories available to the installation or only selected repositories. Start with the smallest useful scope; you can update repository access in GitHub later.
+
+## Connect GitHub
+
+1. In Cyscale, open **Connectors** and choose **Add connector**.
+2. Select **GitHub** and give the connector a recognizable name.
+3. Choose **Connect GitHub**. GitHub opens the Cyscale App installation flow.
+4. Select the GitHub organization or account, then grant the App access to all repositories or select specific repositories.
+5. Return to Cyscale. The connector validates the installation and loads the repositories available to it.
+6. Choose whether Cyscale should use all accessible repositories or a selected subset. Save the connector.
+
+The connector can import repository and security information that GitHub makes available to the installation, including dependency, code-scanning, and secret-scanning alerts when those features are enabled in GitHub.
+
+## Run a repository scan
+
+1. Open **Code Security** and select a connected repository, or open the repository from Inventory.
+2. In the repository details, use the scan action to start a scan.
+3. Review the scan status and findings from the repository’s Code Security view.
+
+The scan checks the available default branch for dependency and package risk, exposed secrets, and supported infrastructure-as-code configuration. Findings include repository and file context, severity, and remediation details when available. Secret values are redacted from source context shown for findings.
+
+For supported checks and how to review results, see [Code Scanner Capabilities](../security/code-scanner-capabilities.mdx).
+
+## Change repository access
+
+To include more or fewer repositories, update the Cyscale App installation’s repository access in GitHub. Then open the connector in Cyscale, refresh or validate its access, and adjust the repository selection if needed. A repository must be accessible to both the GitHub App installation and the Cyscale connector selection before it can be imported or scanned.
+
+## Troubleshooting
+
+- **A repository is missing:** confirm it is included in the GitHub App installation and in the connector’s repository selection, then refresh the connector.
+- **GitHub alerts are missing:** confirm the relevant GitHub security feature is enabled for the repository and that the App installation can access its security information.
+- **A scan cannot access the repository:** confirm the repository is still included in the installation and that the default branch is available.
+- **The connector is not visible:** check that you are in the intended Cyscale account and that Code Security is enabled.
